@@ -231,7 +231,7 @@ while ~feof(fid)
     end
     
     % Look for name pref pair, seperated by '='
-    n = regexp(l,'(?<name>[^=]+)=(?<pref>[^=]+)','names');
+    n = regexp(l,'(?<name>[^=]+)=(?<pref>[^=\s]+)\s*.*','names');
     
     % If no match, continue and scan next line
     if isempty(n)
