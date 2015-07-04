@@ -50,7 +50,7 @@
 %   trying to export these they will be incorrectly saved as off/black.
 %   
 %   Example 1: User is not sure if they have OK'd all the relevent
-%    Preferences panes (or sure they haven't).
+%   Preferences panes (or sure they haven't).
 %       - Open File>Preferences
 %       - On the left-hand side
 %         - Click Colors
@@ -65,9 +65,14 @@
 %       - Go to your command window and execute SCHEME_EXPORT
 %       - The GUI appears, you pick where to save the file.
 %   
+%   Example 2:  User is sure they have OK'd all the relevent Preferences
+%   panes already.
+%       scheme_export
+%       
 %   Example 2: User is sure they have OK'd all the relevent Preferences
-%    panes already, and doesn't want to export their boolean settings.
-%       scheme_export('some/path/schemeName.prf',false)
+%   panes already, knows the path they wish to save to, and doesn't want
+%   to export their boolean settings.
+%       scheme_export('some/path/schemeName.prf', false)
 %   
 %   See also SCHEME_IMPORT, PREFDIR.
 
