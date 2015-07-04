@@ -1,5 +1,5 @@
-%COLORTHEME_EXPORT Export current MATLAB color scheme to text file
-%   COLORTHEME_EXPORT() with no input will prompt the user to locate a
+%SCHEME_EXPORT Export current MATLAB color scheme to text file
+%   SCHEME_EXPORT() with no input will prompt the user to locate a
 %   destination file via the GUI. Please read the IMORTANT NOTE below
 %   before running this script or it may not work correctly.
 %   MATLAB preference options included are:
@@ -11,28 +11,28 @@
 %   The output format is the same as used in MATLAB's preferences file,
 %   which is found at FULLFILE(PREFDIR,'matlab.prf').
 %   
-%   COLORTHEME_EXPORT(FILENAME) exports the relevant MATLAB preferences
+%   SCHEME_EXPORT(FILENAME) exports the relevant MATLAB preferences
 %   settings with regards to the interface color scheme currently in use to
 %   the file FILENAME.
 %   
-%   COLORTHEME_EXPORT(FILENAME,INCLUDEBOOLS) can control whether boolean
+%   SCHEME_EXPORT(FILENAME,INCLUDEBOOLS) can control whether boolean
 %   preferences are included in the export (default: TRUE). If INCLUDEBOOLS
 %   is set to false, all the boolean preference options such as whether to
 %   highlight autofixable errors, or to show variables with shared scope in
 %   a different color are not included in the output. However, the colors
 %   which would be used if the options where enabled are still outputted,
-%   even when the settings are turned off. By default COLORTHEME_IMPORT
+%   even when the settings are turned off. By default SCHEME_IMPORT
 %   will not import the boolean settings, even if they have been exported.
 %   NOTE: input order is reversible, so the command
-%   COLORTHEME_EXPORT(INCLUDEBOOLS,FILENAME) will also work, and 
-%   COLORTHEME_EXPORT(INCLUDEBOOLS) with boolean input will open the GUI to
+%   SCHEME_EXPORT(INCLUDEBOOLS,FILENAME) will also work, and 
+%   SCHEME_EXPORT(INCLUDEBOOLS) with boolean input will open the GUI to
 %   pick the file.
 %   
-%   RET = COLORTHEME_EXPORT(...) returns 1 on success, 0 on user
+%   RET = SCHEME_EXPORT(...) returns 1 on success, 0 on user
 %   cancellation at output file selection screen, -1 on fopen error, and -2
 %   on any other error.
 %   
-%   [RET, NAMES, PREFS] = COLORTHEME_EXPORT(...) also returns two cell
+%   [RET, NAMES, PREFS] = SCHEME_EXPORT(...) also returns two cell
 %   arrays listing the names and preferences which were saved to file.
 %   
 %   For more details on how to get and set MATLAB preferences with
@@ -58,17 +58,18 @@
 %         - Click Editor/Debugger
 %         - Click Display (underneath Editor/Debugger)
 %       - Click OK
-%           (Yes that is literally all you need to do to make sure you can
+%           (Yes, that is literally all you need to do to make sure you can
 %           export correctly. No need to click anywhere I didn't mention.
-%           You just have to have each pane appear, and then click OK at the end.)
-%       - Go to your command window and execute COLORTHEME_EXPORT
+%           You just have to have each pane appear, and then click OK at
+%           the end.)
+%       - Go to your command window and execute SCHEME_EXPORT
 %       - The GUI appears, you pick where to save the file.
 %   
 %   Example 2: User is sure they have OK'd all the relevent Preferences
 %    panes already, and doesn't want to export their boolean settings.
-%       colortheme_export('some/path/themename.prf',false)
+%       scheme_export('some/path/schemeName.prf',false)
 %   
-%   See also COLORTHEME_IMPORT, PREFDIR.
+%   See also SCHEME_IMPORT, PREFDIR.
 
 % Copyright (c) 2013, Scott Lowe
 % All rights reserved.
@@ -94,9 +95,9 @@
 % ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 % POSSIBILITY OF SUCH DAMAGE.
 
-function varargout = colortheme_export(fname, inc_bools)
+function varargout = scheme_export(fname, inc_bools)
 
-CT_VERSION = 'v1.0.0';
+VERSION = 'v1.0.1';
 
 % ------------------------ Default inputs ---------------------------------
 if nargin<2
@@ -161,7 +162,7 @@ names_color = {                                     ...
     'EditorRightTextLimitLineColor'                 ... % Editor>Display:       Right-hand text limit line Color
 };
 
-def_fname = 'mymatlabcolortheme.prf';
+def_fname = 'ColorSchemeForMATLAB.prf';
 
 % ------------------------ Setup ------------------------------------------
 if nargout==0
@@ -208,8 +209,8 @@ end
 finishup = onCleanup(@() fclose(fid));
 
 % Write a few comments to the start of the file
-fprintf(fid,'#MATLAB color scheme or theme preferences file\n');
-fprintf(fid,'#Generated with colortheme_export %s, on MATLAB %s\n',CT_VERSION,version);
+fprintf(fid,'#MATLAB color scheme preferences file\n');
+fprintf(fid,'#Generated with scheme_export %s, on MATLAB %s\n',VERSION,version);
 fprintf(fid,'#%s\n',char(java.util.Date));
 
 % ------------------------ Read and Write ---------------------------------
