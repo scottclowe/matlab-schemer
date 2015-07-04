@@ -1,0 +1,99 @@
+%color2javaRGBint Converts a 256-bit color into a corresponding Java int
+%   INT = color2javaRGBint(HEX) converts the hexadecimal string HEX into a
+%   negative integer INT which is used by Java as an RGB value equivalent
+%   to the hexadecimal HEX. HEX should be a triple of 256-bit values,
+%   possibly prepended by a hash ('#'). Alternatively, HEX can be a triple
+%   of 16-bit values to provide a 16-bit colour instead.
+%   
+%   INT = color2javaRGBint(RGB) converts the 3-element RGB colour into INT.
+%   
+%   INT = color2javaRGBint(R, G, B) converts the triple [R G B] into INT.
+%   
+%   This is a helper function which you can use when manually creating your
+%   own MATLAB colour schemes.
+%   If you have a set of hexadecimal colours which you want to use,
+%   you can copy the template colour scheme file, then convert each colour
+%   using COLOR2JAVARGBINT. The output will be a negative integer, which
+%   should be placed after the appropriate '...=C-' (with a only a single
+%   minus sign present).
+%   
+%   See also SCHEME_EXPORT.
+
+function int = color2javaRGBint(X, varargin)
+
+% Input handling
+if nargin==3
+    if ~isnumeric(X) || ~isnumeric(varargin{1}) || ~isnumeric(varargin{2})
+        error('With three inputs given, all should be scalars');
+    end
+    % Concatenate R,G,B together
+    X = [X(:); varargin{1}(:); varargin{2}(:)];
+elseif nargin~=1
+    error('Incorrect number of inputs. Should be 1 or 3.');
+end
+
+if ischar(X)
+    % Handle Hex string conversion
+    int = hex2javaRGBint(X);
+elseif isnumeric(X)
+    % Handle RGB conversion
+    int = RGB2javaRGBint(X);
+else
+    error('Input was neither string nor numeric');
+end
+
+end
+
+
+function int = hex2javaRGBint(hex)
+
+% Input handling
+if length(hex)==7 && strcmp(hex(1),'#')
+    hex = hex(2:end);
+end
+if length(hex)==3
+    % Assume a 16-bit colour (fff, 333, 840, etc)
+    % This should be replicated to make ffffff, 333333, 884400, etc.
+    % This is sometimes used on the web as shorthand for the 256-bit
+    % colours, particularly for the grey shades.
+    hex = reshape(repmat(hex, 2, 1), 1, 6);
+elseif length(hex)~=6
+    % Length should be 6 for a three channel 256-bit hexadecimal
+    error('Input string was not a hexadecimal number');
+end
+
+% Make a Java color object
+jc = java.awt.Color(hex2dec(hex));
+% Check what the RGB int is equal to
+int = jc.getRGB();
+
+end
+
+
+
+function int = RGB2javaRGBint(X)
+
+% Input handling
+if numel(X)==1
+    % Assume input is greyscale
+    X = repmat(X, 3, 1);
+end
+if numel(X)~=3
+    error('Input did not contain three colour channels');
+end
+if any(X<0)
+    error('R,G,B cannot be negative');
+end
+if any(X>255)
+    error('R,G,B should be not exceed 255');
+end
+
+% Convert R, G, and B into a single integer
+dec = 256^2 * X(1) + 256 * X(2) + X(3);
+
+% Make a Java color object
+jc = java.awt.Color(dec);
+% Check what the RGB int is equal to
+int = jc.getRGB();
+
+end
