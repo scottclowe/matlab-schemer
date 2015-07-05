@@ -1,22 +1,22 @@
-%SCHEME_IMPORT Import a color theme into MATLAB
-%   SCHEME_IMPORT() with no input will prompt the user to locate the
+%SCHEMER_IMPORT Import a color theme into MATLAB
+%   SCHEMER_IMPORT() with no input will prompt the user to locate the
 %   color theme source file via the GUI.
 %   
-%   SCHEME_IMPORT(FILENAME) imports the color scheme options given in
+%   SCHEMER_IMPORT(FILENAME) imports the color scheme options given in
 %   the file FILENAME. 
 %   
-%   SCHEME_IMPORT(...,INCLUDEBOOLS) can control whether boolean
+%   SCHEMER_IMPORT(...,INCLUDEBOOLS) can control whether boolean
 %   preferences are included in import (default: FALSE). If INCLUDEBOOLS
 %   is set to true, boolean preference options such as whether to
 %   highlight autofixable errors, or to show variables with shared scope in
 %   a different color will also be overridden, should they be set in the
 %   input file.
 %   Note: input order is reversible, so the command
-%   SCHEME_IMPORT(INCLUDEBOOLS,FILENAME) will also work and
-%   SCHEME_IMPORT(INCLUDEBOOLS) with boolean input will open the GUI
+%   SCHEMER_IMPORT(INCLUDEBOOLS,FILENAME) will also work and
+%   SCHEMER_IMPORT(INCLUDEBOOLS) with boolean input will open the GUI
 %   to pick the file.
 %   
-%   RET = SCHEME_IMPORT(...) returns 1 on success, 0 on user
+%   RET = SCHEMER_IMPORT(...) returns 1 on success, 0 on user
 %   cancellation at input file selection screen, -1 on fopen error, and -2
 %   on any other error.
 %   
@@ -30,7 +30,7 @@
 %   user has not visited on the origin system of the matlab.prf file will
 %   not be present in the file, and hence not updated on import.
 %   By default, MATLAB preference options which will be overwritten by
-%   SCHEME_IMPORT are:
+%   SCHEMER_IMPORT are:
 %   - All settings in the Color pane of Preferencs
 %   - All color settings in the Color > Programming Tools pane, but no
 %     checkboxes
@@ -51,7 +51,7 @@
 %   package. This will reset Editor/Debugger>Display colors as well as the
 %   colors set in the Colors pane.
 %   
-%   See also SCHEME_EXPORT, PREFDIR.
+%   See also SCHEMER_EXPORT, PREFDIR.
 
 % Copyright (c) 2013, Scott Lowe
 % All rights reserved.
@@ -84,12 +84,12 @@
 %   have the old text color until matlab is restarted.
 % 2. Java exception is thrown on Windows when trying to update
 %   Editor.VariableHighlighting.Color. This only happens the first
-%   time SCHEME_IMPORT is run, so the current fix is to catch the error
+%   time SCHEMER_IMPORT is run, so the current fix is to catch the error
 %   and then try again. However, it might be possible for other Java
 %   exceptions get thrown under other mysterious circumstances, which could 
 %   cause the function to fail.
 
-function varargout = scheme_import(fname, inc_bools)
+function varargout = schemer_import(fname, inc_bools)
 
 VERSION = 'v1.0.1';
 

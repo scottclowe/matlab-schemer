@@ -1,5 +1,5 @@
-%SCHEME_EXPORT Export current MATLAB color scheme to text file
-%   SCHEME_EXPORT() with no input will prompt the user to locate a
+%SCHEMER_EXPORT Export current MATLAB color scheme to text file
+%   SCHEMER_EXPORT() with no input will prompt the user to locate a
 %   destination file via the GUI. Please read the IMORTANT NOTE below
 %   before running this script or it may not work correctly.
 %   MATLAB preference options included are:
@@ -11,11 +11,11 @@
 %   The output format is the same as used in MATLAB's preferences file,
 %   which is found at FULLFILE(PREFDIR,'matlab.prf').
 %   
-%   SCHEME_EXPORT(FILENAME) exports the relevant MATLAB preferences
+%   SCHEMER_EXPORT(FILENAME) exports the relevant MATLAB preferences
 %   settings with regards to the interface color scheme currently in use to
 %   the file FILENAME.
 %   
-%   SCHEME_EXPORT(FILENAME,INCLUDEBOOLS) can control whether boolean
+%   SCHEMER_EXPORT(FILENAME,INCLUDEBOOLS) can control whether boolean
 %   preferences are included in the export (default: TRUE). If INCLUDEBOOLS
 %   is set to false, all the boolean preference options such as whether to
 %   highlight autofixable errors, or to show variables with shared scope in
@@ -24,15 +24,15 @@
 %   even when the settings are turned off. By default SCHEME_IMPORT
 %   will not import the boolean settings, even if they have been exported.
 %   NOTE: input order is reversible, so the command
-%   SCHEME_EXPORT(INCLUDEBOOLS,FILENAME) will also work, and 
-%   SCHEME_EXPORT(INCLUDEBOOLS) with boolean input will open the GUI to
+%   SCHEMER_EXPORT(INCLUDEBOOLS,FILENAME) will also work, and 
+%   SCHEMER_EXPORT(INCLUDEBOOLS) with boolean input will open the GUI to
 %   pick the file.
 %   
-%   RET = SCHEME_EXPORT(...) returns 1 on success, 0 on user
+%   RET = SCHEMER_EXPORT(...) returns 1 on success, 0 on user
 %   cancellation at output file selection screen, -1 on fopen error, and -2
 %   on any other error.
 %   
-%   [RET, NAMES, PREFS] = SCHEME_EXPORT(...) also returns two cell
+%   [RET, NAMES, PREFS] = SCHEMER_EXPORT(...) also returns two cell
 %   arrays listing the names and preferences which were saved to file.
 %   
 %   For more details on how to get and set MATLAB preferences with
@@ -62,19 +62,19 @@
 %           export correctly. No need to click anywhere I didn't mention.
 %           You just have to have each pane appear, and then click OK at
 %           the end.)
-%       - Go to your command window and execute SCHEME_EXPORT
+%       - Go to your command window and execute SCHEMER_EXPORT
 %       - The GUI appears, you pick where to save the file.
 %   
 %   Example 2:  User is sure they have OK'd all the relevent Preferences
 %   panes already.
-%       scheme_export
+%       schemer_export
 %       
 %   Example 2: User is sure they have OK'd all the relevent Preferences
 %   panes already, knows the path they wish to save to, and doesn't want
 %   to export their boolean settings.
-%       scheme_export('some/path/schemeName.prf', false)
+%       schemer_export('some/path/schemeName.prf', false)
 %   
-%   See also SCHEME_IMPORT, PREFDIR.
+%   See also SCHEMER_IMPORT, PREFDIR.
 
 % Copyright (c) 2013, Scott Lowe
 % All rights reserved.
@@ -100,7 +100,7 @@
 % ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 % POSSIBILITY OF SUCH DAMAGE.
 
-function varargout = scheme_export(fname, inc_bools)
+function varargout = schemer_export(fname, inc_bools)
 
 VERSION = 'v1.0.1';
 
@@ -215,7 +215,7 @@ finishup = onCleanup(@() fclose(fid));
 
 % Write a few comments to the start of the file
 fprintf(fid,'#MATLAB color scheme preferences file\n');
-fprintf(fid,'#Generated with scheme_export %s, on MATLAB %s\n',VERSION,version);
+fprintf(fid,'#Generated with schemer_export %s, on MATLAB %s\n',VERSION,version);
 fprintf(fid,'#%s\n',char(java.util.Date));
 
 % ------------------------ Read and Write ---------------------------------
