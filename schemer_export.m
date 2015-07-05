@@ -194,6 +194,10 @@ if ~isempty(fname)
         error('Specified file does not exist');
     end
 else
+    % Get user's name
+    username = java.lang.System.getProperty('user.name');
+    % Prepend to filename
+    def_fname = [char(username) def_fname];
     % Dialog asking for savename
     [filename, pathname] = uiputfile(def_fname, ...
         'Select file to write MATLAB color scheme');
