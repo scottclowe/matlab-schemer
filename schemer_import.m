@@ -91,7 +91,7 @@
 
 function varargout = schemer_import(fname, inc_bools)
 
-VERSION = 'v1.0.1';
+VERSION = 'v1.0.2';
 
 % ------------------------ Input handling ---------------------------------
 % ------------------------ Default inputs ---------------------------------
@@ -231,7 +231,9 @@ while ~feof(fid)
     end
     
     % Look for name pref pair, seperated by '='
-    n = regexp(l,'(?<name>[^=]+)=(?<pref>[^=\s]+)\s*.*','names');
+    %    Must be at begining of string (hence ^ anchor)
+    %    Cannot contain comment marker (#)
+    n = regexp(l,'^(?<name>[^=#]+)=(?<pref>[^#]+)','names');
     
     % If no match, continue and scan next line
     if isempty(n)
@@ -239,6 +241,8 @@ while ~feof(fid)
         continue;
     end
     
+    % Trim whitespace from pref
+    n.pref = strtrim(n.pref);
     
     if ismember(n.name,names_boolean)
         % Deal with boolean type

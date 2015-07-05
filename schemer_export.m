@@ -102,7 +102,7 @@
 
 function varargout = schemer_export(fname, inc_bools)
 
-VERSION = 'v1.0.1';
+VERSION = 'v1.0.2';
 
 % ------------------------ Default inputs ---------------------------------
 if nargin<2
