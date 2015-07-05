@@ -44,7 +44,7 @@
 %   
 %   For more details on how to get and set MATLAB preferences with
 %   commands, see the following URL.
-%http://undocumentedmatlab.com/blog/changing-system-preferences-programmatically/
+%   http://undocumentedmatlab.com/blog/changing-system-preferences-programmatically/
 %   
 %   If you wish to revert to the default MATLAB color scheme, it is
 %   recommended you import the file defaultmatlabtheme.prf included in this
