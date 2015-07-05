@@ -1,13 +1,13 @@
-%color2javaRGBint Converts a 256-bit color into a corresponding Java int
-%   INT = color2javaRGBint(HEX) converts the hexadecimal string HEX into a
+%COLOR2JAVARGBINT Converts a 256-bit color into a corresponding Java int
+%   INT = COLOR2JAVARGBINT(HEX) converts the hexadecimal string HEX into a
 %   negative integer INT which is used by Java as an RGB value equivalent
 %   to the hexadecimal HEX. HEX should be a triple of 256-bit values,
 %   possibly prepended by a hash ('#'). Alternatively, HEX can be a triple
 %   of 16-bit values to provide a 16-bit colour instead.
 %   
-%   INT = color2javaRGBint(RGB) converts the 3-element RGB colour into INT.
+%   INT = COLOR2JAVARGBINT(RGB) converts the 3-element RGB colour into INT.
 %   
-%   INT = color2javaRGBint(R, G, B) converts the triple [R G B] into INT.
+%   INT = COLOR2JAVARGBINT(R, G, B) converts the triple [R G B] into INT.
 %   
 %   This is a helper function which you can use when manually creating your
 %   own MATLAB colour schemes.
