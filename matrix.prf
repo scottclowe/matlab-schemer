@@ -1,0 +1,29 @@
+# Matrix - MATLAB color scheme
+# Created by Scott Lowe, 2015-07-05
+# Based on the GTK stylesheet "Matrix"
+# https://wiki.gnome.org/Projects/GtkSourceView/StyleSchemes
+ColorsUseSystem=Bfalse
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Btrue
+EditorCodeBlockDividers=Btrue
+Editorhighlight-caret-row-boolean=Btrue
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I1
+ColorsText=C-14948864                                    # green
+ColorsBackground=C-16777216
+Colors_M_Keywords=C-9636500                              # bright green-ish
+Colors_M_Comments=C-12557504                             # ghost
+Colors_M_Strings=C-15364352                              # dark green-ish
+Colors_M_UnterminatedStrings=C-9132478
+Colors_M_SystemCommands=C-9825677
+Colors_M_Errors=C-3402732
+Colors_HTML_HTMLLinks=C-2236963                          # grey ddd
+Colors_M_Warnings=C-3364321
+ColorsMLintAutoFixBackground=C-5952982                   # bordeaux
+Editor.VariableHighlighting.Color=C-12557504             # muted ghost
+Editor.NonlocalVariableHighlighting.TextColor=C-16741259 # cyan
+Editorhighlight-lines=C-15658735                         # grey 111
+Editorhighlight-caret-row-boolean-color=C-14540254       # grey 222
+EditorRightTextLimitLineColor=C-14540254                 # grey 222

@@ -1,0 +1,29 @@
+# Cobalt - MATLAB color scheme
+# Created by Scott Lowe, 2015-07-05
+# Based on the GTK stylesheet "Cobalt"
+# https://wiki.gnome.org/Projects/GtkSourceView/StyleSchemes
+ColorsUseSystem=Bfalse
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Btrue
+EditorCodeBlockDividers=Btrue
+Editorhighlight-caret-row-boolean=Btrue
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I1
+ColorsText=C-1                                           # white
+ColorsBackground=C-16770253                              # dark_blue
+Colors_M_Keywords=C-25344                                # bright_orange
+Colors_M_Comments=C-16742145                             # sky_blue
+Colors_M_Strings=C-12920576                              # spring_green
+Colors_M_UnterminatedStrings=C-4480                      # faded_yellow
+Colors_M_SystemCommands=C-3355444                        # light grey
+Colors_M_Errors=C-65468                                  # nail_polish_pink
+Colors_HTML_HTMLLinks=C-16751169                         # light_blue
+Colors_M_Warnings=C-20396                                # 
+ColorsMLintAutoFixBackground=C-12303292                  # 
+Editor.VariableHighlighting.Color=C-11561779             # steelblue3
+Editor.NonlocalVariableHighlighting.TextColor=C-8323141  # teal_blue
+Editorhighlight-lines=C-15981252                         # picked
+Editorhighlight-caret-row-boolean-color=C-16762000       # medium_blue
+EditorRightTextLimitLineColor=C-14665909                 # picked
