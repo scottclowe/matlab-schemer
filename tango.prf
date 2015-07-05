@@ -1,0 +1,28 @@
+# Tango - MATLAB color scheme
+# Created by Scott Lowe, 2015-07-05
+# Based on the Gedit theme "Tango"
+ColorsUseSystem=Bfalse
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Btrue
+EditorCodeBlockDividers=Btrue
+Editorhighlight-caret-row-boolean=Btrue
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I1
+ColorsText=C-12829636
+ColorsBackground=C-1
+Colors_M_Keywords=C-6029312
+Colors_M_Comments=C-14660985
+Colors_M_Strings=C-5406808
+Colors_M_UnterminatedStrings=C-13343324
+Colors_M_SystemCommands=C-8169214
+Colors_M_Errors=C-65536
+Colors_HTML_HTMLLinks=C-13343324
+Colors_M_Warnings=C-27648
+ColorsMLintAutoFixBackground=C-1146549
+Editor.VariableHighlighting.Color=C-202417
+Editor.NonlocalVariableHighlighting.TextColor=C-11625978
+Editorhighlight-lines=C-394759
+Editorhighlight-caret-row-boolean-color=C-1118484
+EditorRightTextLimitLineColor=C-2170913
