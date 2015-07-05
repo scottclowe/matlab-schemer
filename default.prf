@@ -1,0 +1,28 @@
+# Default MATLAB color scheme
+# Generated with colortheme_export
+# Mon Apr 29 13:49:30 BST 2013
+ColorsUseSystem=Btrue
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Btrue
+EditorCodeBlockDividers=Btrue
+Editorhighlight-caret-row-boolean=Bfalse
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I1
+ColorsText=C-16777216
+ColorsBackground=C-1
+Colors_M_Keywords=C-16776961
+Colors_M_Comments=C-14513374
+Colors_M_Strings=C-6283024
+Colors_M_UnterminatedStrings=C-5111808
+Colors_M_SystemCommands=C-5075968
+Colors_M_Errors=C-65536
+Colors_HTML_HTMLLinks=C-16776961
+Colors_M_Warnings=C-27648
+ColorsMLintAutoFixBackground=C-1121868
+Editor.VariableHighlighting.Color=C-3479320
+Editor.NonlocalVariableHighlighting.TextColor=C-16735325
+Editorhighlight-lines=C-197412
+Editorhighlight-caret-row-boolean-color=C-2167080
+EditorRightTextLimitLineColor=C-3355444
