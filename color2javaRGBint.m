@@ -17,7 +17,7 @@
 %   should be placed after the appropriate '...=C-' (with a only a single
 %   minus sign present).
 %   
-%   See also SCHEME_EXPORT.
+%   See also SCHEME_EXPORT, RGBINT2HEX.
 
 % Copyright (c) 2013, Scott Lowe
 % All rights reserved.
