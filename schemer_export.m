@@ -214,10 +214,13 @@ end
 % Add a cleanup object incase of failure
 finishup = onCleanup(@() fclose(fid));
 
+% Find the name of the color scheme based on the filename
+[~, schemename] = fileparts(filename);
+
 % Write a few comments to the start of the file
-fprintf(fid,'#MATLAB color scheme preferences file\n');
-fprintf(fid,'#Generated with schemer_export %s, on MATLAB %s\n',VERSION,version);
-fprintf(fid,'#%s\n',char(java.util.Date));
+fprintf(fid,'# %s - MATLAB color scheme\n', schemename);
+fprintf(fid,'# Generated with schemer_export %s, on MATLAB %s\n',VERSION,version);
+fprintf(fid,'# %s\n',char(java.util.Date));
 
 % ------------------------ Read and Write ---------------------------------
 % Loop through the boolean type settings
