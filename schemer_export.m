@@ -195,7 +195,8 @@ if ~isempty(fname)
     end
 else
     % Dialog asking for savename
-    [filename, pathname] = uiputfile(def_fname);%, 'Save MATLAB color theme as');
+    [filename, pathname] = uiputfile(def_fname, ...
+        'Select file to write MATLAB color scheme');
     % End if user cancels
     if isequal(filename,0);
         if nargout>0; varargout{1} = 0; end;
