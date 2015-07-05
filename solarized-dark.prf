@@ -1,0 +1,29 @@
+# Solarized Dark - MATLAB color scheme
+# Manually created by Scott Lowe from
+# http://ethanschoonover.com/solarized
+# 2015-07-04
+ColorsUseSystem=Bfalse
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Bfalse                          # no cell highlighting
+EditorCodeBlockDividers=Btrue
+Editorhighlight-caret-row-boolean=Btrue
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I6                         # wide
+ColorsText=C-8153962                                     # base 0
+ColorsBackground=C-16766154                              # base 03
+Colors_M_Keywords=C-8021760                              # green
+Colors_M_Comments=C-10981771                             # base 01
+Colors_M_Strings=C-13983336                              # cyan
+Colors_M_UnterminatedStrings=C-9670204                   # violet
+Colors_M_SystemCommands=C-3454186                        # orange
+Colors_M_Errors=C-2346449                                # red
+Colors_HTML_HTMLLinks=C-14251054                         # blue
+Colors_M_Warnings=C-7102047                              # base 1
+ColorsMLintAutoFixBackground=C-2346449                   # red
+Editor.VariableHighlighting.Color=C-16304574             # base 02
+Editor.NonlocalVariableHighlighting.TextColor=C-4880128  # yellow
+Editorhighlight-lines=C-16304574                         # base 02
+Editorhighlight-caret-row-boolean-color=C-16304574       # base 02
+EditorRightTextLimitLineColor=C-16304574                 # base 02
