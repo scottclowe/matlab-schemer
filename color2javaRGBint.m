@@ -90,6 +90,8 @@ end
 jc = java.awt.Color(hex2dec(hex));
 % Check what the RGB int is equal to
 int = jc.getRGB();
+% This is equivalent to
+% int = hex2dec(hex) - (256^2*255 + 256*255 + 256);
 
 end
 
@@ -119,5 +121,7 @@ dec = 256^2 * X(1) + 256 * X(2) + X(3);
 jc = java.awt.Color(dec);
 % Check what the RGB int is equal to
 int = jc.getRGB();
+% This is equivalent to
+% int = dec - (256^2*255 + 256*255 + 256);
 
 end
