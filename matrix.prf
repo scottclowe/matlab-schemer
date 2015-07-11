@@ -1,70 +1,28 @@
 # Matrix - MATLAB color scheme
 # Created by Scott Lowe, 2015-07-05
-# Based on the GTK stylesheet "Matrix"
-# https://wiki.gnome.org/Projects/GtkSourceView/StyleSchemes
+# Based on the movie of the same name
 ColorsUseSystem=Bfalse
 ColorsUseMLintAutoFixBackground=Btrue
 Editor.VariableHighlighting.Automatic=Btrue
 Editor.NonlocalVariableHighlighting=Btrue
 EditorCodepadHighVisible=Btrue
-EditorCodeBlockDividers=Btrue
+EditorCodeBlockDividers=Bfalse
 Editorhighlight-caret-row-boolean=Btrue
 EditorRightTextLineVisible=Btrue
 EditorRightTextLimitLineWidth=I1
 ColorsText=C-15810737
 ColorsBackground=C-16448762
-Colors_M_Keywords=C-9508359
-Colors_M_Comments=C-15258330
+Colors_M_Keywords=C-8524550
+Colors_M_Comments=C-15387093
 Colors_M_Strings=C-15236555
 Colors_M_UnterminatedStrings=C-13769101
-Colors_M_SystemCommands=C-15919062
+Colors_M_SystemCommands=C-15783079
 Colors_M_Errors=C-2678475
 Colors_HTML_HTMLLinks=C-14525287
 Colors_M_Warnings=C-10475466
-ColorsMLintAutoFixBackground=C-2678475
+ColorsMLintAutoFixBackground=C-6544075
 Editor.VariableHighlighting.Color=C-14855081
-Editor.NonlocalVariableHighlighting.TextColor=C-14254288
+Editor.NonlocalVariableHighlighting.TextColor=C-16354525
 Editorhighlight-lines=C-16316148
 Editorhighlight-caret-row-boolean-color=C-16249326
 EditorRightTextLimitLineColor=C-16249326
-# 
-# [0.844 0.129 0.208]   -2678475  Crimson ~
-# [0.377 0.158 0.210]  -10475466  Red devil
-# [0.611 0.144 0.209]   -6544075  mean
-# 
-# [0.019 0.013 0.025]  -16448762 * Fuscous grey ~
-# [0.033 0.056 0.071]  -16249326 * Nero ~
-# [0.026 0.035 0.048]  -16316148  mean
-# 
-# [0.050 0.095 0.166]  -15919062  Midnight ~
-# [0.072 0.130 0.342]  -15589033  Paris m ~
-# [0.061 0.113 0.254]  -15721151  mean
-# 
-# [0.035 0.869 0.360]  -16130468 * Medium spring green ~
-# [0.283 0.992 0.593]  -11993705  Medium spring green ~
-# [0.213 0.847 0.396]  -13182875  Mantis ~
-# [0.248 0.919 0.494]  -12588418  mean_old
-# [0.177 0.903 0.450]  -13769101
-# [0.142 0.894 0.427]  -14359443  mean
-# 
-# [0.148 0.499 0.187]  -14254288  La palma ~
-# [0.089 0.508 0.208]  -15236555 * Chateau green ~
-# [0.118 0.504 0.198]  -14778318  mean
-# 
-# [0.183 0.712 0.346]  -13650600 overall
-# [0.174 0.669 0.315]  -13849776 biased
-# [0.062 0.689 0.284]  -15683512
-# [0.057 0.725 0.299]  -15812276
-# [0.053 0.749 0.309]  -15810737
-# 
-# [0.089 0.176 0.149]  -15258330 * Cardin green ~
-# 
-# [0.113 0.330 0.342]  -14855081 * Sherpa blue ~
-# 
-# [0.097 0.346 0.623]  -15116129  Havelock blue ~
-# [0.173 0.373 0.575]  -13869165  Lochmara ~
-# [0.135 0.359 0.599]  -14525287  mean
-# 
-# [0.427 0.893 0.962]   -9575179  Java ~
-# [0.433 0.932 0.990]   -9507076  Aquamarine ~
-# [0.430 0.913 0.976]   -9508359  mean
