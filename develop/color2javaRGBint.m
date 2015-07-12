@@ -113,6 +113,10 @@ end
 if any(X>255)
     error('R,G,B should be not exceed 255');
 end
+if all(X<1)
+    % Rescale from 0-1 to 0-255
+    X = round(X*255);
+end
 
 % Convert R, G, and B into a single integer
 dec = 256^2 * X(1) + 256 * X(2) + X(3);
