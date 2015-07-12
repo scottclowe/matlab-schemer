@@ -103,6 +103,7 @@
 function varargout = schemer_export(fname, inc_bools)
 
 VERSION = 'v1.0.2';
+URL_GIT = 'https://github.com/scottclowe/matlab-schemer';
 
 % ------------------------ Default inputs ---------------------------------
 if nargin<2
@@ -167,6 +168,8 @@ names_color = {                                     ...
     'EditorRightTextLimitLineColor'                 ... % Editor>Display:       Right-hand text limit line Color
 };
 
+
+
 def_fname = 'ColorSchemeForMATLAB.prf';
 
 % ------------------------ Setup ------------------------------------------
@@ -224,7 +227,9 @@ finishup = onCleanup(@() fclose(fid));
 % Write a few comments to the start of the file
 fprintf(fid,'# %s - MATLAB color scheme\n', schemename);
 fprintf(fid,'# Generated with schemer_export %s, on MATLAB %s\n',VERSION,version);
-fprintf(fid,'# %s\n',char(java.util.Date));
+fprintf(fid,'# %s\n', char(java.util.Date));
+fprintf(fid,'# To enable this color scheme in MATLAB use schemer_import, available at:\n');
+fprintf(fid,'#     %s\n', URL_GIT);
 
 % ------------------------ Read and Write ---------------------------------
 % Loop through the boolean type settings
