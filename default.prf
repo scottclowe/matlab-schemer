@@ -1,6 +1,6 @@
 # Default MATLAB color scheme
-# Generated with colortheme_export
-# Mon Apr 29 13:49:30 BST 2013
+# To enable this color scheme in MATLAB use schemer_import, available at:
+#     https://github.com/scottclowe/matlab-schemer
 ColorsUseSystem=Btrue
 ColorsUseMLintAutoFixBackground=Btrue
 Editor.VariableHighlighting.Automatic=Btrue
@@ -26,3 +26,42 @@ Editor.NonlocalVariableHighlighting.TextColor=C-16735325
 Editorhighlight-lines=C-197412
 Editorhighlight-caret-row-boolean-color=C-2167080
 EditorRightTextLimitLineColor=C-3355444
+# TLC
+Editor.Language.TLC.Color.Colors_M_SystemCommands=C-16776961
+Editor.Language.TLC.Color.Colors_M_Keywords=C-5075968
+Editor.Language.TLC.Color.Colors_M_Comments=C-14513374
+Editor.Language.TLC.Color.string-literal=C-6283024
+# C/C++
+Editor.Language.C.Color.keywords=C-16776961
+Editor.Language.C.Color.line-comment=C-14513374
+Editor.Language.C.Color.string-literal=C-6283024
+Editor.Language.C.Color.preprocessor=C-5075968
+Editor.Language.C.Color.char-literal=C-48897
+Editor.Language.C.Color.errors=C-65536
+# Java
+Editor.Language.Java.method=Sbold
+Editor.Language.Java.Color.keywords=C-16776961
+Editor.Language.Java.Color.line-comment=C-14513374
+Editor.Language.Java.Color.string-literal=C-6283024
+Editor.Language.Java.Color.char-literal=C-48897
+# VHDL
+Editor.Language.VHDL.Color.Colors_M_Keywords=C-16776961
+Editor.Language.VHDL.Color.operator=C-5075968
+Editor.Language.VHDL.Color.Colors_M_Comments=C-14513374
+Editor.Language.VHDL.Color.string-literal=C-6283024
+# Verilog
+Editor.Language.Verilog.Color.Colors_M_Comments=C-14513374
+Editor.Language.Verilog.Color.operator=C-5075968
+Editor.Language.Verilog.Color.Colors_M_Keywords=C-16776961
+Editor.Language.Verilog.Color.string-literal=C-6283024
+# XML
+Editor.Language.XML.Color.error=C-65536
+Editor.Language.XML.Color.tag=C-16776961
+Editor.Language.XML.Color.attribute=C-5111808
+Editor.Language.XML.Color.operator=C-5075968
+Editor.Language.XML.Color.value=C-6283024
+Editor.Language.XML.Color.comment=C-14513374
+Editor.Language.XML.Color.doctype=C-16777092
+Editor.Language.XML.Color.ref=C-5111808
+Editor.Language.XML.Color.pi-content=C-16777092
+Editor.Language.XML.Color.cdata-section=C-8625664

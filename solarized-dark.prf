@@ -1,7 +1,8 @@
 # Solarized Dark - MATLAB color scheme
-# Manually created by Scott Lowe from
-# http://ethanschoonover.com/solarized
-# 2015-07-04
+# Manually created on 2015-07-04 by Scott Lowe, based on the style guide of
+#     http://ethanschoonover.com/solarized
+# To enable this color scheme in MATLAB use schemer_import, available at:
+#     https://github.com/scottclowe/matlab-schemer
 ColorsUseSystem=Bfalse
 ColorsUseMLintAutoFixBackground=Btrue
 Editor.VariableHighlighting.Automatic=Btrue

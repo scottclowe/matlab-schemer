@@ -1,12 +1,14 @@
 # Matrix - MATLAB color scheme
 # Created by Scott Lowe, 2015-07-05
-# Based on the movie of the same name
+# Based on the movie of the same name.
+# To enable this color scheme in MATLAB use schemer_import, available at:
+#     https://github.com/scottclowe/matlab-schemer
 ColorsUseSystem=Bfalse
 ColorsUseMLintAutoFixBackground=Btrue
 Editor.VariableHighlighting.Automatic=Btrue
 Editor.NonlocalVariableHighlighting=Btrue
-EditorCodepadHighVisible=Btrue
-EditorCodeBlockDividers=Bfalse
+EditorCodepadHighVisible=Bfalse                              # without cell bg
+EditorCodeBlockDividers=Btrue                                # with cell lines
 Editorhighlight-caret-row-boolean=Btrue
 EditorRightTextLineVisible=Btrue
 EditorRightTextLimitLineWidth=I1

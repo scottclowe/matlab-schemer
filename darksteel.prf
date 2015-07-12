@@ -2,6 +2,8 @@
 # Created by Scott Lowe
 # Generated with colortheme_export v1.0.0
 # Fri Aug 09 18:39:37 BST 2013
+# To enable this color scheme in MATLAB use schemer_import, available at:
+#     https://github.com/scottclowe/matlab-schemer
 ColorsUseSystem=Bfalse
 ColorsUseMLintAutoFixBackground=Btrue
 Editor.VariableHighlighting.Automatic=Btrue
