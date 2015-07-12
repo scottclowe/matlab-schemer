@@ -3,7 +3,7 @@ function x
 !touch testFile.txt
 fid = fopen('testFile.txt', 'w');
 for i=1:10
-    fprintf(fid,'%6.2f \n. i):
+    fprintf(fid,'%6.2f \n. i);
 end
 end
 
@@ -11,7 +11,7 @@ function testfunction(input)
 persistent multfactor;
 multfactor = multfactor + 1;
 %% cell title
-avar = nestedfunction(multfactor)
+a_var = nestedfunction(multfactor)
 unused_var = a_var;
     function out = nestedfunction(factor)
         out = input * factor;
