@@ -24,6 +24,6 @@ Colors_M_Warnings=C-7102047                              # base 1
 ColorsMLintAutoFixBackground=C-2346449                   # red
 Editor.VariableHighlighting.Color=C-16304574             # base 02
 Editor.NonlocalVariableHighlighting.TextColor=C-4880128  # yellow
-Editorhighlight-lines=C-16304574                         # base 02
+Editorhighlight-lines=C-16766154                         # base 03
 Editorhighlight-caret-row-boolean-color=C-16304574       # base 02
 EditorRightTextLimitLineColor=C-16304574                 # base 02
