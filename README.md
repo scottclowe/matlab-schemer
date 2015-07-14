@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/scottclowe/matlab-schemer.png?label=ready&title=Ready)](https://waffle.io/scottclowe/matlab-schemer)
 # MATLAB Schemer
 
 This MATLAB package makes it easy to change the color scheme, or theme, of the
