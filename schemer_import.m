@@ -291,6 +291,28 @@ if inc_bools
     names_boolean = [names_boolean names_boolextra];
 end
 
+% ------------------------ Check file seems okay --------------------------
+% Read in the contents of the entire file
+flestr = fileread(fname);
+% Search for occurances of main text colour
+txtprf = regexp(flestr,'\sColorsText=(?<pref>[^#\s]+)\s','names');
+if isempty(txtprf)
+    error('Text colour not present in colorscheme file:\n%s',fname);
+elseif length(txtprf)>1
+    error('Text colour defined multiple times in colorscheme file:\n%s',fname);
+end
+% Search for occurances of main background colour
+bkgprf = regexp(flestr,'\sColorsBackground=(?<pref>[^#\s]+)\s','names');
+if isempty(bkgprf)
+    error('Background colour not present in colorscheme file:\n%s',fname);
+elseif length(bkgprf)>1
+    error('Background colour defined multiple times in colorscheme file:\n%s',fname);
+end
+% Make sure the main text and background colours are not exactly the same
+if strcmp(txtprf.pref, bkgprf.pref)
+    error('Main text and background colours are the same in this file:\n%s',fname);
+end
+
 % ------------------------ File stuff -------------------------------------
 % Open for read access only
 fid = fopen(fname,'r','n');
