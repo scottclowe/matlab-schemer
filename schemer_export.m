@@ -102,7 +102,7 @@
 
 function varargout = schemer_export(fname, inc_bools)
 
-VERSION = 'v1.0.2';
+VERSION = 'v1.1.0';
 URL_GIT = 'https://github.com/scottclowe/matlab-schemer';
 
 % ------------------------ Default inputs ---------------------------------
