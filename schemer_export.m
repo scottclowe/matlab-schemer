@@ -186,6 +186,43 @@ if inc_bools
 end
 
 % ------------------------ Check -------------------------------------
+% Check the user is not exporting without having visited any of the
+% preference panels, or has otherwise set text and background to match
+if isequal(com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB,...
+        com.mathworks.services.Prefs.getColorPref('ColorsBackground').getRGB)
+    
+    % Define the base error message. We will add to it depending on the
+    % exact set up.
+    msg = 'Colour for text and background are the same.';
+    
+    % The values match, so give an error
+    if com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB==-16777216
+        % Since the colour is black, it seems the user hasn't visited the
+        % colour preference panes at all
+        msg = [msg, 10, ...
+               'Are you sure you have visited all the preference panels,'...
+               ' as per the instructions in the function description?'];
+           
+    elseif com.mathworks.services.Prefs.getBooleanPref('ColorsUseSystem')
+        % The colour is something else, but both text and background match.
+        % The user is managing to use the colours by overriding them with
+        % the system colours.
+        msg = [msg, 10, ...
+           'Although you have enabled system colors, the underlying ', ...
+           'colour settings match. This is not permitted because the ', ...
+           'text would be illegible if system colours were disabled.'];
+        
+    else
+        % The colour is something else, but both text and background match.
+        % Presumably the text is currently illegible to the user right now.
+        msg = [msg, 10, ...
+           'This is not permitted because the text is illegible.'];
+    end
+    
+    % Raise the error with the completed message
+    error(msg);
+end
+
 % Let the user know they are doing a stupid thing if they export when using
 % the default settings
 if com.mathworks.services.Prefs.getBooleanPref('ColorsUseSystem')
