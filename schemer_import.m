@@ -1,4 +1,4 @@
-%SCHEMER_IMPORT Import a color theme into MATLAB
+%SCHEMER_IMPORT Import a MATLAB color scheme
 %   SCHEMER_IMPORT() with no input will prompt the user to locate the
 %   color theme source file via the GUI.
 %   
@@ -12,7 +12,7 @@
 %   a different color will also be overridden, should they be set in the
 %   input file.
 %   Note: input order is reversible, so the command
-%   SCHEMER_IMPORT(INCLUDEBOOLS,FILENAME) will also work and
+%   SCHEMER_IMPORT(INCLUDEBOOLS, FILENAME) will also work and
 %   SCHEMER_IMPORT(INCLUDEBOOLS) with boolean input will open the GUI
 %   to pick the file.
 %   
@@ -37,6 +37,9 @@
 %   - From Editor/Debugger > Display pane, the following:
 %      - Highlight current line (color, but not whether to)
 %      - Right-hand text limit (color and thickness, but not on/off)
+%   - From Editor/Debugger > Language, the syntax highlighting colours for
+%     each language.
+%   
 %   Once the current color preferences are overridden they cannot be
 %   undone, so it is recommended that you export your current preferences
 %   with SCHEMER_EXPORT before importing a new theme if you think you
@@ -48,8 +51,9 @@
 %   
 %   If you wish to revert to the default MATLAB color scheme, it is
 %   recommended you import the file defaultmatlabtheme.prf included in this
-%   package. This will reset Editor/Debugger>Display colors as well as the
-%   colors set in the Colors pane.
+%   package. This will reset Editor/Debugger>Display colours, colours for
+%   syntax highlighting in additional languages, as well as the colours set
+%   in the Colors pane.
 %   
 %   See also SCHEMER_EXPORT, PREFDIR.
 
