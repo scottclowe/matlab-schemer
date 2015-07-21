@@ -9,8 +9,8 @@
 %   - All settings in the Color pane of Preferences
 %   - All settings in the Color > Programming Tools pane
 %   - From Editor/Debugger > Display pane, the following:
-%      - Highlight current line (whether to highlight, and the color)
-%      - Right-hand text limit (color and thickness, whether on/off)
+%      - Highlight current line (whether to highlight, and the colour)
+%      - Right-hand text limit (colour and thickness, whether on/off)
 %   The output format is the same as used in MATLAB's preferences file,
 %   which is found at FULLFILE(PREFDIR,'matlab.prf').
 %   
@@ -195,7 +195,7 @@ names_integer = {                                   ...
     'EditorRightTextLimitLineWidth'                 ... % Editor>Display:       Right-hand text limit Width
 };
 names_color = {                                     ...
-    'ColorsText'                                    ... % Color:    Desktop:    main text color
+    'ColorsText'                                    ... % Color:    Desktop:    main text colour
     'ColorsBackground'                              ... % Color:    Desktop:    main background
     'Colors_M_Keywords'                             ... % Color:    Syntax:     keywords
     'Colors_M_Comments'                             ... % Color:    Syntax:     comments
@@ -385,7 +385,7 @@ for i=1:length(names_integer)
     
 end
 
-% Loop through the color type settings
+% Loop through the colour type settings
 prefs_color = cell(size(names_color));
 for i=1:length(names_color)
     
