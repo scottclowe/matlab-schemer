@@ -1,6 +1,6 @@
 %SCHEMER_EXPORT Export current MATLAB color scheme to text file
-%   Note: if this is your first time using SCHEMER_EXPORT, please read the
-%   IMPORTANT NOTE at the bottom of the help section.
+%   If this is your first time using SCHEMER_EXPORT, please ensure you
+%   first read the IMPORTANT NOTE at the bottom of the help section.
 %   
 %   SCHEMER_EXPORT() with no input will prompt the user to locate a
 %   destination file via the GUI. Please read the IMORTANT NOTE below
