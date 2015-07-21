@@ -57,9 +57,9 @@
 %       - Open File>Preferences
 %       - On the left-hand side
 %         - Click Colors
-%         - Click Programming Tools (underneath Colors)
-%         - Click Editor/Debugger
-%         - Click Display (underneath Editor/Debugger)
+%         - Click Programming Tools (underneath "Colors" as a subsection)
+%         - Click Editor/Debugger (a different panel to Colors)
+%         - Click Display (underneath "Editor/Debugger" as a subsection)
 %       - Click OK
 %           (Yes, that is literally all you need to do to make sure you can
 %           export correctly. No need to click anywhere I didn't mention.
@@ -72,7 +72,7 @@
 %   panes already.
 %       schemer_export
 %       
-%   Example 2: User is sure they have OK'd all the relevent Preferences
+%   Example 3: User is sure they have OK'd all the relevent Preferences
 %   panes already, knows the path they wish to save to, and doesn't want
 %   to export their boolean settings.
 %       schemer_export('some/path/schemeName.prf', false)
