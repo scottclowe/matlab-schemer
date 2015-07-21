@@ -188,7 +188,7 @@ end
 if com.mathworks.services.Prefs.getBooleanPref('ColorsUseSystem')
     warning(...
         ['You are exporting with system colors for main text and background.'...
-         '\nTheme may look different on different systems.']);
+         10, 'The exported theme will look different on different systems.']);
 end
 
 % ------------------------ File stuff -------------------------------------
