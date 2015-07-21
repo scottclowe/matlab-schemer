@@ -28,3 +28,23 @@ Editor.NonlocalVariableHighlighting.TextColor=C-8021760  # green
 Editorhighlight-lines=C-133405                           # base 00
 Editorhighlight-caret-row-boolean-color=C-1120043        # base 2
 EditorRightTextLimitLineColor=C-1120043                  # base 2
+# TLC
+Editor.Language.TLC.Color.Colors_M_Keywords=C-8021760    # green
+# C/C++
+Editor.Language.C.Color.preprocessor=C-8021760           # green
+Editor.Language.C.Color.char-literal=C-9670204           # violet
+# Java
+Editor.Language.Java.Color.char-literal=C-9670204        # violet
+# VHDL
+Editor.Language.VHDL.Color.operator=C-8021760            # green
+# Verilog
+Editor.Language.Verilog.Color.operator=C-8021760         # green
+# XML
+Editor.Language.XML.Color.tag=C-14251054                 # blue
+Editor.Language.XML.Color.attribute=C-4880128            # yellow
+Editor.Language.XML.Color.operator=C-8021760             # green
+Editor.Language.XML.Color.value=C-13983336               # cyan
+Editor.Language.XML.Color.doctype=C-2935166              # magenta
+Editor.Language.XML.Color.ref=C-9670204                  # violet
+Editor.Language.XML.Color.pi-content=C-9670204           # violet
+Editor.Language.XML.Color.cdata-section=C-3454186        # orange
