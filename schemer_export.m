@@ -18,18 +18,47 @@
 %   settings with regards to the interface color scheme currently in use to
 %   the file FILENAME.
 %   
-%   SCHEMER_EXPORT(FILENAME,INCLUDEBOOLS) can control whether boolean
-%   preferences are included in the export (default: TRUE). If INCLUDEBOOLS
-%   is set to false, all the boolean preference options such as whether to
-%   highlight autofixable errors, or to show variables with shared scope in
-%   a different color are not included in the output. However, the colors
-%   which would be used if the options where enabled are still outputted,
-%   even when the settings are turned off. By default SCHEME_IMPORT
-%   will not import the boolean settings, even if they have been exported.
-%   NOTE: input order is reversible, so the command
-%   SCHEMER_EXPORT(INCLUDEBOOLS,FILENAME) will also work, and 
-%   SCHEMER_EXPORT(INCLUDEBOOLS) with boolean input will open the GUI to
-%   pick the file.
+%   SCHEMER_EXPORT(FILENAME, FLAG_MODE) controls which settings are output
+%   into the preference file FILENAME. Along with the colour settings for
+%   MATLAB syntax highlighting, one can also export the boolean preferences
+%   (such as whether cells and non-local variables, etc, should be coloured
+%   differently to the regular backgound and text); and one can also export
+%   the colour settings for syntax highlighting in other languages
+%   supported by MATLAB.
+%   
+%   The FLAG_MODE settings available are:
+%     0 - neither boolean, nor additional languages are exported
+%     1 - boolean settings are exported, but not additional languages
+%     2 - additional language colours are exported, but not boolean settings
+%     3 - both boolean and additional languages are exported
+%   
+%   By default, FLAG_MODE is set to 1, so boolean settings will be
+%   exported, but not colours for additional languages.
+%   
+%   The colour settings for all MATLAB syntax highlighting will always be
+%   exported, even for syntax options which are currently disabled, and
+%   regardless of whether the boolean settings are being exported. This is
+%   because users loading your exported color scheme may want syntax
+%   options highlighted which you are not currently using. Consequently,
+%   when designing a color scheme, it is advisable to set colours for all
+%   possisble MATLAB colour settings, even if you don't usually use them.
+%   By default, SCHEMER_IMPORT will not import boolean settings, so users
+%   will keep their syntax options enabled or disabled as they prefer even
+%   after importing your color scheme.
+%   
+%   Colours for highlighting syntax in other languages supported by MATLAB
+%   (TLC, C++, Java, VHDL, Verilog, XML) can be set in the preferences
+%   panel Editor/Debugger > Language. If you have not set any of these
+%   colours yourself, you should not export them. If SCHEMER_IMPORT loads a
+%   color scheme without additional language syntax included, the MATLAB
+%   colours are extended to highlight syntax in the other languages
+%   consistent with the MATLAB scheme.
+%   
+%   SCHEMER_EXPORT(FLAG_MODE, FILENAME) with a numeric and then string
+%   input also work, as the input order is reversible.
+%   
+%   SCHEMER_EXPORT(FLAG_MODE) with a single numeric input will open the GUI
+%   to pick the filename and will save the output according to FLAG_MODE.
 %   
 %   RET = SCHEMER_EXPORT(...) returns 1 on success, 0 on user
 %   cancellation at output file selection screen, -1 on fopen error, and -2
@@ -103,38 +132,51 @@
 % ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 % POSSIBILITY OF SUCH DAMAGE.
 
-function varargout = schemer_export(fname, inc_bools)
+function varargout = schemer_export(fname, flag_mode)
 
-VERSION = 'v1.1.0';
+VERSION = 'v1.2.0';
 URL_GIT = 'https://github.com/scottclowe/matlab-schemer';
 
-% ------------------------ Default inputs ---------------------------------
+% ------------------------ Input handling ---------------------------------
+% Default inputs
 if nargin<2
     % Default is on. Recipient can pick themselves whether to import.
-    inc_bools = true;
+    flag_mode = 1;
 end
 if nargin<1
     fname = [];
 end
 % Input switching
 if nargin>=1 && ~ischar(fname) && ~isempty(fname)
-    if ~islogical(fname) && ~isnumeric(fname)
+    if ~isnumeric(fname)
         error('Invalid input argument 1');
     end
     if nargin==1
         % First input omitted
-        inc_bools = fname;
+        flag_mode = fname;
         fname = [];
-    elseif ischar(inc_bools)
+    elseif ischar(flag_mode)
         % Inputs switched
         tmp = fname;
-        fname = inc_bools;
-        inc_bools = tmp;
+        fname = flag_mode;
+        flag_mode = tmp;
         clear tmp;
     else
         error('Invalid combination of inputs');
     end
 end
+% Mode handling
+if ~isnumeric(fname)
+    error('Export mode flag must be numeric.');
+elseif flag_mode < 0 || flag_mode > 3
+    error('Bad mode specified: %s', num2str(flag_mode));
+end
+inc_bools      = mod(flag_mode, 2);
+inc_otherlangs = flag_mode >= 2;
+% 0:  no bools,  no other languages
+% 1: yes bools,  no other languages
+% 2:  no bools, yes other languages
+% 3: yes bools, yes other languages
 
 % ------------------------ Settings ---------------------------------------
 names_boolean = {                                   ...
@@ -170,6 +212,40 @@ names_color = {                                     ...
     'Editorhighlight-caret-row-boolean-color'       ... % Editor>Display:       Highlight current line Color
     'EditorRightTextLimitLineColor'                 ... % Editor>Display:       Right-hand text limit line Color
 };
+names_color_otherlangs = { ...
+    'Editor.Language.TLC.Color.Colors_M_SystemCommands' , ... % TLC
+    'Editor.Language.TLC.Color.Colors_M_Keywords'       , ...
+    'Editor.Language.TLC.Color.Colors_M_Comments'       , ...
+    'Editor.Language.TLC.Color.string-literal'          , ...
+    'Editor.Language.C.Color.keywords'                  , ... % C/C++
+    'Editor.Language.C.Color.line-comment'              , ...
+    'Editor.Language.C.Color.string-literal'            , ...
+    'Editor.Language.C.Color.preprocessor'              , ...
+    'Editor.Language.C.Color.char-literal'              , ...
+    'Editor.Language.C.Color.errors'                    , ...
+    'Editor.Language.Java.Color.keywords'               , ... % Java
+    'Editor.Language.Java.Color.line-comment'           , ...
+    'Editor.Language.Java.Color.string-literal'         , ...
+    'Editor.Language.Java.Color.char-literal'           , ...
+    'Editor.Language.VHDL.Color.Colors_M_Keywords'      , ... % VHDL
+    'Editor.Language.VHDL.Color.operator'               , ...
+    'Editor.Language.VHDL.Color.Colors_M_Comments'      , ...
+    'Editor.Language.VHDL.Color.string-literal'         , ...
+    'Editor.Language.Verilog.Color.Colors_M_Comments'   , ... % Verilog
+    'Editor.Language.Verilog.Color.operator'            , ...
+    'Editor.Language.Verilog.Color.Colors_M_Keywords'   , ...
+    'Editor.Language.Verilog.Color.string-literal'      , ...
+    'Editor.Language.XML.Color.error'                   , ... % XML
+    'Editor.Language.XML.Color.tag'                     , ...
+    'Editor.Language.XML.Color.attribute'               , ...
+    'Editor.Language.XML.Color.operator'                , ...
+    'Editor.Language.XML.Color.value'                   , ...
+    'Editor.Language.XML.Color.comment'                 , ...
+    'Editor.Language.XML.Color.doctype'                 , ...
+    'Editor.Language.XML.Color.ref'                     , ...
+    'Editor.Language.XML.Color.pi-content'              , ...
+    'Editor.Language.XML.Color.cdata-section'           , ...
+};
 
 
 
@@ -183,6 +259,9 @@ else
 end
 if inc_bools
     names_boolean = [names_boolean names_boolextra];
+end
+if inc_otherlangs
+    names_color = [names_color names_color_otherlangs];
 end
 
 % ------------------------ Check -------------------------------------
