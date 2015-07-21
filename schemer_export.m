@@ -77,7 +77,7 @@
 %   to export their boolean settings.
 %       schemer_export('some/path/schemeName.prf', false)
 %   
-%   See also SCHEMER_IMPORT, PREFDIR.
+%   See also SCHEMER_IMPORT, PREFDIR, COLOR2JAVARGBINT.
 
 % Copyright (c) 2013, Scott Lowe
 % All rights reserved.
