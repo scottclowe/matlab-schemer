@@ -272,7 +272,7 @@ if isequal(com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB,...
     
     % Define the base error message. We will add to it depending on the
     % exact set up.
-    msg = 'Colour for text and background are the same.';
+    msg = 'Colour for text and background appear to be the same.';
     
     % The values match, so give an error
     if com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB==-16777216
