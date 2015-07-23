@@ -95,7 +95,7 @@
 
 function varargout = schemer_import(fname, inc_bools)
 
-VERSION = 'v1.2.0';
+VERSION = 'v1.2.1';
 
 % ------------------------ Input handling ---------------------------------
 % ------------------------ Default inputs ---------------------------------
@@ -126,9 +126,9 @@ if nargin>=1 && ~ischar(fname) && ~isempty(fname)
 end
 
 % ------------------------ Check for file ---------------------------------
-filefilt = ...'
-   {'*.prf;*.txt','Text and pref files (*.prf, *.txt)'; ...
-    '*.*',  'All Files (*.*)'};
+filefilt = ...
+   {'*.prf;*.txt', 'Text and pref files (*.prf, *.txt)'; ...
+    '*'          ,  'All Files'                        };
 
 if ~isempty(fname)
     if ~exist(fname,'file')
