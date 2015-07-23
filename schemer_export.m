@@ -134,7 +134,7 @@
 
 function varargout = schemer_export(fname, flag_mode)
 
-VERSION = 'v1.2.1';
+VERSION = 'v1.2.2';
 URL_GIT = 'https://github.com/scottclowe/matlab-schemer';
 def_fname = 'ColorSchemeForMATLAB.prf';
 
@@ -200,7 +200,7 @@ panels_main = {...
     'Color > Programming Tools'                     ...
     'Editor/Debugger > Display'                     ...
 };
-names_color_main = {                                     ...
+names_color_main = {                                ...
   { ... % Color panel
     'ColorsText'                                    ... % Color:    Desktop:    main text colour
     'ColorsBackground'                              ... % Color:    Desktop:    main background
@@ -420,69 +420,87 @@ fprintf(fid,'#     %s\n', URL_GIT);
 % Loop through the boolean type settings
 prefs_boolean = cell(size(names_boolean));
 for i=1:length(names_boolean)
-    
-    iname = names_boolean{i};
-    ipref = com.mathworks.services.Prefs.getBooleanPref(iname);
-    prefs_boolean{i} = ipref;
-    % Write to file
-    outstr = [iname '=B'];
-    if ipref
+    % Check the name of this preference
+    nm = names_boolean{i};
+    % Get the value of this boolean preference
+    prefs_boolean{i} = com.mathworks.services.Prefs.getBooleanPref(nm);
+    % Construct the string to output
+    outstr = [nm '=B'];
+    if prefs_boolean{i}
         outstr = [outstr 'true'];
     else
         outstr = [outstr 'false'];
     end
     outstr = [outstr '\n'];
+    % Write this boolean value to the output file
     fprintf(fid, outstr);
-    
 end
 
 % Loop through the integer type settings
 prefs_integer = cell(size(names_integer));
 for i=1:length(names_integer)
-    
-    iname = names_integer{i};
-    ipref = com.mathworks.services.Prefs.getIntegerPref(iname);
-    prefs_integer{i} = ipref;
-    
-    % Write to filenames_integer
-    outstr = '%s=I%d\n';
-    fprintf(fid, outstr, iname, ipref);
-    
+    % Check the name of this preference
+    nm = names_integer{i};
+    % Get the integer value for this preference
+    prefs_integer{i} = com.mathworks.services.Prefs.getIntegerPref(nm);
+    % Write this integer value to the output file
+    fprintf(fid, '%s=I%d\n', nm, prefs_integer{i});
 end
 
 % Loop through the colour type settings for MATLAB syntax highlighting
-prefs_color = cell(1, sum(cellfun(@numel, names_color_main)));
 for iPanel=1:numel(names_color_main)
     for iPref=1:numel(names_color_main{iPanel})
-        
-        iname = names_color_main{iPanel}{iPref};
-        prefs_color{i} = cprefs_main{iPanel}{iPref};
-        
-        % Write to file
-        outstr = '%s=C%d\n';
-        fprintf(fid, outstr, iname, colors_main{iPanel}(iPref));
+        % Check the name of this preference
+        nm = names_color_main{iPanel}{iPref};
+        % Write its colour value to the output file
+        fprintf(fid, '%s=C%d\n', nm, colors_main{iPanel}(iPref));
     end
 end
 
 % Loop through the colour type settings for other language syntax
-if inc_otherlangs
-    prefs_color2 = cell(1, sum(cellfun(@numel, names_color_otherlangs)));
-    for iPanel=1:numel(names_color_otherlangs)
-        for iPref=1:numel(names_color_otherlangs{iPanel})
-            
-            iname = names_color_otherlangs{iPanel}{iPref};
-            ipref = com.mathworks.services.Prefs.getColorPref(iname);
-            prefs_color2{i} = ipref;
-            
-            % Write to file
-            outstr = '%s=C%d\n';
-            fprintf(fid, outstr, iname, ipref.getRGB);
-        end
-    end
-    names_color = [names_color_main names_color_otherlangs];
+if ~inc_otherlangs
+    % We're not exporting the other languages, so set these to be empty
+    onames_langs = {};
+    cprefs_langs = {};
 else
-    names_color = names_color_main;
-    prefs_color2 = {};
+    % Initialise a cell array to output
+    onames_langs = {};
+    cprefs_langs = {};
+    % Go through all the language color syntax preference panels, checking
+    % their settings are available to us
+    % Loop over every one of the main colour preference panels
+    for iPanel = 1:numel(names_color_otherlangs)
+        % Initialise holding variable for settings in this panel
+        panel_prefs  = cell(size(names_color_otherlangs{iPanel}));
+        panel_colors =  nan(size(names_color_otherlangs{iPanel}));
+        % Loop over every colour setting in the panel
+        for iPref = 1:numel(names_color_otherlangs{iPanel})
+            % Get the name for the color setting we are interested in
+            nm = names_color_otherlangs{iPanel}{iPref};
+            % Read the preference for this colour and get a Java color object
+            panel_prefs{iPref} = com.mathworks.services.Prefs.getColorPref(nm);
+            % Turn this into 
+            panel_colors(iPref) = panel_prefs{iPref}.getRGB;
+        end
+        if all(panel_colors==-16777216)
+            % All the colours in this panel are black, so we assume the
+            % color settings have not loaded because they have not been set
+            continue;
+        end
+        % Not all the colours are black, so we assume we have loaded the
+        % values for this language panel.
+        
+        % Loop again over every colour setting in the panel
+        for iPref = 1:numel(names_color_otherlangs{iPanel})
+            % Get the name for the color setting we are interested in
+            nm = names_color_otherlangs{iPanel}{iPref};
+            % Write its colour value to the output file
+            fprintf(fid, '%s=C%d\n', nm, panel_colors(iPref));
+        end
+        % Remember the prefences so we can return them
+        onames_langs = [onames_langs, names_color_otherlangs{iPanel}];
+        cprefs_langs = [cprefs_langs, panel_prefs];
+    end
 end
 
 % ------------------------ Tidy up ----------------------------------------
@@ -492,8 +510,8 @@ if nargout>0; varargout{1} = 1; end;
 fprintf('Exported color scheme to %s\n',fname);
 
 if nargout>1;
-    varargout{2} = [names_boolean names_integer names_color];
-    varargout{3} = [prefs_boolean prefs_integer prefs_color prefs_color2];
+    varargout{2} = [names_boolean names_integer names_color_main{:} onames_langs];
+    varargout{3} = [prefs_boolean prefs_integer cprefs_main{:} cprefs_langs];
 end
 
 end
