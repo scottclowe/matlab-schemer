@@ -134,8 +134,9 @@
 
 function varargout = schemer_export(fname, flag_mode)
 
-VERSION = 'v1.2.0';
+VERSION = 'v1.2.1';
 URL_GIT = 'https://github.com/scottclowe/matlab-schemer';
+def_fname = 'ColorSchemeForMATLAB.prf';
 
 % ------------------------ Input handling ---------------------------------
 % Default inputs
@@ -194,7 +195,13 @@ names_boolextra = {                                 ...
 names_integer = {                                   ...
     'EditorRightTextLimitLineWidth'                 ... % Editor>Display:       Right-hand text limit Width
 };
-names_color = {                                     ...
+panels_main = {...
+    'Color'                                         ...
+    'Color > Programming Tools'                     ...
+    'Editor/Debugger > Display'                     ...
+};
+names_color_main = {                                     ...
+  { ... % Color panel
     'ColorsText'                                    ... % Color:    Desktop:    main text colour
     'ColorsBackground'                              ... % Color:    Desktop:    main background
     'Colors_M_Keywords'                             ... % Color:    Syntax:     keywords
@@ -204,38 +211,54 @@ names_color = {                                     ...
     'Colors_M_SystemCommands'                       ... % Color:    Syntax:     system commands
     'Colors_M_Errors'                               ... % Color:    Syntax:     errors
     'Colors_HTML_HTMLLinks'                         ... % Color:    Other:      hyperlinks
+  } ...
+  { ... % Color > Programming Tools
     'Colors_M_Warnings'                             ... % Color>PT: Analyser:   warnings
     'ColorsMLintAutoFixBackground'                  ... % Color>PT: Analyser:   autofix
     'Editor.VariableHighlighting.Color'             ... % Color>PT: Var&fn:     highlight
     'Editor.NonlocalVariableHighlighting.TextColor' ... % Color>PT: Var&fn:     with shared scope
     'Editorhighlight-lines'                         ... % Color>PT: CellDisp:   highlight
+  } ...
+  { ... % Editor/Debugger > Display
     'Editorhighlight-caret-row-boolean-color'       ... % Editor>Display:       Highlight current line Color
     'EditorRightTextLimitLineColor'                 ... % Editor>Display:       Right-hand text limit line Color
+  }
 };
-names_color_otherlangs = { ...
-    'Editor.Language.TLC.Color.Colors_M_SystemCommands' , ... % TLC
+names_color_otherlangs = {                          ...
+  { ... % TLC
+    'Editor.Language.TLC.Color.Colors_M_SystemCommands' , ...
     'Editor.Language.TLC.Color.Colors_M_Keywords'       , ...
     'Editor.Language.TLC.Color.Colors_M_Comments'       , ...
     'Editor.Language.TLC.Color.string-literal'          , ...
-    'Editor.Language.C.Color.keywords'                  , ... % C/C++
+  } ...
+  { ... % C/C++
+    'Editor.Language.C.Color.keywords'                  , ... 
     'Editor.Language.C.Color.line-comment'              , ...
     'Editor.Language.C.Color.string-literal'            , ...
     'Editor.Language.C.Color.preprocessor'              , ...
     'Editor.Language.C.Color.char-literal'              , ...
     'Editor.Language.C.Color.errors'                    , ...
-    'Editor.Language.Java.Color.keywords'               , ... % Java
+  } ...
+  { ... % Java
+    'Editor.Language.Java.Color.keywords'               , ...
     'Editor.Language.Java.Color.line-comment'           , ...
     'Editor.Language.Java.Color.string-literal'         , ...
     'Editor.Language.Java.Color.char-literal'           , ...
-    'Editor.Language.VHDL.Color.Colors_M_Keywords'      , ... % VHDL
+  } ...
+  { ... % VHDL
+    'Editor.Language.VHDL.Color.Colors_M_Keywords'      , ...
     'Editor.Language.VHDL.Color.operator'               , ...
     'Editor.Language.VHDL.Color.Colors_M_Comments'      , ...
     'Editor.Language.VHDL.Color.string-literal'         , ...
-    'Editor.Language.Verilog.Color.Colors_M_Comments'   , ... % Verilog
+  } ...
+  { ... % Verilog
+    'Editor.Language.Verilog.Color.Colors_M_Comments'   , ...
     'Editor.Language.Verilog.Color.operator'            , ...
     'Editor.Language.Verilog.Color.Colors_M_Keywords'   , ...
     'Editor.Language.Verilog.Color.string-literal'      , ...
-    'Editor.Language.XML.Color.error'                   , ... % XML
+  } ...
+  { ... % XML
+    'Editor.Language.XML.Color.error'                   , ...
     'Editor.Language.XML.Color.tag'                     , ...
     'Editor.Language.XML.Color.attribute'               , ...
     'Editor.Language.XML.Color.operator'                , ...
@@ -245,11 +268,9 @@ names_color_otherlangs = { ...
     'Editor.Language.XML.Color.ref'                     , ...
     'Editor.Language.XML.Color.pi-content'              , ...
     'Editor.Language.XML.Color.cdata-section'           , ...
+  }
 };
 
-
-
-def_fname = 'ColorSchemeForMATLAB.prf';
 
 % ------------------------ Setup ------------------------------------------
 if nargout==0
@@ -259,9 +280,6 @@ else
 end
 if inc_bools
     names_boolean = [names_boolean names_boolextra];
-end
-if inc_otherlangs
-    names_color = [names_color names_color_otherlangs];
 end
 
 % ------------------------ Check -------------------------------------
@@ -275,7 +293,8 @@ if isequal(com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB,...
     msg = 'Colour for text and background appear to be the same.';
     
     % The values match, so give an error
-    if com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB==-16777216
+    if com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB ...
+            == -16777216
         % Since the colour is black, it seems the user hasn't visited the
         % colour preference panes at all
         msg = [msg, 10, ...
@@ -300,6 +319,53 @@ if isequal(com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB,...
     
     % Raise the error with the completed message
     error(msg);
+end
+
+% Go through all the main color preference panels, checking their settings
+% are available to us
+% Initialise outer level of holding variables
+cprefs_main = cell(size(names_color_main));
+colors_main = cell(size(names_color_main));
+% Loop over every one of the main colour preference panels
+for iPanel = 1:numel(names_color_main)
+    % Initialise holding variable for settings in this panel
+    cprefs_main{iPanel} = cell(size(names_color_main{iPanel}));
+    colors_main{iPanel} =  nan(size(names_color_main{iPanel}));
+    % Loop over every colour setting in the panel
+    for iPref = 1:numel(names_color_main{iPanel})
+        % Get the name for the color setting we are interested in
+        nm = names_color_main{iPanel}{iPref};
+        % Read the preference for this colour and get a Java color object
+        cprefs_main{iPanel}{iPref} = com.mathworks.services.Prefs.getColorPref(nm);
+        % Turn this into 
+        colors_main{iPanel}(iPref) = cprefs_main{iPanel}{iPref}.getRGB;
+    end
+    % Only give the error on the Color and Programming Tools pages, because
+    % there are only two colours set in the Editor > Display and they could
+    % plausibly both be black. We instead check this panel seperately below.
+    if iPanel <= 2 && all(colors_main{iPanel}==-16777216)
+        % This panel appears to all be black, so we make an error
+        error(...
+            ['Colours for all of %1$s panel appear to be black. ' 10 ...
+             'This will be because you have never set the preferences ' ...
+             'in this panel. You can do so by visiting the %1$s ' ...
+             'Preferences page and clicking OK, as detailed in the ' ...
+             'description of this function.'], panels_main{iPanel});
+    end
+end
+% Check the Editor > Display panel has been initialised.
+% If it hasn't, the line width will appear to be 0, which is not a possible
+% setting.
+if com.mathworks.services.Prefs.getIntegerPref(...
+        'EditorRightTextLimitLineWidth') == 0
+    % It hasn't been set, so we generate an error
+    error(...
+        ['Properties from the %1$s preference panel could not be loaded. ' ...
+         10 ...
+         'This will be because you have never set the preferences in '...
+         'this panel. You can do so by visiting the %1$s ' ...
+         'Preferences page and clicking OK, as detailed in the ' ...
+         'description of this function.'], panels_main{3});
 end
 
 % Let the user know they are doing a stupid thing if they export when using
@@ -358,7 +424,6 @@ for i=1:length(names_boolean)
     iname = names_boolean{i};
     ipref = com.mathworks.services.Prefs.getBooleanPref(iname);
     prefs_boolean{i} = ipref;
-    
     % Write to file
     outstr = [iname '=B'];
     if ipref
@@ -367,7 +432,7 @@ for i=1:length(names_boolean)
         outstr = [outstr 'false'];
     end
     outstr = [outstr '\n'];
-    fprintf(fid,outstr);
+    fprintf(fid, outstr);
     
 end
 
@@ -379,23 +444,45 @@ for i=1:length(names_integer)
     ipref = com.mathworks.services.Prefs.getIntegerPref(iname);
     prefs_integer{i} = ipref;
     
-    % Write to file
+    % Write to filenames_integer
     outstr = '%s=I%d\n';
-    fprintf(fid,outstr,iname,ipref);
+    fprintf(fid, outstr, iname, ipref);
     
 end
 
-% Loop through the colour type settings
-prefs_color = cell(size(names_color));
-for i=1:length(names_color)
-    
-    iname = names_color{i};
-    ipref = com.mathworks.services.Prefs.getColorPref(iname);
-    prefs_color{i} = ipref;
-    
-    % Write to file
-    outstr = '%s=C%d\n';
-    fprintf(fid,outstr,iname,ipref.getRGB);
+% Loop through the colour type settings for MATLAB syntax highlighting
+prefs_color = cell(1, sum(cellfun(@numel, names_color_main)));
+for iPanel=1:numel(names_color_main)
+    for iPref=1:numel(names_color_main{iPanel})
+        
+        iname = names_color_main{iPanel}{iPref};
+        prefs_color{i} = cprefs_main{iPanel}{iPref};
+        
+        % Write to file
+        outstr = '%s=C%d\n';
+        fprintf(fid, outstr, iname, colors_main{iPanel}(iPref));
+    end
+end
+
+% Loop through the colour type settings for other language syntax
+if inc_otherlangs
+    prefs_color2 = cell(1, sum(cellfun(@numel, names_color_otherlangs)));
+    for iPanel=1:numel(names_color_otherlangs)
+        for iPref=1:numel(names_color_otherlangs{iPanel})
+            
+            iname = names_color_otherlangs{iPanel}{iPref};
+            ipref = com.mathworks.services.Prefs.getColorPref(iname);
+            prefs_color2{i} = ipref;
+            
+            % Write to file
+            outstr = '%s=C%d\n';
+            fprintf(fid, outstr, iname, ipref.getRGB);
+        end
+    end
+    names_color = [names_color_main names_color_otherlangs];
+else
+    names_color = names_color_main;
+    prefs_color2 = {};
 end
 
 % ------------------------ Tidy up ----------------------------------------
@@ -406,7 +493,7 @@ fprintf('Exported color scheme to %s\n',fname);
 
 if nargout>1;
     varargout{2} = [names_boolean names_integer names_color];
-    varargout{3} = [prefs_boolean prefs_integer prefs_color];
+    varargout{3} = [prefs_boolean prefs_integer prefs_color prefs_color2];
 end
 
 end
