@@ -1,4 +1,5 @@
 # Default MATLAB color scheme
+# This color scheme file restores the color scheme which ships with MATLAB.
 # To enable this color scheme in MATLAB use schemer_import, available at:
 #     https://github.com/scottclowe/matlab-schemer
 ColorsUseSystem=Btrue
