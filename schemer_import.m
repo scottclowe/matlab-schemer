@@ -95,16 +95,18 @@
 % POSSIBILITY OF SUCH DAMAGE.
 
 % Known issues:
+% 
 % 1. Text colour of automatically highlighted variables does not change
-%   colour immediately. This is an issue with matlab; if you change the main
-%   text colour in the preferences pane, highlighted variables will still
-%   have the old text colour until matlab is restarted.
-% 2. Java exception is thrown on Windows when trying to update
-%   Editor.VariableHighlighting.Color. This only happens the first
-%   time SCHEMER_IMPORT is run, so the current fix is to catch the error
-%   and then try again. However, it might be possible for other Java
-%   exceptions get thrown under other mysterious circumstances, which could 
-%   cause the function to fail.
+%    colour immediately. This is an issue with matlab; if you change the main
+%    text colour in the preferences pane, highlighted variables will still
+%    have the old text colour until matlab is restarted.
+%    
+% 2. Java exception is thrown when first trying to update the setting
+%    Editor.VariableHighlighting.Color. This only happens the first
+%    time SCHEMER_IMPORT is run, so the current fix is to catch the error
+%    and then try again. However, it might be possible for other Java
+%    exceptions get thrown under other mysterious circumstances, which could 
+%    cause the function to fail.
 
 function varargout = schemer_import(fname, inc_bools)
 
