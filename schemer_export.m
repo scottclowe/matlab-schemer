@@ -186,9 +186,11 @@ inc_otherlangs = flag_mode >= 2;
 % 3: yes bools, yes other languages
 
 % ------------------------ Settings ---------------------------------------
+% Names of boolean preferences which should always be output
 names_boolean = {                                   ...
     'ColorsUseSystem'                               ; ... % Color:    Desktop:    Use system colors
 };
+% Names of boolean preferences which the user can choose whether to output
 names_boolextra = {                                 ...
     'ColorsUseMLintAutoFixBackground'               ; ... % Color>PT: Analyser:   autofix highlight
     'Editor.VariableHighlighting.Automatic'         ; ... % Color>PT: Var&fn:     auto highlight
@@ -198,6 +200,7 @@ names_boolextra = {                                 ...
     'Editorhighlight-caret-row-boolean'             ; ... % Editor>Display:       Highlight current line
     'EditorRightTextLineVisible'                    ; ... % Editor>Display:       Show Right-hand text limit
 };
+% Names of preferences for which the values are integers
 names_integer = {                                   ...
     'EditorRightTextLimitLineWidth'                 ; ... % Editor>Display:       Right-hand text limit Width
 };
@@ -208,6 +211,8 @@ panels_main = {                                     ...
     'Color > Programming Tools'                     ; ...
     'Editor/Debugger > Display'                     ; ...
 };
+% Names of colour preferences which are in the main panels and used in
+% MATLAB syntax highlighting
 names_color_main = {                                ...
   { ... % Color panel
     'ColorsText'                                    ; ... % Color:    Desktop:    main text colour
@@ -232,6 +237,8 @@ names_color_main = {                                ...
     'EditorRightTextLimitLineColor'                 ; ... % Editor>Display:       Right-hand text limit line Color
   }
 };
+% Names of colour preferences for syntax highlighting in languages other
+% than MATLAB
 names_color_otherlangs = {                          ...
   { ... % MuPAD
     'Editor.Language.MuPAD.Color.keyword'               ; ...
@@ -299,11 +306,15 @@ names_color_otherlangs = {                          ...
 
 
 % ------------------------ Setup ------------------------------------------
+% Initialise output
 if nargout==0
+    % Empty if no output requested
     varargout = {};
 else
+    % -2 to signify unknown error otherwise
     varargout = {-2};
 end
+% If we are outputting all the bools, add them to the list to do
 if inc_bools
     names_boolean = [names_boolean; names_boolextra];
 end
@@ -437,7 +448,7 @@ finishup = onCleanup(@() fclose(fid));
 
 % Write a few comments to the start of the file
 fprintf(fid,'# %s - MATLAB color scheme\n', schemename);
-fprintf(fid,'# Generated with schemer_export %s, on MATLAB %s\n',VERSION,version);
+fprintf(fid,'# Generated with schemer_export %s, on MATLAB %s\n', VERSION, version);
 fprintf(fid,'# %s\n', char(java.util.Date));
 fprintf(fid,'# To enable this color scheme in MATLAB use schemer_import, available at:\n');
 fprintf(fid,'#     %s\n', URL_GIT);
