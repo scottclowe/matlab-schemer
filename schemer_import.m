@@ -186,9 +186,11 @@ end
 function varargout = main(fname, inc_bools)
 
 % ------------------------ Parameters -------------------------------------
+% Names of boolean preferences which should always be imported
 names_boolean = {                                   ...
     'ColorsUseSystem'                               ... % Color:    Desktop:    Use system colors
 };
+% Names of boolean preferences which the user can choose whether to import
 names_boolextra = {                                 ...
     'ColorsUseMLintAutoFixBackground'               ... % Color>PT: Analyser:   autofix highlight
     'Editor.VariableHighlighting.Automatic'         ... % Color>PT: Var&fn:     auto highlight
@@ -198,9 +200,19 @@ names_boolextra = {                                 ...
     'Editorhighlight-caret-row-boolean'             ... % Editor>Display:       Highlight current line
     'EditorRightTextLineVisible'                    ... % Editor>Display:       Show Right-hand text limit
 };
+% Names of preferences for which the values are integers
 names_integer = {                                   ...
     'EditorRightTextLimitLineWidth'                 ... % Editor>Display:       Right-hand text limit Width
 };
+% Names of colour preferences, and their default value if not present in
+% the .prf file
+%    column 1: name of preference
+%    column 2: default value.
+%               - Empty if no default,
+%               - Integer if specific colour,
+%               - String if inherited from another colour setting (which
+%                   should appear higher up in the list)
+%               - Cell array of strings to take the average colour from
 names_color = { ...
     'ColorsText'                                        , ... % Color:    Desktop:    main text colour
         ''                                                  ; ...
