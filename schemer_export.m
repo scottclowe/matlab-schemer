@@ -140,7 +140,7 @@
 
 function varargout = schemer_export(fname, flag_mode)
 
-VERSION = 'v1.2.4';
+VERSION = 'v1.2.5';
 URL_GIT = 'https://github.com/scottclowe/matlab-schemer';
 def_fname = 'ColorSchemeForMATLAB.prf';
 
@@ -236,6 +236,16 @@ names_color_main = {                                ...
     'Editorhighlight-caret-row-boolean-color'       ; ... % Editor>Display:       Highlight current line Color
     'EditorRightTextLimitLineColor'                 ; ... % Editor>Display:       Right-hand text limit line Color
   }
+};
+% Names of colour preferences which are known to have been added since the
+% year 2011, and so their presence in the preferences is not guaranteed
+names_color_versioned = { ...
+    'Color_CmdWinWarnings'                          , ... % Color: Command Window Warning messages
+        '7.13'                                          , ... % Known to NOT be in 2011a (7.12)
+        '8.2'                                           ; ... % Known to be in 2013b
+    'Color_CmdWinErrors'                            , ... % Color: Command Window Error messages
+        '8.3'                                           , ... % Known to NOT be in 2013b (8.2)
+        '8.4'                                           ; ... % Known to be in 2014b
 };
 % Names of colour preferences for syntax highlighting in languages other
 % than MATLAB
@@ -494,6 +504,37 @@ for iPanel=1:numel(names_color_main)
     end
 end
 
+% Loop over colours which may or may not be available
+% Initialise cell arrays for successful fields
+onames_versioned = {};
+cprefs_versioned = {};
+% Loop over the colours
+for iPref=1:size(names_color_versioned, 1)
+    % Check the name of this preference
+    nm = names_color_versioned{iPref, 1};
+    % Try to get the colour for this preference
+    prf = com.mathworks.services.Prefs.getColorPref(nm);
+    % If the current MATLAB version is less the first version where it is
+    % not known whether it has implemented this preference feature
+    % Or if the MATLAB version is less than the first version known to have
+    % implemented the feature and the colour appears to be black
+    % Then we skip this preference
+    if verLessThan('matlab', names_color_versioned{iPref,2}) ...
+        || ( ...
+            verLessThan('matlab', names_color_versioned{iPref,3}) ...
+            && prf.getRGB==-16777216 ...
+           )
+        % It appears that this version of MATLAB does not include this
+        % preference. So we skip it.
+        continue;
+    end
+    % Otherwise, we write its colour value to the output file
+    fprintf(fid, '%s=C%d\n', nm, prf.getRGB);
+    % And we add the values to the list to output
+    onames_versioned{end+1} = nm;
+    cprefs_versioned{end+1} = prf;
+end
+
 % Loop through the colour type settings for other language syntax
 if ~inc_otherlangs
     % We're not exporting the other languages, so set these to be empty
@@ -551,11 +592,13 @@ if nargout>1;
                     names_boolean       , ...
                     names_integer       , ...
                     names_color_main{:} , ...
+                    onames_versioned    , ...
                     onames_langs        );
     varargout{3} = cat(1, ...
                     prefs_boolean       , ...
                     prefs_integer       , ...
                     cprefs_main{:}      , ...
+                    cprefs_versioned    , ...
                     cprefs_langs        );
 end
 
