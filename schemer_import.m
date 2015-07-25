@@ -111,7 +111,7 @@
 function varargout = schemer_import(fname, inc_bools)
 
 % ------------------------ Parameters -------------------------------------
-SCHEMER_VERSION = 'v1.2.5';
+SCHEMER_VERSION = 'v1.2.6';
 
 % ------------------------ Input handling ---------------------------------
 % ------------------------ Default inputs ---------------------------------
@@ -203,6 +203,17 @@ names_boolextra = {                                 ...
 % Names of preferences for which the values are integers
 names_integer = {                                   ...
     'EditorRightTextLimitLineWidth'                 ... % Editor>Display:       Right-hand text limit Width
+};
+% Names of preferences for which the values are strings
+%   column 1: name of preference
+%   column 2: a regex which the string must match if it is to be exported
+%             use '.' or '.+' to allow any non-empty string to be output
+%             use  '' or '.*' for anything, including empty strings
+%             use '\S' for anything except empty or whitespace-only strings
+%             use '^str1|str2|str3$' to allow only a finite set of strings
+names_string = {                                    ...
+    'Editor.Language.Java.method'                       , ... % Java: Show methods
+        '^(none|bold|italic)$'                             ; ...
 };
 % Names of colour preferences, and their default value if not present in
 % the .prf file
@@ -344,8 +355,6 @@ names_color = { ...
         'Editor.NonlocalVariableHighlighting.TextColor'     ; ...
 };
 
-% 'Editor.Language.Java.method' $ plain / bold / italic
-
 verbose = 0;
 
 % ------------------------ Setup ------------------------------------------
@@ -444,6 +453,25 @@ while ~feof(fid)
         com.mathworks.services.Prefs.setIntegerPref(n.name,int);
         if verbose; fprintf('Set integer %d for %s\n',int,n.name); end
    
+    elseif ismember(n.name,names_string(:,1))
+        % Deal with string type
+        if ~strcmpi('S',n.pref(1))
+            warning('Bad string pref for %s: %s',n.name,n.pref);
+            continue;
+        end
+        str = n.pref(2:end);
+        % Look up which of the preference settings this is
+        [~, idx] = ismember(n.name,names_string(:,1));
+        % Check that the setting allowed by the regex it must satisfy
+        if isempty(regexp(str, names_string{idx,2}, ...
+                    'start', 'emptymatch'))
+            % If not, we can't set the value to be this
+            warning('Invalid string for %s: %s',n.name,str);
+            continue;
+        end
+        com.mathworks.services.Prefs.setStringPref(n.name,str);
+        if verbose; fprintf('Set string %s for %s\n',str,n.name); end
+        
     elseif ismember(n.name,names_color(:,1))
         % Deal with colour type (final type to consider)
         if ~strcmpi('C',n.pref(1))

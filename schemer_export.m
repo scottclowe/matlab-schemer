@@ -141,7 +141,7 @@
 function varargout = schemer_export(fname, flag_mode)
 
 % ------------------------ Parameters -------------------------------------
-SCHEMER_VERSION = 'v1.2.5';
+SCHEMER_VERSION = 'v1.2.6';
 SCHEMER_URLGIT  = 'https://github.com/scottclowe/matlab-schemer';
 DEFOUTNAME      = 'ColorSchemeForMATLAB.prf';
 
@@ -316,6 +316,18 @@ names_color_otherlangs = {                          ...
     'Editor.Language.XML.Color.pi-content'              ; ...
     'Editor.Language.XML.Color.cdata-section'           ; ...
   }
+};
+% Names of preferences for other language syntax and where setting value
+% is a string
+%   column 1: name of preference
+%   column 2: a regex which the string must match if it is to be exported
+%             use '.' or '.+' to allow any non-empty string to be output
+%             use  '' or '.*' for anything, including empty strings
+%             use '\S' for anything except empty or whitespace-only strings
+%             use '^str1|str2|str3$' to allow only a finite set of strings
+names_string_otherlang = {                              ...
+    'Editor.Language.Java.method'                       , ... % Java: Show methods
+        '^(none|bold|italic)$'                             ; ...
 };
 
 
@@ -540,15 +552,13 @@ for iPref=1:size(names_color_versioned, 1)
     cprefs_versioned{end+1} = prf;
 end
 
-% Loop through the colour type settings for other language syntax
-if ~inc_otherlangs
-    % We're not exporting the other languages, so set these to be empty
-    onames_langs = {};
-    cprefs_langs = {};
-else
-    % Initialise a cell array to output
-    onames_langs = {};
-    cprefs_langs = {};
+
+% Initialise a cell array to output for other language syntax
+onames_langs = {};
+cprefs_langs = {};
+% Loop through the colour type settings for other language syntax, only if
+% it is requested
+if inc_otherlangs
     % Go through all the language color syntax preference panels, checking
     % their settings are available to us
     % Loop over every one of the main colour preference panels
@@ -583,6 +593,30 @@ else
         % Remember the prefences so we can return them
         onames_langs = [onames_langs; names_color_otherlangs{iPanel}];
         cprefs_langs = [cprefs_langs; panel_prefs];
+    end
+end
+
+% Do strings for other languages
+if inc_otherlangs
+    for iPref=1:size(names_string_otherlang, 1)
+        % Get the name for the string preference we are interested in
+        nm  = names_string_otherlang{iPref,1};
+        % Read the string
+        str = com.mathworks.services.Prefs.getStringPref(nm);
+        % Turn it from a java.lang.String object to a regular char object
+        str = char(str);
+        % Check it is okay
+        if isempty(regexp(str, names_string_otherlang{iPref,2}, ...
+                    'start', 'emptymatch'))
+            % It did not have any matches for the regex, so we will not use
+            % this setting. We will assume its value is not available.
+            continue;
+        end
+        % It matched the regex for acceptable values, so we will export it
+        fprintf(fid, '%s=S%s\n', nm, str);
+        % Remember the prefence so we can return it
+        onames_langs = [onames_langs; nm];
+        cprefs_langs = [cprefs_langs; str];
     end
 end
 
