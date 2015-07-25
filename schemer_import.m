@@ -108,7 +108,8 @@
 
 function varargout = schemer_import(fname, inc_bools)
 
-VERSION = 'v1.2.5';
+% ------------------------ Parameters -------------------------------------
+SCHEMER_VERSION = 'v1.2.5';
 
 % ------------------------ Input handling ---------------------------------
 % ------------------------ Default inputs ---------------------------------

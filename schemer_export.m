@@ -140,9 +140,10 @@
 
 function varargout = schemer_export(fname, flag_mode)
 
-VERSION = 'v1.2.5';
-URL_GIT = 'https://github.com/scottclowe/matlab-schemer';
-def_fname = 'ColorSchemeForMATLAB.prf';
+% ------------------------ Parameters -------------------------------------
+SCHEMER_VERSION = 'v1.2.5';
+SCHEMER_URLGIT  = 'https://github.com/scottclowe/matlab-schemer';
+DEFOUTNAME      = 'ColorSchemeForMATLAB.prf';
 
 % ------------------------ Input handling ---------------------------------
 % Default inputs
@@ -431,10 +432,10 @@ if ~isempty(fname)
 else
     % Get user's name
     username = java.lang.System.getProperty('user.name');
-    % Prepend to filename
-    def_fname = [char(username) def_fname];
-    % Dialog asking for savename
-    [filename, pathname] = uiputfile(def_fname, ...
+    % Prepend username to default filename
+    outFileName = [char(username) DEFOUTNAME];
+    % Dialog asking for savename, with smart default output filename
+    [filename, pathname] = uiputfile(outFileName, ...
         'Select file to write MATLAB color scheme');
     % End if user cancels
     if isequal(filename,0);
@@ -457,11 +458,12 @@ finishup = onCleanup(@() fclose(fid));
 [~, schemename] = fileparts(filename);
 
 % Write a few comments to the start of the file
-fprintf(fid,'# %s - MATLAB color scheme\n', schemename);
-fprintf(fid,'# Generated with schemer_export %s, on MATLAB %s\n', VERSION, version);
-fprintf(fid,'# %s\n', char(java.util.Date));
-fprintf(fid,'# To enable this color scheme in MATLAB use schemer_import, available at:\n');
-fprintf(fid,'#     %s\n', URL_GIT);
+fprintf(fid, '# %s - MATLAB color scheme\n', schemename);
+fprintf(fid, '# Generated with schemer_export %s, on MATLAB %s\n', ...
+                SCHEMER_VERSION, version);
+fprintf(fid, '# %s\n', char(java.util.Date));
+fprintf(fid, '# To enable this color scheme in MATLAB use schemer_import, available at:\n');
+fprintf(fid, '#     %s\n', SCHEMER_URLGIT);
 
 % ------------------------ Read and Write ---------------------------------
 % Loop through the boolean type settings
