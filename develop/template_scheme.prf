@@ -17,12 +17,18 @@ Colors_M_Comments=C-                             # Text for comments
 Colors_M_Strings=C-                              # Text for strings
 Colors_M_UnterminatedStrings=C-                  # Text for unterminated strings
 Colors_M_SystemCommands=C-                       # Text for shell commands
-Colors_M_Errors=C-                               #* Error messages, error underline, go-to bars
+Colors_M_Errors=C-                               #*Editor error messages and underlines, go-to bars
 Colors_HTML_HTMLLinks=C-                         # Text for URLs
-Colors_M_Warnings=C-                             #* Warning underlines and go-to-warning bars
+Color_CmdWinWarnings=C-                          #^Command window Warning text
+Color_CmdWinErrors=C-                            #^Command window Error text
+Colors_M_Warnings=C-                             #*Editor Warning underlines and go-to-warning bars
 ColorsMLintAutoFixBackground=C-                  # Background for autofixable
-Editor.VariableHighlighting.Color=C-             #* Background for occurances of current variable
+Editor.VariableHighlighting.Color=C-             #*Background for occurances of current variable
 Editor.NonlocalVariableHighlighting.TextColor=C- # Text for global variables
 Editorhighlight-lines=C-                         # Background of current cell
 Editorhighlight-caret-row-boolean-color=C-       # Background of current line
 EditorRightTextLimitLineColor=C-                 # Colour of bar for right-hand text limit
+
+#Legend
+#  * = Preference does not update until after restarting MATLAB
+#  ^ = Preference not present on all versions of MATLAB
