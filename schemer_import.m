@@ -160,17 +160,20 @@ else
 end
 
 % ------------------------ Catch block ------------------------------------
-% Somewhat inexplicably, when the code is run on Windows R2011a to load a
-% new color scheme, a Java exception is thrown. But if you try again
-% immediately, you will succeed. The problem is very consistent.
-% No such issues occur for Linux R2011a.
+% Somewhat inexplicably, a Java exception is thrown the first time we try
+% to set 'Editor.VariableHighlighting.Color'.
+% But if we try again immediately, it can be set without any problems.
+% The issue is very consistent.
+% The solution is to try to set this colour along with all the others,
+% catch the exception when it occurs, and then attempt to set all the
+% preferences again.
 try
     [varargout{1:nargout}] = main(fname, inc_bools);
 catch ME
     if ~strcmp(ME.identifier,'MATLAB:Java:GenericException');
         rethrow(ME);
     end
-%     disp('Threw and ignored a Java exception. Retrying.');
+    % disp('Threw and ignored a Java exception. Retrying.');
     [varargout{1:nargout}] = main(fname, inc_bools);
 end
 
