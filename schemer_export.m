@@ -140,7 +140,7 @@
 
 function varargout = schemer_export(fname, flag_mode)
 
-VERSION = 'v1.2.2';
+VERSION = 'v1.2.3';
 URL_GIT = 'https://github.com/scottclowe/matlab-schemer';
 def_fname = 'ColorSchemeForMATLAB.prf';
 
