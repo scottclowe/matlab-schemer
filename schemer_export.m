@@ -1,6 +1,7 @@
 %SCHEMER_EXPORT Export current MATLAB color scheme to text file
 %   If this is your first time using SCHEMER_EXPORT, please ensure you
-%   first read the IMPORTANT NOTE at the bottom of the help section.
+%   read the IMPORTANT NOTE at the bottom of the help section before using
+%   this function.
 %   
 %   SCHEMER_EXPORT() with no input will prompt the user to locate a
 %   destination file via the GUI. Please read the IMORTANT NOTE below
@@ -54,8 +55,8 @@
 %   colours are extended to highlight syntax in the other languages
 %   consistent with the MATLAB scheme.
 %   
-%   SCHEMER_EXPORT(FLAG_MODE, FILENAME) with a numeric and then string
-%   input also work, as the input order is reversible.
+%   SCHEMER_EXPORT(FLAG_MODE, FILENAME), with a numeric input followed by a
+%   string, will also work as above because the input order is reversible.
 %   
 %   SCHEMER_EXPORT(FLAG_MODE) with a single numeric input will open the GUI
 %   to pick the filename and will save the output according to FLAG_MODE.
@@ -104,7 +105,12 @@
 %   Example 3: User is sure they have OK'd all the relevent Preferences
 %   panes already, knows the path they wish to save to, and doesn't want
 %   to export their boolean settings.
-%       schemer_export('some/path/schemeName.prf', false)
+%       schemer_export('some/path/schemeName.prf', 0)
+%   
+%   Example 4: User has set some colour preferences for C/C++ syntax
+%   highlighting in addition to MATLAB syntax highlighting, and wants to
+%   output this along with their boolean settings
+%       schemer_export(3)
 %   
 %   See also SCHEMER_IMPORT, PREFDIR, COLOR2JAVARGBINT.
 
