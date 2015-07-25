@@ -48,11 +48,11 @@
 %   after importing your color scheme.
 %   
 %   Colours for highlighting syntax in other languages supported by MATLAB
-%   (TLC, C++, Java, VHDL, Verilog, XML) can be set in the preferences
-%   panel Editor/Debugger > Language. If you have not set any of these
-%   colours yourself, you should not export them. If SCHEMER_IMPORT loads a
-%   color scheme without additional language syntax included, the MATLAB
-%   colours are extended to highlight syntax in the other languages
+%   (MuPAD, TLC, VRML, C++, Java, VHDL, Verilog, XML) can be set in the
+%   preferences panel Editor/Debugger > Language. If you have not set any
+%   of these colours yourself, you should not export them. If SCHEMER_IMPORT
+%   loads a color scheme without additional language syntax included, the
+%   MATLAB colours are extended to highlight syntax in the other languages
 %   consistent with the MATLAB scheme.
 %   
 %   SCHEMER_EXPORT(FLAG_MODE, FILENAME), with a numeric input followed by a
