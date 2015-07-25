@@ -240,6 +240,9 @@ names_color_main = {                                ...
 };
 % Names of colour preferences which are known to have been added since the
 % year 2011, and so their presence in the preferences is not guaranteed
+%   column 1: name of setting
+%   column 2: first version in which preference might have been implemented
+%   column 3: first version in which preference has been observed to exist
 names_color_versioned = { ...
     'Color_CmdWinWarnings'                          , ... % Color: Command Window Warning messages
         '7.13'                                          , ... % Known to NOT be in 2011a (7.12)
