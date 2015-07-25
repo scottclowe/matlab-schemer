@@ -108,7 +108,7 @@
 
 function varargout = schemer_import(fname, inc_bools)
 
-VERSION = 'v1.2.4';
+VERSION = 'v1.2.5';
 
 % ------------------------ Input handling ---------------------------------
 % ------------------------ Default inputs ---------------------------------
@@ -219,6 +219,10 @@ names_color = { ...
         'Colors_M_Keywords'                                 ; ...
     'Colors_HTML_HTMLLinks'                             , ... % Color:    Other:      hyperlinks
         'ColorsText'                                        ; ...
+    'Color_CmdWinWarnings'                              , ... % Color:    Other:      Warning messages
+        'Colors_M_Warnings'                                 ; ...
+    'Color_CmdWinErrors'                                , ... % Color:    Other:      Error messages
+        'Colors_M_Errors'                                   ; ...
     'ColorsMLintAutoFixBackground'                      , ... % Color>PT: Analyser:   autofix
         'ColorsBackground'                                  ; ...
     'Editor.VariableHighlighting.Color'                 , ... % Color>PT: Var&fn:     highlight
