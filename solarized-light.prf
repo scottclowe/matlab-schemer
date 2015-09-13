@@ -28,8 +28,16 @@ Editor.NonlocalVariableHighlighting.TextColor=C-8021760  # green
 Editorhighlight-lines=C-133405                           # base 00
 Editorhighlight-caret-row-boolean-color=C-1120043        # base 2
 EditorRightTextLimitLineColor=C-1120043                  # base 2
+# MuPAD
+Editor.Language.MuPAD.Color.operator=C-8021760           # green
+Editor.Language.MuPAD.Color.function=C-4880128           # yellow
+Editor.Language.MuPAD.Color.constant=C-2935166           # magenta
 # TLC
 Editor.Language.TLC.Color.Colors_M_Keywords=C-8021760    # green
+# VRML
+Editor.Language.VRML.Color.node-keyword=C-4880128        # yellow
+Editor.Language.VRML.Color.field-keyword=C-2935166       # magenta
+Editor.Language.VRML.Color.terminal-symbol=C-8021760     # green
 # C/C++
 Editor.Language.C.Color.preprocessor=C-8021760           # green
 Editor.Language.C.Color.char-literal=C-9670204           # violet
