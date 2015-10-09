@@ -3,7 +3,9 @@
 [![Gratipay](https://img.shields.io/gratipay/scottclowe.svg)](https://gratipay.com/matlab-schemer/)
 [![Bountysource](https://img.shields.io/bountysource/team/matlab-schemer/activity.svg)](https://www.bountysource.com/teams/matlab-schemer)
 
-# MATLAB Schemer
+
+MATLAB Schemer
+==============
 
 This MATLAB package makes it easy to change the color scheme (a.k.a. theme) of
 the MATLAB display and GUI.
@@ -14,7 +16,9 @@ settings between installations, or create your own color scheme.
 A collection of color schemes is available at
 https://github.com/scottclowe/matlab-schemes.
 
-## Importing a color scheme
+
+Importing a color scheme
+------------------------
 
 Color schemes can be easily imported by running `schemer_import` at the MATLAB
 command prompt, without needing any inputs. This will open a GUI to select the
@@ -29,7 +33,9 @@ However, some settings will require MATLAB to be restarted:
 For more details, see the documentation on the function `schemer_import`,
 available with `help schemer_import`.
 
-## Transferring a color scheme between MATLAB installations
+
+Transferring a color scheme between MATLAB installations
+--------------------------------------------------------
 
 If you are using a personalised color scheme in MATLAB, you may wish to save
 it for yourself so you can re-implement it easily if you reintall MATLAB.
@@ -45,7 +51,9 @@ the function to not only import the colour preferences, but to also import your
 boolean settings (such as whether to highlight the current cell/line, etc)
 from the file you exported from the source installation.
 
-## Reverting to the MATLAB default color scheme
+
+Reverting to the MATLAB default color scheme
+--------------------------------------------
 
 Should you wish to revert to the set of colours which MATLAB ships with, you
 should run `schemer_import('default.prf')`.
@@ -61,7 +69,9 @@ However, this will be less effective than importing the default colours through
 other language syntax supported by MATLAB, which is available in the Editor
 Languages panel.)
 
-## Creating a color scheme for others to use
+
+Creating a color scheme for others to use
+-----------------------------------------
 
 When creating a color scheme to share with the rest of the world, it is
 recommended to ensure colours are chosen appropriately for all possible
@@ -72,6 +82,7 @@ highlighting disabled but it would still be ill-advised to leave the background
 highlight colour for cell displays as the default pale beige because other users
 may have this setting enabled.
 
+
 #### Exporting through the GUI
 
 If you have made a custom color scheme using the MATLAB GUI to pick the colours,
@@ -81,6 +92,7 @@ Please note, this requires you to have visited all relevant panes of the
 Preferences window at least once since MATLAB was installed, even if the
 settings have not been changed from the default.
 See the help for `schemer_export` for more details.
+
 
 #### Porting a theme from a different editor
 
@@ -102,6 +114,7 @@ files use to specify colours instead.
 The `schemer` package comes with a utility function `develop/color2javaRGBint`
 to help make this easier. See the `color2javaRGBint` documentation for more
 details.
+
 
 #### Setting colours for additional languages
 
@@ -142,11 +155,14 @@ do the following.
 6. Export the colorscheme again, but this time with `schemer_export(3)` to include
    the customised colours for the additional languages.
 
-## Addendum
+
+Addendum
+--------
 
 #### Requirements
 
 Please note that `schemer` requires MATLAB to be run with Java support enabled.
+
 
 #### Further information
 
