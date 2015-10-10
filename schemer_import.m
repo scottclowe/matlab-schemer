@@ -35,7 +35,8 @@
 %   panels which the user has not visited on the origin system of the
 %   matlab.prf file will not be present in the file, and hence not updated
 %   on import.
-%   By default, MATLAB preference options which will be overwritten by
+%   
+%   The MATLAB preference options which will be overwritten by
 %   SCHEMER_IMPORT are:
 %   - All settings in the Color pane of Preferencs
 %   - All colour settings in the Color > Programming Tools pane, but no
