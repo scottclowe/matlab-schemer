@@ -4,9 +4,10 @@
 %   this function.
 %   
 %   SCHEMER_EXPORT() with no input will prompt the user to locate a
-%   destination file via the GUI. Please read the IMORTANT NOTE below
+%   destination file via the GUI, and will save the current color scheme
+%   to this location. Please read the IMORTANT NOTE below
 %   before running this script or it may not work correctly.
-%   MATLAB preference options included are:
+%   The MATLAB preference options which are exported are:
 %   - All settings in the Color pane of Preferences
 %   - All settings in the Color > Programming Tools pane
 %   - From Editor/Debugger > Display pane, the following:
@@ -16,8 +17,7 @@
 %   which is found at FULLFILE(PREFDIR,'matlab.prf').
 %   
 %   SCHEMER_EXPORT(FILENAME) exports the relevant MATLAB preferences
-%   settings with regards to the interface color scheme currently in use to
-%   the file FILENAME.
+%   to the file FILENAME.
 %   
 %   SCHEMER_EXPORT(FILENAME, FLAG_MODE) controls which settings are output
 %   into the preference file FILENAME. Along with the colour settings for
@@ -33,8 +33,9 @@
 %     2 - additional language colours are exported, but not boolean settings
 %     3 - both booleans and additional languages are exported
 %   
-%   By default, FLAG_MODE is set to 1, so boolean settings will be
-%   exported, but not colours for additional languages.
+%   By default FLAG_MODE is set to 1, so boolean settings will be
+%   exported, but the settings for syntax highlighting in additional
+%   languages will not be.
 %   
 %   The colour settings for all MATLAB syntax highlighting will always be
 %   exported, even for syntax options which are currently disabled, and
@@ -62,8 +63,8 @@
 %   to pick the filename and will save the output according to FLAG_MODE.
 %   
 %   RET = SCHEMER_EXPORT(...) returns 1 on success, 0 on user
-%   cancellation at output file selection screen, -1 on fopen error, and -2
-%   on any other error.
+%   cancellation at the output file selection screen, -1 on fopen error,
+%   and -2 on any other error.
 %   
 %   [RET, NAMES, PREFS] = SCHEMER_EXPORT(...) also returns two cell
 %   arrays listing the names and preferences which were saved to file.
@@ -73,14 +74,15 @@
 %   http://undocumentedmatlab.com/blog/changing-system-preferences-programmatically
 %   
 %   IMPORTANT NOTE:
-%   You must at some point since installation have visited the
+%   You must have, at any point since installing MATLAB, visited the
 %   Color, Color>Programming Tools and Editor/Debugger>Display panes of
-%   Preferences within MATLAB and then clicked OK in order for all the 
-%   settings to be exported correctly. You will obviously have done this
-%   for any settings you have changed but, for example, you may have left
-%   the Editor/Debugger>Display settings unchanged. If this preference pane
-%   has not been set, its entries will not have been defined, and when
-%   trying to export these they will be incorrectly saved as off/black.
+%   the Preferences diaglogue within MATLAB and then clicked OK in order
+%   for all the settings to be exported correctly. You will obviously have
+%   done this for any settings you have changed but, for example, you may
+%   have left the Editor/Debugger>Display settings unchanged. If this
+%   preference pane has not been set its entries will not have been
+%   defined, and when trying to export these they will be incorrectly saved
+%   as off (for booleans) or black (for colours).
 %   
 %   Example 1: User is not sure if they have OK'd all the relevent
 %   Preferences panes (or sure they haven't).
@@ -92,11 +94,11 @@
 %         - Click Display (underneath "Editor/Debugger" as a subsection)
 %       - Click OK
 %           (Yes, that is literally all you need to do to make sure you can
-%           export correctly. No need to click anywhere I didn't mention.
-%           You just have to have each pane appear, and then click OK at
-%           the end.)
+%           export correctly. There is no need to click anywhere which was
+%           not mentioned. You just have to have each pane appear, and then
+%           click OK at the end.)
 %       - Go to your command window and execute SCHEMER_EXPORT
-%       - The GUI appears, you pick where to save the file.
+%       - The GUI appears, and you pick where to save the file.
 %   
 %   Example 2:  User is sure they have OK'd all the relevent Preferences
 %   panes already.
