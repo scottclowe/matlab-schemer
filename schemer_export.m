@@ -28,10 +28,10 @@
 %   supported by MATLAB.
 %   
 %   The FLAG_MODE settings available are:
-%     0 - neither boolean, nor additional languages are exported
+%     0 - neither booleans, nor additional languages are exported
 %     1 - boolean settings are exported, but not additional languages
 %     2 - additional language colours are exported, but not boolean settings
-%     3 - both boolean and additional languages are exported
+%     3 - both booleans and additional languages are exported
 %   
 %   By default, FLAG_MODE is set to 1, so boolean settings will be
 %   exported, but not colours for additional languages.
