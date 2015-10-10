@@ -83,7 +83,7 @@ highlight colour for cell displays as the default pale beige because other users
 may have this setting enabled.
 
 
-#### Exporting through the GUI
+### Exporting through the GUI
 
 If you have made a custom color scheme using the MATLAB GUI to pick the colours,
 you can export the new color scheme with `schemer_export`.
@@ -94,7 +94,7 @@ settings have not been changed from the default.
 See the help for `schemer_export` for more details.
 
 
-#### Porting a theme from a different editor
+### Porting a theme from a different editor
 
 If you are converting a color scheme designed for another editor into a MATLAB
 stylesheet, you may find it easier to start with a duplicate of the template
@@ -116,7 +116,7 @@ to help make this easier. See the `color2javaRGBint` documentation for more
 details.
 
 
-#### Setting colours for additional languages
+### Setting colours for additional languages
 
 MATLAB supports syntax highlighting for several languanges in addition to its own.
 Currently these languages are
@@ -159,12 +159,12 @@ do the following.
 Addendum
 --------
 
-#### Requirements
+### Requirements
 
 Please note that `schemer` requires MATLAB to be run with Java support enabled.
 
 
-#### Further information
+### Further information
 
 For details on how the method was implemented, see
 http://undocumentedmatlab.com/blog/changing-system-preferences-programmatically
