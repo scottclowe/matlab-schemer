@@ -29,3 +29,17 @@ Editor.NonlocalVariableHighlighting.TextColor=C-16735351
 Editorhighlight-lines=C-14408662
 Editorhighlight-caret-row-boolean-color=C-12632257
 EditorRightTextLimitLineColor=C-8355712
+# TLC
+Editor.Language.TLC.Color.Colors_M_Keywords=C-16735351
+# VRML
+Editor.Language.VRML.Color.terminal-symbol=C-16735351
+# C/C++
+Editor.Language.C.Color.preprocessor=C-16735351
+# VHDL
+Editor.Language.VHDL.Color.operator=C-16735351
+# Verilog
+Editor.Language.Verilog.Color.operator=C-16735351
+# XML
+Editor.Language.XML.Color.operator=C-1710454
+Editor.Language.XML.Color.doctype=C-6578958
+Editor.Language.XML.Color.pi-content=C-9868801
