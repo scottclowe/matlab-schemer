@@ -28,3 +28,21 @@ Editor.NonlocalVariableHighlighting.TextColor=C-11625978
 Editorhighlight-lines=C-394759
 Editorhighlight-caret-row-boolean-color=C-1118484
 EditorRightTextLimitLineColor=C-2170913
+# C/C++
+Editor.Language.C.Color.keywords=C-11625978
+Editor.Language.C.Color.char-literal=C-8169214
+# Java
+Editor.Language.Java.Color.keywords=C-11625978
+Editor.Language.Java.Color.char-literal=C-8169214
+# VHDL
+Editor.Language.VHDL.Color.operator=C-11625978
+# Verilog
+Editor.Language.Verilog.Color.operator=C-11625978
+# XML/HTML
+Editor.Language.XML.Color.tag=C-13343324
+Editor.Language.XML.Color.attribute=C-11625978
+Editor.Language.XML.Color.operator=C-11625978
+Editor.Language.XML.Color.comment=C-16109205
+Editor.Language.XML.Color.doctype=C-8169214
+Editor.Language.XML.Color.pi-content=C-8169214
+Editor.Language.XML.Color.cdata-section=C-8169214
