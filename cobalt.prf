@@ -29,3 +29,16 @@ Editor.NonlocalVariableHighlighting.TextColor=C-8323141  # teal_blue
 Editorhighlight-lines=C-15981252                         # eye-drop
 Editorhighlight-caret-row-boolean-color=C-16762000       # medium_blue
 EditorRightTextLimitLineColor=C-14665909                 # eye-drop
+# C/C++
+Editor.Language.C.Color.preprocessor=C-8323141           # teal_blue
+# Java
+Editor.Language.Java.Color.keywords=C-8323141            # teal_blue
+# VHDL
+Editor.Language.VHDL.Color.operator=C-65468              # nail_polish_pink
+# Verilog
+Editor.Language.Verilog.Color.operator=C-65468           # nail_polish_pink
+# XML/HTML
+Editor.Language.XML.Color.tag=C-8323141                  # teal_blue
+Editor.Language.XML.Color.doctype=C-3355444              # light grey
+Editor.Language.XML.Color.pi-content=C-3355444           # light grey
+Editor.Language.XML.Color.cdata-section=C-3355444        # light grey
