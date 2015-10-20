@@ -28,3 +28,22 @@ Editor.NonlocalVariableHighlighting.TextColor=C-9265201     # skyblue1
 Editorhighlight-lines=C-13288387                            # 
 Editorhighlight-caret-row-boolean-color=C-11184301          # aluminium5
 EditorRightTextLimitLineColor=C-11775661                    # 
+# C/C++
+Editor.Language.C.Color.keywords=C-7675340                  # chameleon1
+Editor.Language.C.Color.preprocessor=C-5406808              # plum1
+Editor.Language.C.Color.char-literal=C-9265201              # skyblue1
+# Java
+Editor.Language.Java.Color.keywords=C-7675340               # chameleon1
+Editor.Language.Java.Color.char-literal=C-9265201           # skyblue1
+# VHDL
+Editor.Language.VHDL.Color.Colors_M_Keywords=C-7675340      # chameleon1
+Editor.Language.VHDL.Color.operator=C-1                     # white
+# Verilog
+Editor.Language.Verilog.Color.operator=C-1                  # white
+Editor.Language.Verilog.Color.Colors_M_Keywords=C-7675340   # chameleon1
+# XML/HTML
+Editor.Language.XML.Color.tag=C-9265201                     # skyblue1
+Editor.Language.XML.Color.attribute=C-7675340               # chameleon1
+Editor.Language.XML.Color.doctype=C-5406808                 # plum1
+Editor.Language.XML.Color.pi-content=C-5406808              # plum1
+Editor.Language.XML.Color.cdata-section=C-5406808           # plum1
