@@ -29,3 +29,5 @@ Editor.NonlocalVariableHighlighting.TextColor=C-16725760     # green
 Editorhighlight-lines=C-15132391                             # 
 Editorhighlight-caret-row-boolean-color=C-16777216           # black
 EditorRightTextLimitLineColor=C-13948117                     # 
+# XML/HTML
+Editor.Language.XML.Color.doctype=C-6425200
