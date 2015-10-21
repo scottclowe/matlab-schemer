@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mysample SYSTEM "mydtd">
+<tag>
+    <!-- Here is a comment -->
+    <foo name="value">
+        Lorem ipsum dolor sit amet.
+    </foo>
+    <bar missing>Missing value error in bar tag</bar>
+    <innertag>
+        Cibo malorum deseruisse nec at. Fabulas quaestio sit eu, nam
+        viderer percipit deserunt at.
+        <![CDATA[
+        This text is part of the innertag and you can use literal 
+        versions of reserved characters < > & ".
+        ]]>
+    </innertag>
+</tag error>

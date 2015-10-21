@@ -1,0 +1,27 @@
+%implements Sample "C"
+
+%% Function: SampleFunction ===============================================
+%% Abstract:
+%%      Doesn't do anything, but does contain some TLC code
+%%      with syntax highlighting.
+%%
+%function SampleFunction(inputVal, indexVal) void
+  %% Need this library to use FILE
+  %<SLibAddToCommonIncludes("<stdio.h>")>
+
+  sprintf("index: %i", indexVal)
+
+  %openfile testFile
+Some text to verbosely go into the file.
+  %closefile testFile
+
+  %assign myVar = STRING(ParamSettings.Input)
+  char fileName[%<RTWMaxStringLength>] = "%<myVar>";
+
+  %if flagTrue
+    void *tp = %<nulldef>;
+  %else
+    %return ""
+  %endif
+
+%% [EOF] sample.tlc
