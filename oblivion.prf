@@ -1,0 +1,49 @@
+# Oblivion - MATLAB color scheme
+# Created by Scott Lowe, 2015-07-05
+# Based on the Gedit theme "Oblivion", https://github.com/mig/gedit-themes
+# To enable this color scheme in MATLAB use schemer_import, available at:
+#     https://github.com/scottclowe/matlab-schemer
+ColorsUseSystem=Bfalse
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Btrue
+EditorCodeBlockDividers=Btrue
+Editorhighlight-caret-row-boolean=Btrue
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I1
+ColorsText=C-2893873                                        # aluminium2
+ColorsBackground=C-13749194                                 # aluminium6
+Colors_M_Keywords=C-1                                       # white
+Colors_M_Comments=C-7828859                                 # aluminium4
+Colors_M_Strings=C-1190912                                  # butter2
+Colors_M_UnterminatedStrings=C-3891200                      # butter3
+Colors_M_SystemCommands=C-7675340                           # chameleon1
+Colors_M_Errors=C-1103575                                   # scarlet1
+Colors_HTML_HTMLLinks=C-9265201                             # skyblue1
+Colors_M_Warnings=C-217282                                  # orange1
+ColorsMLintAutoFixBackground=C-6029312                      # scarlet3
+Editor.VariableHighlighting.Color=C-11625978                # chameleon3
+Editor.NonlocalVariableHighlighting.TextColor=C-9265201     # skyblue1
+Editorhighlight-lines=C-13288387                            # 
+Editorhighlight-caret-row-boolean-color=C-11184301          # aluminium5
+EditorRightTextLimitLineColor=C-11775661                    # 
+# C/C++
+Editor.Language.C.Color.keywords=C-7675340                  # chameleon1
+Editor.Language.C.Color.preprocessor=C-5406808              # plum1
+Editor.Language.C.Color.char-literal=C-9265201              # skyblue1
+# Java
+Editor.Language.Java.Color.keywords=C-7675340               # chameleon1
+Editor.Language.Java.Color.char-literal=C-9265201           # skyblue1
+# VHDL
+Editor.Language.VHDL.Color.Colors_M_Keywords=C-7675340      # chameleon1
+Editor.Language.VHDL.Color.operator=C-1                     # white
+# Verilog
+Editor.Language.Verilog.Color.operator=C-1                  # white
+Editor.Language.Verilog.Color.Colors_M_Keywords=C-7675340   # chameleon1
+# XML/HTML
+Editor.Language.XML.Color.tag=C-9265201                     # skyblue1
+Editor.Language.XML.Color.attribute=C-7675340               # chameleon1
+Editor.Language.XML.Color.doctype=C-5406808                 # plum1
+Editor.Language.XML.Color.pi-content=C-5406808              # plum1
+Editor.Language.XML.Color.cdata-section=C-5406808           # plum1
