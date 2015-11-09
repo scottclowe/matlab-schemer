@@ -13,8 +13,10 @@ the MATLAB display and GUI.
 You can use `schemer` to import a predefined color scheme, transfer your color
 settings between installations, or create your own color scheme.
 
-A collection of color schemes is available at
-https://github.com/scottclowe/matlab-schemes.
+A collection of color schemes is available in the schemes folder, with
+samples for each shown in schemes/screenshots.
+This is a static subtree copy of the contents of the repository
+[matlab-schemes](https://github.com/scottclowe/matlab-schemes).
 
 
 Importing a color scheme
