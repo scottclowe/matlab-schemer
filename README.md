@@ -56,7 +56,7 @@ Reverting to the MATLAB default color scheme
 --------------------------------------------
 
 Should you wish to revert to the set of colours which MATLAB ships with, you
-should run `schemer_import('default.prf')`.
+should run `schemer_import('schemes/default.prf')`.
 
 This will import the MATLAB default theme from the stylesheet `default.prf`
 which comes as part of `schemer`.
