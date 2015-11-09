@@ -145,6 +145,7 @@ function varargout = schemer_export(fname, flag_mode)
 % ------------------------ Parameters -------------------------------------
 SCHEMER_VERSION = 'v1.2.6';
 SCHEMER_URLGIT  = 'https://github.com/scottclowe/matlab-schemer';
+SCHEMER_URLFEX  = 'https://www.mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer';
 DEFOUTNAME      = 'ColorSchemeForMATLAB.prf';
 
 % ------------------------ Input handling ---------------------------------
@@ -477,6 +478,8 @@ fprintf(fid, '# Generated with schemer_export %s, on MATLAB %s\n', ...
 fprintf(fid, '# %s\n', char(java.util.Date));
 fprintf(fid, '# To enable this color scheme in MATLAB use schemer_import, available at:\n');
 fprintf(fid, '#     %s\n', SCHEMER_URLGIT);
+fprintf(fid, '#     %s\n', SCHEMER_URLFEX);
+
 
 % ------------------------ Read and Write ---------------------------------
 % Loop through the boolean type settings
