@@ -1,4 +1,5 @@
 # Default MATLAB color scheme
+# This color scheme file restores the color scheme which ships with MATLAB.
 # To enable this color scheme in MATLAB use schemer_import, available at:
 #     https://github.com/scottclowe/matlab-schemer
 ColorsUseSystem=Btrue
@@ -28,11 +29,27 @@ Editor.NonlocalVariableHighlighting.TextColor=C-16735325
 Editorhighlight-lines=C-197412
 Editorhighlight-caret-row-boolean-color=C-2167080
 EditorRightTextLimitLineColor=C-3355444
+# MuPAD
+Editor.Language.MuPAD.Color.string=C-6283024
+Editor.Language.MuPAD.Color.constant=C-14638864
+Editor.Language.MuPAD.Color.keyword=C-16776961
+Editor.Language.MuPAD.Color.function=C-8355662
+Editor.Language.MuPAD.Color.block-comment=C-14513374
+Editor.Language.MuPAD.Color.option=C-5075968
+Editor.Language.MuPAD.Color.operator=C-5103616
 # TLC
 Editor.Language.TLC.Color.Colors_M_SystemCommands=C-16776961
 Editor.Language.TLC.Color.Colors_M_Keywords=C-5075968
 Editor.Language.TLC.Color.Colors_M_Comments=C-14513374
 Editor.Language.TLC.Color.string-literal=C-6283024
+# VRML
+Editor.Language.VRML.Color.comment=C-14513374
+Editor.Language.VRML.Color.node-keyword=C-16022329
+Editor.Language.VRML.Color.field-keyword=C-9145228
+Editor.Language.VRML.Color.terminal-symbol=C-2196224
+Editor.Language.VRML.Color.keyword=C-16776961
+Editor.Language.VRML.Color.data-type-keyword=C-6737152
+Editor.Language.VRML.Color.string=C-6283024
 # C/C++
 Editor.Language.C.Color.keywords=C-16776961
 Editor.Language.C.Color.line-comment=C-14513374
@@ -67,19 +84,3 @@ Editor.Language.XML.Color.doctype=C-16777092
 Editor.Language.XML.Color.ref=C-5111808
 Editor.Language.XML.Color.pi-content=C-16777092
 Editor.Language.XML.Color.cdata-section=C-8625664
-# MuPAD
-Editor.Language.MuPAD.Color.string=C-6283024
-Editor.Language.MuPAD.Color.constant=C-14638864
-Editor.Language.MuPAD.Color.keyword=C-16776961
-Editor.Language.MuPAD.Color.function=C-8355662
-Editor.Language.MuPAD.Color.block-comment=C-14513374
-Editor.Language.MuPAD.Color.option=C-5075968
-Editor.Language.MuPAD.Color.operator=C-5103616
-# VRML
-Editor.Language.VRML.Color.comment=C-14513374
-Editor.Language.VRML.Color.node-keyword=C-16022329
-Editor.Language.VRML.Color.field-keyword=C-9145228
-Editor.Language.VRML.Color.terminal-symbol=C-2196224
-Editor.Language.VRML.Color.keyword=C-16776961
-Editor.Language.VRML.Color.data-type-keyword=C-6737152
-Editor.Language.VRML.Color.string=C-6283024
