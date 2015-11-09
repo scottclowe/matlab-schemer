@@ -1,0 +1,33 @@
+# Darkmate - MATLAB color scheme
+# Created by Scott Lowe, 2015-07-05
+# Based on the GTK stylesheet "Darkmate"
+# https://wiki.gnome.org/Projects/GtkSourceView/StyleSchemes
+# To enable this color scheme in MATLAB use schemer_import, available at:
+#     https://github.com/scottclowe/matlab-schemer
+ColorsUseSystem=Bfalse
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Btrue
+EditorCodeBlockDividers=Btrue
+Editorhighlight-caret-row-boolean=Btrue
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I4                             # slightly wider
+ColorsText=C-1118482                                         # white
+ColorsBackground=C-14474461                                  # carbon
+Colors_M_Keywords=C-26368                                    # ambra
+Colors_M_Comments=C-10920873                                 # asfalto
+Colors_M_Strings=C-6881536                                   # lime
+Colors_M_UnterminatedStrings=C-202417                        # yellow
+Colors_M_SystemCommands=C-16725605                           # alga
+Colors_M_Errors=C-53398                                      # red
+Colors_HTML_HTMLLinks=C-6385153                              # violet
+Colors_M_Warnings=C-26368                                    # ambra
+ColorsMLintAutoFixBackground=C-11184811                      # 
+Editor.VariableHighlighting.Color=C-4495617                  # purple
+Editor.NonlocalVariableHighlighting.TextColor=C-16725760     # green
+Editorhighlight-lines=C-15132391                             # 
+Editorhighlight-caret-row-boolean-color=C-16777216           # black
+EditorRightTextLimitLineColor=C-13948117                     # 
+# XML/HTML
+Editor.Language.XML.Color.pi-content=C-6425200

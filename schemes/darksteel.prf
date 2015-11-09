@@ -1,0 +1,45 @@
+# Dark Steel - MATLAB color scheme
+# Created by Scott Lowe
+# Generated with colortheme_export v1.0.0
+# Fri Aug 09 18:39:37 BST 2013
+# To enable this color scheme in MATLAB use schemer_import, available at:
+#     https://github.com/scottclowe/matlab-schemer
+ColorsUseSystem=Bfalse
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Btrue
+EditorCodeBlockDividers=Btrue
+Editorhighlight-caret-row-boolean=Btrue
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I1
+ColorsText=C-1
+ColorsBackground=C-15066598
+Colors_M_Keywords=C-1208813
+Colors_M_Comments=C-14114579
+Colors_M_Strings=C-16724992
+Colors_M_UnterminatedStrings=C-4210944
+Colors_M_SystemCommands=C-7123493
+Colors_M_Errors=C-45747
+Colors_HTML_HTMLLinks=C-10592257
+Colors_M_Warnings=C-27648
+ColorsMLintAutoFixBackground=C-9223357
+Editor.VariableHighlighting.Color=C-11184786
+Editor.NonlocalVariableHighlighting.TextColor=C-16735351
+Editorhighlight-lines=C-14408662
+Editorhighlight-caret-row-boolean-color=C-12632257
+EditorRightTextLimitLineColor=C-8355712
+# TLC
+Editor.Language.TLC.Color.Colors_M_Keywords=C-16735351
+# VRML
+Editor.Language.VRML.Color.terminal-symbol=C-16735351
+# C/C++
+Editor.Language.C.Color.preprocessor=C-16735351
+# VHDL
+Editor.Language.VHDL.Color.operator=C-16735351
+# Verilog
+Editor.Language.Verilog.Color.operator=C-16735351
+# XML
+Editor.Language.XML.Color.operator=C-1710454
+Editor.Language.XML.Color.doctype=C-6578958
+Editor.Language.XML.Color.pi-content=C-9868801

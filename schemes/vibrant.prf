@@ -1,0 +1,30 @@
+# Vibrant - MATLAB color scheme
+# Created by Scott Lowe, 2015-07-12
+# Based on the Gedit theme "Vibrant", https://github.com/mig/gedit-themes
+# To enable this color scheme in MATLAB use schemer_import, available at:
+#     https://github.com/scottclowe/matlab-schemer
+ColorsUseSystem=Bfalse
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Btrue
+EditorCodeBlockDividers=Btrue
+Editorhighlight-caret-row-boolean=Btrue
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I1
+ColorsText=C-11711155                                     # text_fg
+ColorsBackground=C-1                                      # white
+Colors_M_Keywords=C-6815487                               # accent_deep_red
+Colors_M_Comments=C-183551                                # accent_red
+Colors_M_Strings=C-16684599                               # accent_blue_base
+Colors_M_UnterminatedStrings=C-16698473                   # accent_blue_shadow
+Colors_M_SystemCommands=C-10092340                        # accent_dark_violet
+Colors_M_Errors=C-2883584                                 # accent_red_base
+Colors_HTML_HTMLLinks=C-16766147                          # ubuntu_toner
+Colors_M_Warnings=C-292096                                # orange_base
+ColorsMLintAutoFixBackground=C-140901                     # human_highlight
+Editor.VariableHighlighting.Color=C-256                   # yellow
+Editor.NonlocalVariableHighlighting.TextColor=C-13395712  # accent_green_base
+Editorhighlight-lines=C-66341                             # custom
+Editorhighlight-caret-row-boolean-color=C-131175          # accent_yellow_highlight
+EditorRightTextLimitLineColor=C-140901                    # human_highlight
