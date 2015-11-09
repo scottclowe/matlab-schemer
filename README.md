@@ -158,6 +158,23 @@ do the following.
    the customised colours for the additional languages.
 
 
+### Adding your scheme to this package
+
+If you are particularly proud of your new color scheme (and why wouldn't you be)
+and would like to to share it with the world as part of the `matlab-schemer`
+package, this is possible!
+
+Please head over to our daughter repository,
+[matlab-schemes](https://github.com/scottclowe/matlab-schemes),
+which holds the master copy of the color schemes issued here as part of
+`schemer` in the schemes directory.
+
+If you fork [matlab-schemes](https://github.com/scottclowe/matlab-schemes), add
+your `.prf` file and issue a pull request, they will be reviewed and added to
+the repository.
+This content is then mirrored here using `git subtree`.
+
+
 Addendum
 --------
 
