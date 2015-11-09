@@ -176,7 +176,7 @@ if nargin>=1 && ~ischar(fname) && ~isempty(fname)
     end
 end
 % Mode handling
-if ~isnumeric(fname)
+if ~isnumeric(flag_mode)
     error('Export mode flag must be numeric.');
 elseif flag_mode < 0 || flag_mode > 3
     error('Bad mode specified: %s', num2str(flag_mode));
@@ -442,11 +442,7 @@ if com.mathworks.services.Prefs.getBooleanPref('ColorsUseSystem')
 end
 
 % ------------------------ File stuff -------------------------------------
-if ~isempty(fname)
-    if ~exist(fname,'file')
-        error('Specified file does not exist');
-    end
-else
+if isempty(fname)
     % Get user's name
     username = java.lang.System.getProperty('user.name');
     % Prepend username to default filename
@@ -472,7 +468,7 @@ end
 finishup = onCleanup(@() fclose(fid));
 
 % Find the name of the color scheme based on the filename
-[~, schemename] = fileparts(filename);
+[~, schemename] = fileparts(fname);
 
 % Write a few comments to the start of the file
 fprintf(fid, '# %s - MATLAB color scheme\n', schemename);
