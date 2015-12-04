@@ -19,6 +19,8 @@ samples for each shown in schemes/screenshots.
 This is a static subtree copy of the contents of the repository
 [matlab-schemes](https://github.com/scottclowe/matlab-schemes).
 
+![MATLAB Schemer logo](logo.png)
+
 
 Importing a color scheme
 ------------------------
