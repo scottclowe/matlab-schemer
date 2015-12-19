@@ -1,7 +1,7 @@
-[![MATLAB FileExchange](https://img.shields.io/badge/MATLAB-FileExchange-orange.svg)](http://mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer)
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=scottclowe&url=https://github.com/scottclowe/matlab-schemer&title=MATLAB-schemer&tags=github&category=software)
-[![Gratipay](https://img.shields.io/gratipay/scottclowe.svg)](https://gratipay.com/matlab-schemer/)
-[![Bountysource](https://img.shields.io/bountysource/team/matlab-schemer/activity.svg)](https://www.bountysource.com/teams/matlab-schemer)
+[![MATLAB FileExchange](https://img.shields.io/badge/MATLAB-FileExchange-orange.svg)][fex]
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)][flattr]
+[![Gratipay](https://img.shields.io/gratipay/scottclowe.svg)][gratipay]
+[![Bountysource](https://img.shields.io/bountysource/team/matlab-schemer/activity.svg)][bountysource]
 
 
 MATLAB Schemer
@@ -16,7 +16,7 @@ settings between installations, or create your own color scheme.
 A collection of color schemes is available in the schemes folder, with
 samples for each shown in schemes/screenshots.
 This is a static subtree copy of the contents of the repository
-[matlab-schemes](https://github.com/scottclowe/matlab-schemes).
+[matlab-schemes][].
 
 ![MATLAB Schemer logo](logo.png)
 
@@ -166,14 +166,12 @@ If you are particularly proud of your new color scheme (and why wouldn't you be)
 and would like to to share it with the world as part of the `matlab-schemer`
 package, this is possible!
 
-Please head over to our daughter repository,
-[matlab-schemes](https://github.com/scottclowe/matlab-schemes),
-which holds the master copy of the color schemes issued here as part of
-Schemer in the schemes directory.
+Please head over to our daughter repository, [matlab-schemes][], which holds the
+master copy of the color schemes issued here as part of Schemer in the schemes
+directory.
 
-If you fork [matlab-schemes](https://github.com/scottclowe/matlab-schemes), add
-your `.prf` file and issue a pull request, the new scheme will be reviewed and
-added to the repository.
+If you fork [matlab-schemes][], add your `.prf` file and issue a pull request,
+the new scheme will be reviewed and added to the repository.
 This content is then mirrored here using `git subtree`.
 
 
@@ -189,3 +187,10 @@ Please note that Schemer requires MATLAB to be run with Java support enabled.
 
 For details on how the method was implemented, see
 http://undocumentedmatlab.com/blog/changing-system-preferences-programmatically
+
+
+  [matlab-schemes]: https://github.com/scottclowe/matlab-schemes
+  [fex]:            http://mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer
+  [flattr]:         https://flattr.com/submit/auto?user_id=scottclowe&url=https://github.com/scottclowe/matlab-schemer&title=MATLAB-schemer&tags=github&category=software
+  [gratipay]:       https://gratipay.com/matlab-schemer/
+  [bountysource]:  	https://www.bountysource.com/teams/matlab-schemer
