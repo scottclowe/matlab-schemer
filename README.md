@@ -109,7 +109,7 @@ RGB integers, with each colour channel in 8-bit (0-255), R as big endian,
 and a opaque alpha channel. Because the format for RGB colours in Java allows
 for an alpha channel and the integers are signed, all the colours you record
 in your .prf file should be negative, spanning the range
--16777216 (black, [0,0,0]) to -1 (white, [255,255,255]).
+`-16777216` (black, `[0,0,0]`) to `-1` (white, `[255,255,255]`).
 
 The text file for your pre-existing theme will doubtlessly typically specify
 its colous in hexadecimal format, or in terms of R, G, B values. You will need
