@@ -11,7 +11,7 @@ MATLAB Schemer
 This MATLAB package makes it easy to change the color scheme (a.k.a. theme) of
 the MATLAB display and GUI.
 
-You can use `schemer` to import a predefined color scheme, transfer your color
+You can use Schemer to import a predefined color scheme, transfer your color
 settings between installations, or create your own color scheme.
 
 A collection of color schemes is available in the schemes folder, with
@@ -64,12 +64,12 @@ Should you wish to revert to the set of colours which MATLAB ships with, you
 should run `schemer_import('schemes/default.prf')`.
 
 This will import the MATLAB default theme from the stylesheet `default.prf`
-which comes as part of `schemer`.
+which comes as part of Schemer.
 
 You may be tempted to instead revert the colours by clicking the
 `Restore Default Colors` buttons in the `Color` pane of the MATLAB preferences.
 However, this will be less effective than importing the default colours through
-`schemer` because these buttons will not reset all the MATLAB colour preferences.
+Schemer because these buttons will not reset all the MATLAB colour preferences.
 (There is no reset button for the Editor display preferences pane, nor for the
 other language syntax supported by MATLAB, which is available in the Editor
 Languages panel.)
@@ -116,7 +116,7 @@ The text file for your pre-existing theme will doubtlessly typically specify
 its colous in hexadecimal format, or in terms of R, G, B values. You will need
 to convert the colours from this format into the format which MATLAB preference
 files use to specify colours instead.
-The `schemer` package comes with a utility function `develop/color2javaRGBint`
+The Schemer package comes with a utility function `develop/color2javaRGBint`
 to help make this easier. See the `color2javaRGBint` documentation for more
 details.
 
@@ -131,7 +131,7 @@ in the Languages subpanel of the Editor/Debugger pane in the Preferences window.
 
 Typically, one will want to make a color scheme which has colours in these
 languages which match the colours of the analogous MATLAB syntax.
-By default, this is the behaviour which `schemer` will perform. 
+By default, this is the behaviour which Schemer will perform. 
 
 Without specifying any inputs to `schemer_export`, an exported color scheme file
 will contain only the colours used for MATLAB syntax highlighting and no other
@@ -170,7 +170,7 @@ package, this is possible!
 Please head over to our daughter repository,
 [matlab-schemes](https://github.com/scottclowe/matlab-schemes),
 which holds the master copy of the color schemes issued here as part of
-`schemer` in the schemes directory.
+Schemer in the schemes directory.
 
 If you fork [matlab-schemes](https://github.com/scottclowe/matlab-schemes), add
 your `.prf` file and issue a pull request, they will be reviewed and added to
@@ -183,7 +183,7 @@ Addendum
 
 ### Requirements
 
-Please note that `schemer` requires MATLAB to be run with Java support enabled.
+Please note that Schemer requires MATLAB to be run with Java support enabled.
 
 
 ### Further information
