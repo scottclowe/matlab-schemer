@@ -1,6 +1,5 @@
 [![MATLAB FileExchange](https://img.shields.io/badge/MATLAB-FileExchange-orange.svg)](http://mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer)
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=scottclowe&url=https://github.com/scottclowe/matlab-schemer&title=MATLAB-schemer&tags=github&category=software)
-[![Pledgie](https://img.shields.io/badge/pledgie-donate-yellowgreen.svg)](https://pledgie.com/campaigns/29847)
 [![Gratipay](https://img.shields.io/gratipay/scottclowe.svg)](https://gratipay.com/matlab-schemer/)
 [![Bountysource](https://img.shields.io/bountysource/team/matlab-schemer/activity.svg)](https://www.bountysource.com/teams/matlab-schemer)
 
