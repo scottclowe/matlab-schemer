@@ -186,7 +186,7 @@ Please note that Schemer requires MATLAB to be run with Java support enabled.
 ### Further information
 
 For details on how the method was implemented, see
-http://undocumentedmatlab.com/blog/changing-system-preferences-programmatically
+[this Undocumented Matlab article](http://undocumentedmatlab.com/blog/changing-system-preferences-programmatically).
 
 
   [matlab-schemes]: https://github.com/scottclowe/matlab-schemes
