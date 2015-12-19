@@ -172,7 +172,8 @@ directory.
 
 If you fork [matlab-schemes][], add your `.prf` file and issue a pull request,
 the new scheme will be reviewed and added to the repository.
-This content is then mirrored here using `git subtree`.
+This content is then mirrored here using `git subtree`. For more details, see
+our [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 Addendum
