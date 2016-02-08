@@ -26,6 +26,8 @@ wmctrl -a 'Editor'; gnome-screenshot -w -f yourscheme.png
 
 Once you've added the new scheme to this repository, it will be merged into
 [MATLAB Schemer] using [git-subtree].
+If you are merging it into Schemer yourself, please consult this
+[step-by-step guide](https://github.com/scottclowe/matlab-schemer/blob/master/CONTRIBUTING.md).
 
 [MATLAB Schemer]: https://github.com/scottclowe/matlab-schemer
 [matlab-schemes/screenshots]: https://github.com/scottclowe/matlab-schemes/tree/master/screenshots
