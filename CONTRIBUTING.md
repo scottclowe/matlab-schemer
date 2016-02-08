@@ -6,7 +6,7 @@ Adding a new colour scheme
 
 If you have created a new colour scheme, please add it to the [matlab-schemes]
 repository and *not* here. Instructions for this are available
-[here](https://github.com/scottclowe/matlab-schemes/CONTRIBUTING.md).
+[here](https://github.com/scottclowe/matlab-schemes/blob/master/CONTRIBUTING.md).
 
 If you have already added a new colour scheme to [matlab-schemes] via an
 accepted pull request and want to mirror the change in [matlab-schemer], you
