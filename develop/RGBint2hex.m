@@ -7,7 +7,7 @@
 %   
 %   See also COLOR2JAVARGBINT.
 
-% Copyright (c) 2015, Scott Lowe
+% Copyright (c) 2015-2016,  Scott C. Lowe <scott.code.lowe@gmail.com>
 % All rights reserved.
 % 
 % Redistribution and use in source and binary forms, with or without

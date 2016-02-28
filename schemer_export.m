@@ -116,7 +116,7 @@
 %   
 %   See also SCHEMER_IMPORT, PREFDIR, COLOR2JAVARGBINT.
 
-% Copyright (c) 2013, Scott Lowe
+% Copyright (c) 2013-2016,  Scott C. Lowe <scott.code.lowe@gmail.com>
 % All rights reserved.
 % 
 % Redistribution and use in source and binary forms, with or without
