@@ -40,7 +40,8 @@ Improving MATLAB Schemer
 If you have made enhancements or bug fixes to MATLAB Schemer, itself please add
 them with a regular [pull request] to this repository.
 
-[matlab-schemer]: https://github.com/scottclowe/matlab-schemer
-[matlab-schemes]: https://github.com/scottclowe/matlab-schemes
-[git-subtree]: https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt
-[pull request]: https://help.github.com/articles/using-pull-requests/
+
+  [matlab-schemer]: https://github.com/scottclowe/matlab-schemer
+  [matlab-schemes]: https://github.com/scottclowe/matlab-schemes
+  [git-subtree]: https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt
+  [pull request]: https://help.github.com/articles/using-pull-requests/
