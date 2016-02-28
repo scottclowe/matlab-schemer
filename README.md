@@ -195,4 +195,4 @@ For details on how the method was implemented, see
   [fex]:            http://mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer
   [flattr]:         https://flattr.com/submit/auto?user_id=scottclowe&url=https://github.com/scottclowe/matlab-schemer&title=MATLAB-schemer&tags=github&category=software
   [gratipay]:       https://gratipay.com/matlab-schemer/
-  [bountysource]:  	https://www.bountysource.com/teams/matlab-schemer
+  [bountysource]:   https://www.bountysource.com/teams/matlab-schemer
