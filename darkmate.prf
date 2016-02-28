@@ -1,6 +1,6 @@
 # Darkmate - MATLAB color scheme
 # Created by Scott Lowe, 2015-07-05
-# Based on the GTK stylesheet "Darkmate"
+# Based on the GTK stylesheet "Darkmate", by Luigi Maselli.
 # https://wiki.gnome.org/Projects/GtkSourceView/StyleSchemes
 # To enable this color scheme in MATLAB use schemer_import, available at:
 #     https://github.com/scottclowe/matlab-schemer
