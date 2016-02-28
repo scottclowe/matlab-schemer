@@ -59,6 +59,7 @@ Default
 And of course, you can always return to the original MATLAB color scheme
 provided by [MathWorks](https://www.mathworks.com/) using the `default.prf`
 color preferences file.
+
 ![Default](screenshots/default.png)
 
 
