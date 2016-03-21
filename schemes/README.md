@@ -40,13 +40,13 @@ by Paolo Borelli and GtkSourceView.
 ![Oblivion sample](screenshots/oblivion.png)
 
 ### Solarised Dark
-Based on the  [Solarized] (1.0.0beta2) palette, in dark mode,
+Based on the [Solarized][Solarized] (1.0.0beta2) palette, in dark mode,
 by [Ethan Schoonover].
 
 ![Solarized Dark sample](screenshots/solarized-dark.png)
 
 ### Solarised Light
-Based on the  [Solarized] (1.0.0beta2) palette, in light mode,
+Based on the [Solarized][Solarized] (1.0.0beta2) palette, in light mode,
 by [Ethan Schoonover].
 
 ![Solarized Light sample](screenshots/solarized-light.png)
