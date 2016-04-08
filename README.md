@@ -105,6 +105,11 @@ If you are converting a color scheme designed for another editor into a MATLAB
 stylesheet, you may find it easier to start with a duplicate of the template
 stylesheet `develop/template_scheme.prf` and copy the colours into this.
 
+To understand which colour settings the parameter names correspond to, you can
+refer to the annotated screenshot, `develop/annotated_default.png`.
+
+![Annotated screenshot](develop/annotated_default.png)
+
 The values for each colour in the .prf stylesheet must be recorded as single
 RGB integers, with each colour channel in 8-bit (0-255), R as big endian,
 and a opaque alpha channel. Because the format for RGB colours in Java allows
