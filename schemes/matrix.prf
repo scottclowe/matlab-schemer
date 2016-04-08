@@ -1,5 +1,5 @@
 # Matrix - MATLAB color scheme
-# Created by Scott Lowe, 2015-07-05
+# Created by Scott Lowe, 2015-07-05. Modified 2015-04-08.
 # Based on the movie of the same name.
 # To enable this color scheme in MATLAB use schemer_import, available at:
 #     https://github.com/scottclowe/matlab-schemer
@@ -16,10 +16,10 @@ EditorRightTextLimitLineWidth=I1
 ColorsText=C-15810737
 ColorsBackground=C-16448762
 Colors_M_Keywords=C-8524550
-Colors_M_Comments=C-15387093
+Colors_M_Comments=C-14199226
 Colors_M_Strings=C-15236555
 Colors_M_UnterminatedStrings=C-13769101
-Colors_M_SystemCommands=C-15783079
+Colors_M_SystemCommands=C-15122561
 Colors_M_Errors=C-2678475
 Colors_HTML_HTMLLinks=C-14525287
 Colors_M_Warnings=C-10475466
