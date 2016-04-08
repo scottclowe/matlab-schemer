@@ -10,7 +10,7 @@ If you have multiple colorschemes to add, make a pull request for each of them.
 It is preferable to include a screenshot demonstrating an example of your new MATLAB theme.
 To make your screenshot, 
 
-- Load your color scheme `schemer_import('yourscheme.prf, 1')`
+- Load your color scheme `schemer_import('yourscheme.prf', 1)`
 - Exit MATLAB `exit();`
 - Reopen MATLAB
 - Open the [matlab-schemer/develop/sample.m] file and take a screenshot with your favourite screenshot program.
