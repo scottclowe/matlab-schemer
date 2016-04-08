@@ -5,6 +5,20 @@
 # To enable this color scheme in MATLAB use schemer_import, available at:
 #     https://github.com/scottclowe/matlab-schemer
 #     https://www.mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer
+#
+# Palette, taken from
+#     https://en.wikipedia.org/wiki/Tango_Desktop_Project#Palette
+#               |    Light       Medium      Dark
+# --------------+------------------------------------
+# Butter        |   -202417     -1190912    -3891200
+# Orange        |   -217282     -689920     -3253248
+# Chocolate     |   -1459858    -4096751    -7382782
+# Chameleon     |   -7675340    -9186794    -11625978
+# Sky Blue      |   -9265201    -13343324   -14660985
+# Plum          |   -5406808    -9088901    -10734234
+# Scarlet Red   |   -1103575    -3407872    -6029312
+# Aluminium (l) |   -1118484    -2893873    -4538954
+# Aluminium (d) |   -7828859    -11184301   -13749194
 ColorsUseSystem=Bfalse
 ColorsUseMLintAutoFixBackground=Btrue
 Editor.VariableHighlighting.Automatic=Btrue
