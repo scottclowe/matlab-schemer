@@ -46,10 +46,10 @@ Editorhighlight-caret-row-boolean-color=C-2893873           # aluminium-vlight
 EditorRightTextLimitLineColor=C-7828859                     # aluminium
 # C/C++
 Editor.Language.C.Color.keywords=C-11625978
-Editor.Language.C.Color.char-literal=C-4096751
+Editor.Language.C.Color.char-literal=C-3891200
 # Java
 Editor.Language.Java.Color.keywords=C-11625978
-Editor.Language.Java.Color.char-literal=C-4096751
+Editor.Language.Java.Color.char-literal=C-3891200
 # VHDL
 Editor.Language.VHDL.Color.operator=C-11625978
 # Verilog
