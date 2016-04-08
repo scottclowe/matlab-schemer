@@ -52,7 +52,7 @@ by [Ethan Schoonover].
 ![Solarized Light sample](screenshots/solarized-light.png)
 
 ### Tango
-Based on the Gedit theme, "Tango".
+Based on the colour palette for the [Tango Desktop Project].
 
 ![Tango sample](screenshots/tango.png)
 
@@ -76,3 +76,4 @@ color preferences file.
   [GTK stylesheet]: https://wiki.gnome.org/Projects/GtkSourceView/StyleSchemes
   [Solarized]: http://ethanschoonover.com/solarized
   [Ethan Schoonover]: http://ethanschoonover.com/
+  [Tango Desktop Project]: http://tango-project.org/
