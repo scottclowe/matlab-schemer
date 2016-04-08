@@ -45,7 +45,7 @@ every time.
     SCHEME_NAME=${SCHEME_NAME%.prf}
     echo "Making screenshot for scheme $SCHEME_NAME";
     # Load the template and restart matlab
-    matlab -r "addpath(genpath('$PATH_TO_SCHEMER')); schemer_import('$SCHEME_NAME.prf'); exit;";
+    matlab -r "addpath(genpath('$PATH_TO_SCHEMER')); schemer_import('$SCHEME_NAME.prf',1); exit;";
     # Edit the sample.m file
     matlab -r "edit(fullfile('$PATH_TO_SCHEMER','develop','sample.m'))" &
     # What next
