@@ -112,8 +112,8 @@ for an alpha channel and the integers are signed, all the colours you record
 in your .prf file should be negative, spanning the range
 `-16777216` (black, `[0,0,0]`) to `-1` (white, `[255,255,255]`).
 
-The text file for your pre-existing theme will doubtlessly typically specify
-its colous in hexadecimal format, or in terms of R, G, B values. You will need
+The text file for your pre-existing theme will typically specify its colous in
+hexadecimal format, or in terms of R, G, B values. You will need
 to convert the colours from this format into the format which MATLAB preference
 files use to specify colours instead.
 The Schemer package comes with a utility function `develop/color2javaRGBint`
