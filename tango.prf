@@ -28,28 +28,28 @@ EditorCodeBlockDividers=Btrue
 Editorhighlight-caret-row-boolean=Btrue
 EditorRightTextLineVisible=Btrue
 EditorRightTextLimitLineWidth=I1
-ColorsText=C-12829636
-ColorsBackground=C-1
+ColorsText=C-11184301                                       # aluminium-dark
+ColorsBackground=C-1                                        # white
 Colors_M_Keywords=C-6029312                                 # scarletred-dark
 Colors_M_Comments=C-14660985                                # skyblue-dark
 Colors_M_Strings=C-5406808                                  # plum-light
 Colors_M_UnterminatedStrings=C-13343324                     # skyblue
-Colors_M_SystemCommands=C-8169214
+Colors_M_SystemCommands=C-4096751                           # chocolate
 Colors_M_Errors=C-65536
 Colors_HTML_HTMLLinks=C-13343324                            # skyblue
 Colors_M_Warnings=C-27648
-ColorsMLintAutoFixBackground=C-1146549
+ColorsMLintAutoFixBackground=C-1459858                      # chocolate-light
 Editor.VariableHighlighting.Color=C-202417                  # butter-light
 Editor.NonlocalVariableHighlighting.TextColor=C-11625978    # chameleon-dark
-Editorhighlight-lines=C-394759
-Editorhighlight-caret-row-boolean-color=C-1118484
-EditorRightTextLimitLineColor=C-2170913
+Editorhighlight-lines=C-1118484                             # aluminium-white
+Editorhighlight-caret-row-boolean-color=C-2893873           # aluminium-vlight
+EditorRightTextLimitLineColor=C-7828859                     # aluminium
 # C/C++
 Editor.Language.C.Color.keywords=C-11625978
-Editor.Language.C.Color.char-literal=C-8169214
+Editor.Language.C.Color.char-literal=C-4096751
 # Java
 Editor.Language.Java.Color.keywords=C-11625978
-Editor.Language.Java.Color.char-literal=C-8169214
+Editor.Language.Java.Color.char-literal=C-4096751
 # VHDL
 Editor.Language.VHDL.Color.operator=C-11625978
 # Verilog
@@ -59,6 +59,6 @@ Editor.Language.XML.Color.tag=C-13343324
 Editor.Language.XML.Color.attribute=C-11625978
 Editor.Language.XML.Color.operator=C-11625978
 Editor.Language.XML.Color.comment=C-16109205
-Editor.Language.XML.Color.doctype=C-8169214
-Editor.Language.XML.Color.pi-content=C-8169214
-Editor.Language.XML.Color.cdata-section=C-8169214
+Editor.Language.XML.Color.doctype=C-4096751
+Editor.Language.XML.Color.pi-content=C-4096751
+Editor.Language.XML.Color.cdata-section=C-4096751
