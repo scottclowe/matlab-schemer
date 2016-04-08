@@ -1,7 +1,7 @@
 # Tango - MATLAB color scheme
-# Created by Scott Lowe, 2015-07-05
-# Based on the Gedit theme "Tango".
-# https://github.com/gmate/gmate/blob/master/styles/Tango.xml
+# Created by Scott Lowe, 2015-07-05, Modified 2016-04-08
+# Based on the colours specified for use in the Tango Project.
+#     http://tango-project.org/
 # To enable this color scheme in MATLAB use schemer_import, available at:
 #     https://github.com/scottclowe/matlab-schemer
 #     https://www.mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer
