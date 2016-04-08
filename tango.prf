@@ -55,10 +55,12 @@ Editor.Language.VHDL.Color.operator=C-11625978
 # Verilog
 Editor.Language.Verilog.Color.operator=C-11625978
 # XML/HTML
-Editor.Language.XML.Color.tag=C-13343324
+Editor.Language.XML.Color.error=C-1103575
+Editor.Language.XML.Color.tag=C-6029312
 Editor.Language.XML.Color.attribute=C-11625978
-Editor.Language.XML.Color.operator=C-11625978
-Editor.Language.XML.Color.comment=C-16109205
-Editor.Language.XML.Color.doctype=C-4096751
-Editor.Language.XML.Color.pi-content=C-4096751
-Editor.Language.XML.Color.cdata-section=C-4096751
+Editor.Language.XML.Color.operator=C-1190912
+Editor.Language.XML.Color.value=C-4096751
+Editor.Language.XML.Color.doctype=C-689920
+Editor.Language.XML.Color.ref=C-3891200
+Editor.Language.XML.Color.pi-content=C-13343324
+Editor.Language.XML.Color.cdata-section=C-5406808
