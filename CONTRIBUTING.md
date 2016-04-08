@@ -89,7 +89,7 @@ every time.
     wmctrl -r "$WINDOW_NAME" -e 0,100,100,700,650;
     # Try getting screenshot with Imagemagick, and cropping it down to the
     # just the relevant section
-    wmctrl -a "$WINDOW_NAME"; sleep 0.1; import -window root -crop 667x379+134+249 +repage "$SCHEME_NAME.png";
+    wmctrl -a "$WINDOW_NAME"; sleep 0.1; import -window root -crop 700x379+100+249 +repage "$SCHEME_NAME.png";
     # Inspect the result
     xdg-open "$SCHEME_NAME.png";
     # Is it cropped correctly?
