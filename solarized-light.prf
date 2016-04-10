@@ -12,7 +12,7 @@ EditorCodepadHighVisible=Bfalse                          # no cell highlighting
 EditorCodeBlockDividers=Btrue                            # mark cells with line
 Editorhighlight-caret-row-boolean=Btrue
 EditorRightTextLineVisible=Btrue
-EditorRightTextLimitLineWidth=I5                         # wide
+EditorRightTextLimitLineWidth=I1
 ColorsText=C-10126461                                    # base 00
 ColorsBackground=C-133405                                # base 3
 Colors_M_Keywords=C-3454186                              # orange
@@ -28,7 +28,7 @@ Editor.VariableHighlighting.Color=C-1120043              # base 2
 Editor.NonlocalVariableHighlighting.TextColor=C-8021760  # green
 Editorhighlight-lines=C-133405                           # base 00
 Editorhighlight-caret-row-boolean-color=C-1120043        # base 2
-EditorRightTextLimitLineColor=C-1120043                  # base 2
+EditorRightTextLimitLineColor=C-5723992                  # matlab cell lines
 # MuPAD
 Editor.Language.MuPAD.Color.operator=C-8021760           # green
 Editor.Language.MuPAD.Color.function=C-4880128           # yellow
