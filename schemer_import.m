@@ -593,5 +593,6 @@ if inc_bools
 else
     fprintf('Imported color scheme WITHOUT boolean options from\n%s\n',fname);
 end
+fprintf('Please restart MATLAB to ensure all changes have been activated.\n');
 
 end
