@@ -139,7 +139,7 @@ Incorporating into MATLAB Schemer
 Once you've added the new scheme to this repository, it will be merged into
 [MATLAB Schemer] using [git-subtree].
 If you are merging it into Schemer yourself, please consult this
-[step-by-step guide](https://github.com/scottclowe/matlab-schemer/blob/master/CONTRIBUTING.md).
+[step-by-step guide](https://github.com/scottclowe/matlab-schemer/blob/master/CONTRIBUTING.md#adding-a-new-colour-scheme).
 
 
   [MATLAB Schemer]: https://github.com/scottclowe/matlab-schemer
