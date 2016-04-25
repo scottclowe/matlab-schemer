@@ -65,6 +65,9 @@ every time.
     - in MATLAB GUI, undock the Editor panel
     - move tabs to bottom, if more than one file is being editted
 
+    Also, make sure the MATLAB toolstrip is visible on the undocked panel.
+    If it is minimised, right-click on the toolstrip and restore it.
+
 4.  **Highlight**
 
     Highlight the middle instance of `scaleFactor` (on line 18).
