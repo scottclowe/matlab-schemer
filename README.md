@@ -66,6 +66,10 @@ should run `schemer_import('schemes/default.prf')`.
 This will import the MATLAB default theme from the stylesheet `default.prf`
 which comes as part of Schemer.
 
+To restore the out-of-the-box state for boolean settings (such as whether to
+highlight the current line) in addition to the colours, run
+`schemer_import('schemes/default.prf', true)`.
+
 You may be tempted to instead revert the colours by clicking the
 `Restore Default Colors` buttons in the `Color` pane of the MATLAB preferences.
 However, this will be less effective than importing the default colours through
