@@ -25,8 +25,14 @@ To make your screenshot,
 Reproducible screenshot workflow for Linux
 ------------------------------------------
 
-Here is workflow for Linux users, which will create the same screenshots
-every time.
+Here is minimal-interaction workflow for Linux users, which will create the
+same screenshots every time.
+This has been tested on Ubuntu 15.10 with MATLAB 2016a, but should work on
+any *nix OS and any MATLAB version since R2012b (which introduced the
+toolstrip UI).
+
+The code blocks must be run from the system shell, not at the MATLAB command
+prompt.
 
 1.  **Setup**
 
