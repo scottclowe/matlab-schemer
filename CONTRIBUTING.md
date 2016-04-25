@@ -12,7 +12,7 @@ The Schemer README includes some
 find useful.
 
 It is preferable to include a screenshot demonstrating an example of your new MATLAB theme.
-To make your screenshot, 
+To make your screenshot:
 
 - Load your color scheme `schemer_import('yourscheme.prf', 1)`
 - Exit MATLAB `exit();`
@@ -20,6 +20,9 @@ To make your screenshot,
 - Open the [matlab-schemer/develop/sample.m] file and take a screenshot with your favourite screenshot program.
 - If not done at capture time, crop the screenshot down to the right size with your [favourite image editor].
 - Make sure the screenshot is saved in [matlab-schemes/screenshots] as `yourscheme.png`.
+
+If you are on Linux, you can follow the method below to create your screenshot,
+which is mostly automated and produces the same output every time.
 
 
 Reproducible screenshot workflow for Linux
