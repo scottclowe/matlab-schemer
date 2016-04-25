@@ -97,16 +97,17 @@ prompt.
     if wmctrl -l | grep -qv "$WINDOW_NAME"
     then
         echo "Window $WINDOW_NAME is absent";
+    else
+        # Resize the window
+        wmctrl -r "$WINDOW_NAME" -e 0,100,100,700,650;
+        # Try getting screenshot with Imagemagick, and cropping it down to the
+        # just the relevant section
+        wmctrl -a "$WINDOW_NAME"; sleep 0.1; import -window root -crop 700x379+100+249 +repage "${SCHEME_NAME}.png";
+        # Inspect the result
+        xdg-open "${SCHEME_NAME}.png";
+        # Is it cropped correctly?
+        echo "How does it look? If no good, try one of the other options to manually crop";
     fi
-    # Resize the window
-    wmctrl -r "$WINDOW_NAME" -e 0,100,100,700,650;
-    # Try getting screenshot with Imagemagick, and cropping it down to the
-    # just the relevant section
-    wmctrl -a "$WINDOW_NAME"; sleep 0.1; import -window root -crop 700x379+100+249 +repage "${SCHEME_NAME}.png";
-    # Inspect the result
-    xdg-open "${SCHEME_NAME}.png";
-    # Is it cropped correctly?
-    echo "How does it look? If no good, try one of the other options to manually crop";
     ```
 
 6.  If screenshot cropped incorrectly, **manually crop screenshot**
