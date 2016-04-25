@@ -494,7 +494,7 @@ while ~feof(fid)
         
     else
         % Silently ignore irrelevant preferences
-        % (This means you can load a whole matlab.pref file and anything not
+        % (This means you can load a whole matlab.prf file and anything not
         % listed above as relevant to the color scheme will be ignored.)
         
     end
