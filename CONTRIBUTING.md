@@ -7,6 +7,10 @@ Thanks for sharing this with us.
 Please only add one colour scheme per pull request.
 If you have multiple colorschemes to add, make a pull request for each of them.
 
+The Schemer README includes some
+[advice on creating a colour scheme][scheme creation advice], which you might
+find useful.
+
 It is preferable to include a screenshot demonstrating an example of your new MATLAB theme.
 To make your screenshot, 
 
@@ -131,5 +135,6 @@ If you are merging it into Schemer yourself, please consult this
   [MATLAB Schemer]: https://github.com/scottclowe/matlab-schemer
   [matlab-schemes/screenshots]: https://github.com/scottclowe/matlab-schemes/tree/master/screenshots
   [matlab-schemer/develop/sample.m]: https://github.com/scottclowe/matlab-schemer/blob/master/develop/sample.m
+  [scheme creation advice]: https://github.com/scottclowe/matlab-schemer#creating-a-color-scheme-for-others-to-use
   [git-subtree]: https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt
   [favourite image editor]: https://www.gimp.org
