@@ -7,8 +7,12 @@ Thanks for sharing this with us.
 Please only add one colour scheme per pull request.
 If you have multiple colorschemes to add, make a pull request for each of them.
 
+The Schemer README includes some
+[advice on creating a colour scheme][scheme creation advice], which you might
+find useful.
+
 It is preferable to include a screenshot demonstrating an example of your new MATLAB theme.
-To make your screenshot, 
+To make your screenshot:
 
 - Load your color scheme `schemer_import('yourscheme.prf', 1)`
 - Exit MATLAB `exit();`
@@ -17,12 +21,21 @@ To make your screenshot,
 - If not done at capture time, crop the screenshot down to the right size with your [favourite image editor].
 - Make sure the screenshot is saved in [matlab-schemes/screenshots] as `yourscheme.png`.
 
+If you are on Linux, you can follow the method below to create your screenshot,
+which is mostly automated and produces the same output every time.
+
 
 Reproducible screenshot workflow for Linux
 ------------------------------------------
 
-Here is workflow for Linux users, which will create the same screenshots
-every time.
+Here is minimal-interaction workflow for Linux users, which will create the
+same screenshots every time.
+This has been tested on Ubuntu 15.10 with MATLAB 2016a, but should work on
+any *nix OS and any MATLAB version since R2012b (which introduced the
+toolstrip UI).
+
+The code blocks must be run from the system shell, not at the MATLAB command
+prompt.
 
 1.  **Setup**
 
@@ -61,6 +74,9 @@ every time.
     - in MATLAB GUI, undock the Editor panel
     - move tabs to bottom, if more than one file is being editted
 
+    Also, make sure the MATLAB toolstrip is visible on the undocked panel.
+    If it is minimised, right-click on the toolstrip and restore it.
+
 4.  **Highlight**
 
     Highlight the middle instance of `scaleFactor` (on line 18).
@@ -84,16 +100,17 @@ every time.
     if wmctrl -l | grep -qv "$WINDOW_NAME"
     then
         echo "Window $WINDOW_NAME is absent";
+    else
+        # Resize the window
+        wmctrl -r "$WINDOW_NAME" -e 0,100,100,700,650;
+        # Try getting screenshot with Imagemagick, and cropping it down to the
+        # just the relevant section
+        wmctrl -a "$WINDOW_NAME"; sleep 0.1; import -window root -crop 700x379+100+249 +repage "${SCHEME_NAME}.png";
+        # Inspect the result
+        xdg-open "${SCHEME_NAME}.png";
+        # Is it cropped correctly?
+        echo "How does it look? If no good, try one of the other options to manually crop";
     fi
-    # Resize the window
-    wmctrl -r "$WINDOW_NAME" -e 0,100,100,700,650;
-    # Try getting screenshot with Imagemagick, and cropping it down to the
-    # just the relevant section
-    wmctrl -a "$WINDOW_NAME"; sleep 0.1; import -window root -crop 700x379+100+249 +repage "${SCHEME_NAME}.png";
-    # Inspect the result
-    xdg-open "${SCHEME_NAME}.png";
-    # Is it cropped correctly?
-    echo "How does it look? If no good, try one of the other options to manually crop";
     ```
 
 6.  If screenshot cropped incorrectly, **manually crop screenshot**
@@ -125,11 +142,12 @@ Incorporating into MATLAB Schemer
 Once you've added the new scheme to this repository, it will be merged into
 [MATLAB Schemer] using [git-subtree].
 If you are merging it into Schemer yourself, please consult this
-[step-by-step guide](https://github.com/scottclowe/matlab-schemer/blob/master/CONTRIBUTING.md).
+[step-by-step guide](https://github.com/scottclowe/matlab-schemer/blob/master/CONTRIBUTING.md#adding-a-new-colour-scheme).
 
 
   [MATLAB Schemer]: https://github.com/scottclowe/matlab-schemer
   [matlab-schemes/screenshots]: https://github.com/scottclowe/matlab-schemes/tree/master/screenshots
   [matlab-schemer/develop/sample.m]: https://github.com/scottclowe/matlab-schemer/blob/master/develop/sample.m
+  [scheme creation advice]: https://github.com/scottclowe/matlab-schemer#creating-a-color-scheme-for-others-to-use
   [git-subtree]: https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt
   [favourite image editor]: https://www.gimp.org
