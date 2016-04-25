@@ -33,6 +33,11 @@ the terminals shown in the movie,
 
 ![Matrix sample](screenshots/matrix.png)
 
+### Monokai
+By [@dkearn](https://github.com/dkearn). Based on Sublime Text's Monokai theme. Change the font to Consolas to complete the look.
+
+![Monokai sample](screenshots/monokai.png)
+
 ### Oblivion
 Based on the [Gedit theme, "Oblivion"](https://github.com/mig/gedit-themes/blob/master/oblivion.xml),
 by Paolo Borelli and GtkSourceView.
