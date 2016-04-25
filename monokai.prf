@@ -1,6 +1,6 @@
 # monokai - MATLAB color scheme
 # Generated with schemer_export v1.3.5, on MATLAB 8.1.0.604 (R2013a)
-# Sat Apr 23 02:40:03 BST 2016
+# Mon Apr 25 15:03:32 BST 2016
 # To enable this color scheme in MATLAB use schemer_import, available at:
 #     https://github.com/scottclowe/matlab-schemer
 #     https://www.mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer
@@ -11,7 +11,7 @@ Editor.NonlocalVariableHighlighting=Btrue
 EditorCodepadHighVisible=Btrue
 EditorCodeBlockDividers=Btrue
 Editorhighlight-caret-row-boolean=Bfalse
-EditorRightTextLineVisible=Bfalse
+EditorRightTextLineVisible=Btrue
 EditorRightTextLimitLineWidth=I1
 ColorsText=C-460560
 ColorsBackground=C-14211038
@@ -27,6 +27,6 @@ ColorsMLintAutoFixBackground=C-11974594
 Editor.VariableHighlighting.Color=C-10066330
 Editor.NonlocalVariableHighlighting.TextColor=C-16729641
 Editorhighlight-lines=C-13421773
-Editorhighlight-caret-row-boolean-color=C-2167080
+Editorhighlight-caret-row-boolean-color=C-10066330
 EditorRightTextLimitLineColor=C-3355444
 Color_CmdWinWarnings=C-26368
