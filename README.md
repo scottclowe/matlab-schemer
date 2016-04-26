@@ -17,7 +17,7 @@ A collection of color schemes is available in the schemes folder.
 Samples of these can be seen in [schemes/README.md](schemes/README.md),
 and browsed in the folder [schemes/screenshots](schemes/screenshots).
 This is a static subtree copy of the contents of the repository
-[matlab-schemes],
+[matlab-schemes].
 
 ![MATLAB Schemer logo](logo.png)
 
