@@ -143,7 +143,7 @@
 function varargout = schemer_export(fname, flag_mode)
 
 % ------------------------ Parameters -------------------------------------
-SCHEMER_VERSION = 'v1.3.6';
+SCHEMER_VERSION = 'v1.4.0';
 SCHEMER_URLGIT  = 'https://github.com/scottclowe/matlab-schemer';
 SCHEMER_URLFEX  = 'https://www.mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer';
 DEFOUTNAME      = 'ColorSchemeForMATLAB.prf';
@@ -272,15 +272,6 @@ names_color_otherlangs = {                          ...
     'Editor.Language.TLC.Color.Colors_M_Comments'       ; ...
     'Editor.Language.TLC.Color.string-literal'          ; ...
   } ...
-  { ... % VRML
-    'Editor.Language.VRML.Color.keyword'                ; ...
-    'Editor.Language.VRML.Color.node-keyword'           ; ...
-    'Editor.Language.VRML.Color.field-keyword'          ; ...
-    'Editor.Language.VRML.Color.data-type-keyword'      ; ...
-    'Editor.Language.VRML.Color.terminal-symbol'        ; ...
-    'Editor.Language.VRML.Color.comment'                ; ...
-    'Editor.Language.VRML.Color.string'                 ; ...
-  } ...
   { ... % C/C++
     'Editor.Language.C.Color.keywords'                  ; ... 
     'Editor.Language.C.Color.line-comment'              ; ...
@@ -320,6 +311,22 @@ names_color_otherlangs = {                          ...
     'Editor.Language.XML.Color.cdata-section'           ; ...
   }
 };
+
+% Names of colour preferences for syntax highlighting in languages other
+% than MATLAB
+names_color_vrml = {                          ...
+    % VRML
+    'Editor.Language.VRML.Color.keyword'                ; ...
+    'Editor.Language.VRML.Color.node-keyword'           ; ...
+    'Editor.Language.VRML.Color.field-keyword'          ; ...
+    'Editor.Language.VRML.Color.data-type-keyword'      ; ...
+    'Editor.Language.VRML.Color.terminal-symbol'        ; ...
+    'Editor.Language.VRML.Color.comment'                ; ...
+    'Editor.Language.VRML.Color.string'                 ; ...
+};
+% First version of matlab which uses VRMLX3DV instead of VRML
+version_vrmlx3dv = '9.0';
+
 % Names of preferences for other language syntax and where setting value
 % is a string
 %   column 1: name of preference
@@ -394,18 +401,9 @@ cprefs_main = cell(size(names_color_main));
 colors_main = cell(size(names_color_main));
 % Loop over every one of the main colour preference panels
 for iPanel = 1:numel(names_color_main)
-    % Initialise holding variable for settings in this panel
-    cprefs_main{iPanel} = cell(size(names_color_main{iPanel}));
-    colors_main{iPanel} =  nan(size(names_color_main{iPanel}));
-    % Loop over every colour setting in the panel
-    for iPref = 1:numel(names_color_main{iPanel})
-        % Get the name for the color setting we are interested in
-        nm = names_color_main{iPanel}{iPref};
-        % Read the preference for this colour and get a Java color object
-        cprefs_main{iPanel}{iPref} = com.mathworks.services.Prefs.getColorPref(nm);
-        % Turn this into an integer colour value
-        colors_main{iPanel}(iPref) = cprefs_main{iPanel}{iPref}.getRGB;
-    end
+    % Fetch the colours for this panel
+    [cprefs_main{iPanel}, colors_main{iPanel}] = ...
+        fetch_colors(names_color_main{iPanel});
     % Only give the error on the Color and Programming Tools pages, because
     % there are only two colours set in the Editor > Display and they could
     % plausibly both be black. We instead check this panel seperately below.
@@ -564,18 +562,8 @@ if inc_otherlangs
     % their settings are available to us
     % Loop over every one of the main colour preference panels
     for iPanel = 1:numel(names_color_otherlangs)
-        % Initialise holding variable for settings in this panel
-        panel_prefs  = cell(size(names_color_otherlangs{iPanel}));
-        panel_colors =  nan(size(names_color_otherlangs{iPanel}));
-        % Loop over every colour setting in the panel
-        for iPref = 1:numel(names_color_otherlangs{iPanel})
-            % Get the name for the color setting we are interested in
-            nm = names_color_otherlangs{iPanel}{iPref};
-            % Read the preference for this colour and get a Java color object
-            panel_prefs{iPref} = com.mathworks.services.Prefs.getColorPref(nm);
-            % Turn this into an integer colour value
-            panel_colors(iPref) = panel_prefs{iPref}.getRGB;
-        end
+        [panel_prefs, panel_colors] = fetch_colors(...
+            names_color_otherlangs{iPanel});
         if all(panel_colors==-16777216)
             % All the colours in this panel are black, so we assume the
             % color settings have not loaded because they have not been set
@@ -588,6 +576,35 @@ if inc_otherlangs
         for iPref = 1:numel(names_color_otherlangs{iPanel})
             % Get the name for the color setting we are interested in
             nm = names_color_otherlangs{iPanel}{iPref};
+            % Write its colour value to the output file
+            fprintf(fid, '%s=C%d\n', nm, panel_colors(iPref));
+        end
+        % Remember the prefences so we can return them
+        onames_langs = [onames_langs; names_color_otherlangs{iPanel}];
+        cprefs_langs = [cprefs_langs; panel_prefs];
+    end
+end
+
+% We have to do special handling for VRML because in R2016a, MathWorks
+% changed the encoding name from VRML to VRMLX3DV. Aside from this, nothing
+% else was changed. The rest of the preference name is the same, and the
+% default values are unchanged.
+if inc_otherlangs
+    % Deal with VRML and VRMLX3DV possibilities
+    if verLessThan('matlab', version_vrmlx3dv)
+        names_color_vrml_usable = names_color_vrml;
+    else
+        names_color_vrml_usable = strrep(names_color_vrml, ...
+            '.VRML.', '.VRMLX3DV.');
+    end
+    % Get the colours from the appropriate preference names
+    [panel_prefs, panel_colors] = fetch_colors(names_color_vrml_usable);
+    % If all the colours in this panel are black, we assume the color
+    % settings have not loaded because they have not been set.
+    if ~all(panel_colors==-16777216)
+        for iPref = 1:numel(names_color_vrml)
+            % Get the name for the color setting we are interested in
+            nm = names_color_vrml{iPref};
             % Write its colour value to the output file
             fprintf(fid, '%s=C%d\n', nm, panel_colors(iPref));
         end
@@ -642,4 +659,19 @@ if nargout>1;
                     cprefs_langs        );
 end
 
+end
+
+
+function [prefs, colors] = fetch_colors(names)
+    % Initialise holding variable for settings in this panel
+    prefs = cell(size(names));
+    colors = nan(size(names));
+    % Loop over every colour setting in the panel
+    for iName = 1:numel(names)
+        % Read the preference for this colour and get a Java color object
+        prefs{iName} = com.mathworks.services.Prefs.getColorPref(...
+            names{iName});
+        % Turn this into an integer colour value
+        colors(iName) = prefs{iName}.getRGB;
+    end
 end
