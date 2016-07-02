@@ -46,6 +46,7 @@ Editor.Language.Verilog.Color.Colors_M_Keywords=C-7675340   # chameleon1
 # XML/HTML
 Editor.Language.XML.Color.tag=C-9265201                     # skyblue1
 Editor.Language.XML.Color.attribute=C-7675340               # chameleon1
+Editor.Language.XML.Color.operator=C-1967753                # 
 Editor.Language.XML.Color.doctype=C-5406808                 # plum1
 Editor.Language.XML.Color.pi-content=C-5406808              # plum1
 Editor.Language.XML.Color.cdata-section=C-5406808           # plum1
