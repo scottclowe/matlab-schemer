@@ -2,7 +2,7 @@
 %   If this is your first time using SCHEMER_EXPORT, please ensure you
 %   read the IMPORTANT NOTE at the bottom of the help section before using
 %   this function.
-%   
+%
 %   SCHEMER_EXPORT() with no input will prompt the user to locate a
 %   destination file via the GUI, and will save the current color scheme
 %   to this location. Please read the IMORTANT NOTE below
@@ -15,10 +15,10 @@
 %      - Right-hand text limit (colour and thickness, whether on/off)
 %   The output format is the same as used in MATLAB's preferences file,
 %   which is found at FULLFILE(PREFDIR,'matlab.prf').
-%   
+%
 %   SCHEMER_EXPORT(FILENAME) exports the relevant MATLAB preferences
 %   to the file FILENAME.
-%   
+%
 %   SCHEMER_EXPORT(FILENAME, FLAG_MODE) controls which settings are output
 %   into the preference file FILENAME. Along with the colour settings for
 %   MATLAB syntax highlighting, one can also export the boolean preferences
@@ -26,17 +26,17 @@
 %   differently to the regular backgound and text); and one can also export
 %   the colour settings for syntax highlighting in other languages
 %   supported by MATLAB.
-%   
+%
 %   The FLAG_MODE settings available are:
 %     0 - neither booleans, nor additional languages are exported
 %     1 - boolean settings are exported, but not additional languages
 %     2 - additional language colours are exported, but not boolean settings
 %     3 - both booleans and additional languages are exported
-%   
+%
 %   By default FLAG_MODE is set to 1, so boolean settings will be
 %   exported, but the settings for syntax highlighting in additional
 %   languages will not be.
-%   
+%
 %   The colour settings for all MATLAB syntax highlighting will always be
 %   exported, even for syntax options which are currently disabled, and
 %   regardless of whether the boolean settings are being exported. This is
@@ -47,7 +47,7 @@
 %   By default, SCHEMER_IMPORT will not import boolean settings, so users
 %   will keep their syntax options enabled or disabled as they prefer even
 %   after importing your color scheme.
-%   
+%
 %   Colours for highlighting syntax in other languages supported by MATLAB
 %   (MuPAD, TLC, VRML, C++, Java, VHDL, Verilog, XML) can be set in the
 %   preferences panel Editor/Debugger > Language. If you have not set any
@@ -55,24 +55,24 @@
 %   loads a color scheme without additional language syntax included, the
 %   MATLAB colours are extended to highlight syntax in the other languages
 %   consistent with the MATLAB scheme.
-%   
+%
 %   SCHEMER_EXPORT(FLAG_MODE, FILENAME), with a numeric input followed by a
 %   string, will also work as above because the input order is reversible.
-%   
+%
 %   SCHEMER_EXPORT(FLAG_MODE) with a single numeric input will open the GUI
 %   to pick the filename and will save the output according to FLAG_MODE.
-%   
+%
 %   RET = SCHEMER_EXPORT(...) returns 1 on success, 0 on user
 %   cancellation at the output file selection screen, -1 on fopen error,
 %   and -2 on any other error.
-%   
+%
 %   [RET, NAMES, PREFS] = SCHEMER_EXPORT(...) also returns two cell
 %   arrays listing the names and preferences which were saved to file.
-%   
+%
 %   For more details on how to get and set MATLAB preferences with
 %   commands, see the following URL.
 %   http://undocumentedmatlab.com/blog/changing-system-preferences-programmatically
-%   
+%
 %   IMPORTANT NOTE:
 %   You must have, at any point since installing MATLAB, visited the
 %   Color, Color>Programming Tools and Editor/Debugger>Display panes of
@@ -83,7 +83,7 @@
 %   preference pane has not been set its entries will not have been
 %   defined, and when trying to export these they will be incorrectly saved
 %   as off (for booleans) or black (for colours).
-%   
+%
 %   Example 1: User is not sure if they have OK'd all the relevent
 %   Preferences panes (or sure they haven't).
 %       - Open File>Preferences
@@ -99,26 +99,26 @@
 %           click OK at the end.)
 %       - Go to your command window and execute SCHEMER_EXPORT
 %       - The GUI appears, and you pick where to save the file.
-%   
+%
 %   Example 2:  User is sure they have OK'd all the relevent Preferences
 %   panes already.
 %       schemer_export
-%       
+%
 %   Example 3: User is sure they have OK'd all the relevent Preferences
 %   panes already, knows the path they wish to save to, and doesn't want
 %   to export their boolean settings.
 %       schemer_export('some/path/schemeName.prf', 0)
-%   
+%
 %   Example 4: User has set some colour preferences for C/C++ syntax
 %   highlighting in addition to MATLAB syntax highlighting, and wants to
 %   output this along with their boolean settings
 %       schemer_export(3)
-%   
+%
 %   See also SCHEMER_IMPORT, PREFDIR, COLOR2JAVARGBINT.
 
 % Copyright (c) 2013-2016,  Scott C. Lowe <scott.code.lowe@gmail.com>
 % All rights reserved.
-% 
+%
 % Redistribution and use in source and binary forms, with or without
 % modification, are permitted provided that the following conditions are
 % met:
@@ -127,7 +127,7 @@
 %     * Redistributions in binary form must reproduce the above copyright
 %       notice, this list of conditions and the following disclaimer in
 %       the documentation and/or other materials provided with the distribution
-% 
+%
 % THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 % AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 % IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -273,7 +273,7 @@ names_color_otherlangs = {                          ...
     'Editor.Language.TLC.Color.string-literal'          ; ...
   } ...
   { ... % C/C++
-    'Editor.Language.C.Color.keywords'                  ; ... 
+    'Editor.Language.C.Color.keywords'                  ; ...
     'Editor.Language.C.Color.line-comment'              ; ...
     'Editor.Language.C.Color.string-literal'            ; ...
     'Editor.Language.C.Color.preprocessor'              ; ...
@@ -360,11 +360,11 @@ end
 % preference panels, or has otherwise set text and background to match
 if isequal(com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB,...
         com.mathworks.services.Prefs.getColorPref('ColorsBackground').getRGB)
-    
+
     % Define the base error message. We will add to it depending on the
     % exact set up.
     msg = 'Colour for text and background appear to be the same.';
-    
+
     % The values match, so give an error
     if com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB ...
             == -16777216
@@ -373,7 +373,7 @@ if isequal(com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB,...
         msg = [msg, 10, ...
                'Are you sure you have visited all the preference panels,'...
                ' as per the instructions in the function description?'];
-           
+
     elseif com.mathworks.services.Prefs.getBooleanPref('ColorsUseSystem')
         % The colour is something else, but both text and background match.
         % The user is managing to use the colours by overriding them with
@@ -382,14 +382,14 @@ if isequal(com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB,...
            'Although you have enabled system colors, the underlying ', ...
            'colour settings match. This is not permitted because the ', ...
            'text would be illegible if system colours were disabled.'];
-        
+
     else
         % The colour is something else, but both text and background match.
         % Presumably the text is currently illegible to the user right now.
         msg = [msg, 10, ...
            'This is not permitted because the text is illegible.'];
     end
-    
+
     % Raise the error with the completed message
     error(msg);
 end
@@ -571,7 +571,7 @@ if inc_otherlangs
         end
         % Not all the colours are black, so we assume we have loaded the
         % values for this language panel.
-        
+
         % Loop again over every colour setting in the panel
         for iPref = 1:numel(names_color_otherlangs{iPanel})
             % Get the name for the color setting we are interested in
