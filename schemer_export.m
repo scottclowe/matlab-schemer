@@ -358,7 +358,7 @@ end
 % ------------------------ Check -------------------------------------
 % Check the user is not exporting without having visited any of the
 % preference panels, or has otherwise set text and background to match
-if isequal(com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB,...
+if isequal(com.mathworks.services.Prefs.getColorPref('ColorsText').getRGB, ...
         com.mathworks.services.Prefs.getColorPref('ColorsBackground').getRGB)
 
     % Define the base error message. We will add to it depending on the
@@ -407,7 +407,7 @@ for iPanel = 1:numel(names_color_main)
     % Only give the error on the Color and Programming Tools pages, because
     % there are only two colours set in the Editor > Display and they could
     % plausibly both be black. We instead check this panel seperately below.
-    if iPanel <= 2 && all(colors_main{iPanel}==-16777216)
+    if iPanel <= 2 && all(colors_main{iPanel} == -16777216)
         % This panel appears to all be black, so we make an error
         error(...
             ['Colours for all of %1$s panel appear to be black. ' 10 ...
@@ -450,16 +450,16 @@ if isempty(fname)
     [filename, pathname] = uiputfile(outFileName, ...
         'Select file to write MATLAB color scheme');
     % End if user cancels
-    if isequal(filename,0);
+    if isequal(filename, 0);
         if nargout>0; varargout{1} = 0; end;
         return;
     end
-    fname = fullfile(pathname,filename);
+    fname = fullfile(pathname, filename);
 end
 
 % Open for write access of text file, create if necessary
-fid = fopen(fname,'w+t','n');
-if isequal(fid,-1);
+fid = fopen(fname, 'w+t', 'n');
+if isequal(fid, -1);
     if nargout>0; varargout{1} = -1; end;
     return;
 end
@@ -535,9 +535,9 @@ for iPref=1:size(names_color_versioned, 1)
     % Or if the MATLAB version is less than the first version known to have
     % implemented the feature and the colour appears to be black
     % Then we skip this preference
-    if verLessThan('matlab', names_color_versioned{iPref,2}) ...
+    if verLessThan('matlab', names_color_versioned{iPref, 2}) ...
         || ( ...
-            verLessThan('matlab', names_color_versioned{iPref,3}) ...
+            verLessThan('matlab', names_color_versioned{iPref, 3}) ...
             && prf.getRGB==-16777216 ...
            )
         % It appears that this version of MATLAB does not include this
@@ -618,13 +618,13 @@ end
 if inc_otherlangs
     for iPref=1:size(names_string_otherlang, 1)
         % Get the name for the string preference we are interested in
-        nm  = names_string_otherlang{iPref,1};
+        nm  = names_string_otherlang{iPref, 1};
         % Read the string
         str = com.mathworks.services.Prefs.getStringPref(nm);
         % Turn it from a java.lang.String object to a regular char object
         str = char(str);
         % Check it is okay
-        if isempty(regexp(str, names_string_otherlang{iPref,2}, ...
+        if isempty(regexp(str, names_string_otherlang{iPref, 2}, ...
                     'start', 'emptymatch'))
             % It did not have any matches for the regex, so we will not use
             % this setting. We will assume its value is not available.
@@ -642,7 +642,7 @@ end
 % fclose(fid); % Don't need to close as it will autoclose
 if nargout>0; varargout{1} = 1; end;
 
-fprintf('Exported color scheme to %s\n',fname);
+fprintf('Exported color scheme to %s\n', fname);
 
 if nargout>1;
     varargout{2} = cat(1, ...

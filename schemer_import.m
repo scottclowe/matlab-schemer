@@ -149,7 +149,7 @@ filefilt = ...
     '*'          ,  'All Files'                        };
 
 if ~isempty(fname)
-    if ~exist(fname,'file')
+    if ~exist(fname, 'file')
         error('Specified file does not exist');
     end
 else
@@ -157,11 +157,11 @@ else
     % Need to make this dialogue include .txt by default, at least
     [filename, pathname] = uigetfile(filefilt);
     % End if user cancels
-    if isequal(filename,0);
+    if isequal(filename, 0);
         if nargout>0; varargout{1} = 0; end;
         return;
     end
-    fname = fullfile(pathname,filename);
+    fname = fullfile(pathname, filename);
 end
 
 % ------------------------ Catch block ------------------------------------
@@ -175,7 +175,7 @@ end
 try
     [varargout{1:nargout}] = main(fname, inc_bools);
 catch ME
-    if ~strcmp(ME.identifier,'MATLAB:Java:GenericException');
+    if ~strcmp(ME.identifier, 'MATLAB:Java:GenericException');
         rethrow(ME);
     end
     % disp('Threw and ignored a Java exception. Retrying.');
@@ -396,28 +396,28 @@ end
 % Read in the contents of the entire file
 flestr = fileread(fname);
 % Search for occurances of main text colour
-txtprf = regexp(flestr,'\sColorsText=(?<pref>[^#\s]+)\s','names');
+txtprf = regexp(flestr, '\sColorsText=(?<pref>[^#\s]+)\s', 'names');
 if isempty(txtprf)
-    error('Text colour not present in colorscheme file:\n%s',fname);
+    error('Text colour not present in colorscheme file:\n%s', fname);
 elseif length(txtprf)>1
-    error('Text colour defined multiple times in colorscheme file:\n%s',fname);
+    error('Text colour defined multiple times in colorscheme file:\n%s', fname);
 end
 % Search for occurances of main background colour
-bkgprf = regexp(flestr,'\sColorsBackground=(?<pref>[^#\s]+)\s','names');
+bkgprf = regexp(flestr, '\sColorsBackground=(?<pref>[^#\s]+)\s', 'names');
 if isempty(bkgprf)
-    error('Background colour not present in colorscheme file:\n%s',fname);
+    error('Background colour not present in colorscheme file:\n%s', fname);
 elseif length(bkgprf)>1
-    error('Background colour defined multiple times in colorscheme file:\n%s',fname);
+    error('Background colour defined multiple times in colorscheme file:\n%s', fname);
 end
 % Make sure the main text and background colours are not exactly the same
 if strcmp(txtprf.pref, bkgprf.pref)
-    error('Main text and background colours are the same in this file:\n%s',fname);
+    error('Main text and background colours are the same in this file:\n%s', fname);
 end
 
 % ------------------------ File stuff -------------------------------------
 % Open for read access only
-fid = fopen(fname,'r','n');
-if isequal(fid,-1);
+fid = fopen(fname, 'r', 'n');
+if isequal(fid, -1);
     if nargout>0; varargout{1} = -1; end;
     return;
 end
@@ -426,14 +426,14 @@ finishup = onCleanup(@() fclose(fid));
 
 % ------------------------ Read and Write ---------------------------------
 % Initialise tracker for unset colours
-isColorSet = false(size(names_color,1), 1);
+isColorSet = false(size(names_color, 1), 1);
 % Loop over prf file
 while ~feof(fid)
     % Get one line of preferences/theme file
     l = fgetl(fid);
 
     % Ignore empty lines and lines which begin with #
-    if length(l)<1 || strcmp('#',l(1))
+    if length(l)<1 || strcmp('#', l(1))
         if verbose; disp('Comment'); end;
         continue;
     end
@@ -441,7 +441,7 @@ while ~feof(fid)
     % Look for name pref pair, seperated by '='
     %    Must be at begining of string (hence ^ anchor)
     %    Cannot contain comment marker (#)
-    n = regexp(l,'^(?<name>[^=#]+)=(?<pref>[^#]+)','names');
+    n = regexp(l, '^(?<name>[^=#]+)=(?<pref>[^#]+)', 'names');
 
     % If no match, continue and scan next line
     if isempty(n)
@@ -452,55 +452,55 @@ while ~feof(fid)
     % Trim whitespace from pref
     n.pref = strtrim(n.pref);
 
-    if ismember(n.name,names_boolean)
+    if ismember(n.name, names_boolean)
         % Deal with boolean type
         switch lower(n.pref)
             case 'btrue'
                 % Preference is true
-                com.mathworks.services.Prefs.setBooleanPref(n.name,1);
-                if verbose; fprintf('Set bool true %s\n',n.name); end
+                com.mathworks.services.Prefs.setBooleanPref(n.name, 1);
+                if verbose; fprintf('Set bool true %s\n', n.name); end
             case 'bfalse'
                 % Preference is false
-                com.mathworks.services.Prefs.setBooleanPref(n.name,0);
-                if verbose; fprintf('Set bool false %s\n',n.name); end
+                com.mathworks.services.Prefs.setBooleanPref(n.name, 0);
+                if verbose; fprintf('Set bool false %s\n', n.name); end
             otherwise
                 % Shouldn't be anything else
-                warning('Bad boolean for %s: %s',n.name,n.pref);
+                warning('Bad boolean for %s: %s', n.name, n.pref);
         end
 
-    elseif ismember(n.name,names_integer)
+    elseif ismember(n.name, names_integer)
         % Deal with integer type
-        if ~strcmpi('I',n.pref(1))
-            warning('Bad integer pref for %s: %s',n.name,n.pref);
+        if ~strcmpi('I', n.pref(1))
+            warning('Bad integer pref for %s: %s', n.name, n.pref);
             continue;
         end
         int = str2double(n.pref(2:end));
-        com.mathworks.services.Prefs.setIntegerPref(n.name,int);
-        if verbose; fprintf('Set integer %d for %s\n',int,n.name); end
+        com.mathworks.services.Prefs.setIntegerPref(n.name, int);
+        if verbose; fprintf('Set integer %d for %s\n', int, n.name); end
 
-    elseif ismember(n.name,names_string(:,1))
+    elseif ismember(n.name,names_string(:, 1))
         % Deal with string type
-        if ~strcmpi('S',n.pref(1))
-            warning('Bad string pref for %s: %s',n.name,n.pref);
+        if ~strcmpi('S', n.pref(1))
+            warning('Bad string pref for %s: %s', n.name, n.pref);
             continue;
         end
         str = n.pref(2:end);
         % Look up which of the preference settings this is
-        [~, idx] = ismember(n.name,names_string(:,1));
+        [~,idx] = ismember(n.name, names_string(:, 1));
         % Check that the setting allowed by the regex it must satisfy
-        if isempty(regexp(str, names_string{idx,2}, ...
+        if isempty(regexp(str, names_string{idx, 2}, ...
                     'start', 'emptymatch'))
             % If not, we can't set the value to be this
-            warning('Invalid string for %s: %s',n.name,str);
+            warning('Invalid string for %s: %s', n.name, str);
             continue;
         end
-        com.mathworks.services.Prefs.setStringPref(n.name,str);
-        if verbose; fprintf('Set string %s for %s\n',str,n.name); end
+        com.mathworks.services.Prefs.setStringPref(n.name, str);
+        if verbose; fprintf('Set string %s for %s\n', str, n.name); end
 
-    elseif ismember(n.name,names_color(:,1))
+    elseif ismember(n.name, names_color(:, 1))
         % Deal with colour type (final type to consider)
-        if ~strcmpi('C',n.pref(1))
-            warning('Bad color for %s: %s',n.name,n.pref);
+        if ~strcmpi('C', n.pref(1))
+            warning('Bad color for %s: %s', n.name, n.pref);
             continue;
         end
         rgb = str2double(n.pref(2:end));
@@ -508,11 +508,11 @@ while ~feof(fid)
         com.mathworks.services.Prefs.setColorPref(n.name, jc);
         com.mathworks.services.ColorPrefs.notifyColorListeners(n.name);
         if verbose
-            fprintf('Set color (%3.f, %3.f, %3.f) for %s\n',...
+            fprintf('Set color (%3.f, %3.f, %3.f) for %s\n', ...
                 jc.getRed, jc.getGreen, jc.getBlue, n.name);
         end
         % Note that we have allocated this colour
-        [~, idx] = ismember(n.name,names_color(:,1));
+        [~, idx] = ismember(n.name, names_color(:, 1));
         isColorSet(idx) = true;
 
     else
@@ -538,7 +538,7 @@ unsetColorIndices = find(~isColorSet)';
 % Loop over unset colours
 for idx=unsetColorIndices
     % Get the backup setting for this colour parameter
-    backupVal = names_color{idx,2};
+    backupVal = names_color{idx, 2};
 
     clear jc; % Clear variable
 
@@ -558,10 +558,10 @@ for idx=unsetColorIndices
             for i=1:numel(backupVal)
                 % Load each of the other colours
                 jc = com.mathworks.services.Prefs.getColorPref(backupVal{i});
-                % Put the R,G,B values into the holding matrix
-                RGB(i,1) = jc.getRed;
-                RGB(i,2) = jc.getGreen;
-                RGB(i,3) = jc.getBlue;
+                % Put the R, G, B values into the holding matrix
+                RGB(i, 1) = jc.getRed;
+                RGB(i, 2) = jc.getGreen;
+                RGB(i, 3) = jc.getBlue;
             end
             % Take the average of each RGB value from the other colours
             RGB = mean(RGB);
@@ -569,13 +569,13 @@ for idx=unsetColorIndices
         elseif length(backupVal)==2
             % Backup is a name of a colour and a scale factor to apply
             jc = com.mathworks.services.Prefs.getColorPref(backupVal{1});
-            % Get the R,G,B values
+            % Get the R, G, B values
             RGB = [jc.getRed, jc.getGreen, jc.getBlue];
             % Rescale them
             RGB = RGB * backupVal{2};
 
         else
-            error('Bad backup cell for %s', names_color{idx,1});
+            error('Bad backup cell for %s', names_color{idx, 1});
 
         end
         % Turn the RGB value into a Java color object
@@ -597,13 +597,13 @@ for idx=unsetColorIndices
         jc = java.awt.Color(backupVal);
 
     else
-        error('Bad backup value for %s', names_color{idx,1});
+        error('Bad backup value for %s', names_color{idx, 1});
 
     end
     % Assign the neglected colour to be this Java colour object from the
     % backup
-    com.mathworks.services.Prefs.setColorPref(names_color{idx,1}, jc);
-    com.mathworks.services.ColorPrefs.notifyColorListeners(names_color{idx,1});
+    com.mathworks.services.Prefs.setColorPref(names_color{idx, 1}, jc);
+    com.mathworks.services.ColorPrefs.notifyColorListeners(names_color{idx, 1});
 
 end
 
@@ -612,9 +612,9 @@ end
 if nargout>0; varargout{1} = 1; end;
 
 if inc_bools
-    fprintf('Imported color scheme WITH boolean options from\n%s\n',fname);
+    fprintf('Imported color scheme WITH boolean options from\n%s\n', fname);
 else
-    fprintf('Imported color scheme WITHOUT boolean options from\n%s\n',fname);
+    fprintf('Imported color scheme WITHOUT boolean options from\n%s\n', fname);
 end
 fprintf('Please restart MATLAB to ensure all changes have been activated.\n');
 
