@@ -394,18 +394,9 @@ cprefs_main = cell(size(names_color_main));
 colors_main = cell(size(names_color_main));
 % Loop over every one of the main colour preference panels
 for iPanel = 1:numel(names_color_main)
-    % Initialise holding variable for settings in this panel
-    cprefs_main{iPanel} = cell(size(names_color_main{iPanel}));
-    colors_main{iPanel} =  nan(size(names_color_main{iPanel}));
-    % Loop over every colour setting in the panel
-    for iPref = 1:numel(names_color_main{iPanel})
-        % Get the name for the color setting we are interested in
-        nm = names_color_main{iPanel}{iPref};
-        % Read the preference for this colour and get a Java color object
-        cprefs_main{iPanel}{iPref} = com.mathworks.services.Prefs.getColorPref(nm);
-        % Turn this into an integer colour value
-        colors_main{iPanel}(iPref) = cprefs_main{iPanel}{iPref}.getRGB;
-    end
+    % Fetch the colours for this panel
+    [cprefs_main{iPanel}, colors_main{iPanel}] = ...
+        fetch_colors(names_color_main{iPanel});
     % Only give the error on the Color and Programming Tools pages, because
     % there are only two colours set in the Editor > Display and they could
     % plausibly both be black. We instead check this panel seperately below.
@@ -564,18 +555,8 @@ if inc_otherlangs
     % their settings are available to us
     % Loop over every one of the main colour preference panels
     for iPanel = 1:numel(names_color_otherlangs)
-        % Initialise holding variable for settings in this panel
-        panel_prefs  = cell(size(names_color_otherlangs{iPanel}));
-        panel_colors =  nan(size(names_color_otherlangs{iPanel}));
-        % Loop over every colour setting in the panel
-        for iPref = 1:numel(names_color_otherlangs{iPanel})
-            % Get the name for the color setting we are interested in
-            nm = names_color_otherlangs{iPanel}{iPref};
-            % Read the preference for this colour and get a Java color object
-            panel_prefs{iPref} = com.mathworks.services.Prefs.getColorPref(nm);
-            % Turn this into an integer colour value
-            panel_colors(iPref) = panel_prefs{iPref}.getRGB;
-        end
+        [panel_prefs, panel_colors] = fetch_colors(...
+            names_color_otherlangs{iPanel});
         if all(panel_colors==-16777216)
             % All the colours in this panel are black, so we assume the
             % color settings have not loaded because they have not been set
@@ -642,4 +623,19 @@ if nargout>1;
                     cprefs_langs        );
 end
 
+end
+
+
+function [prefs, colors] = fetch_colors(names)
+    % Initialise holding variable for settings in this panel
+    prefs = cell(size(names));
+    colors = nan(size(names));
+    % Loop over every colour setting in the panel
+    for iName = 1:numel(names)
+        % Read the preference for this colour and get a Java color object
+        prefs{iName} = com.mathworks.services.Prefs.getColorPref(...
+            names{iName});
+        % Turn this into an integer colour value
+        colors(iName) = prefs{iName}.getRGB;
+    end
 end
