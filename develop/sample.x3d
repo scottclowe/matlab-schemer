@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Interchange'>
+  <head>
+    <meta name='filename' content='sample.x3d' />
+  </head>
+  <Scene>
+    <!-- Define scripts -->
+    <TouchSensor DEF='TS' />
+    <Script DEF='Script1'>
+      <field name='touchTime' type='SFTime' accessType='inputOnly' />
+      <field name='toScript2' type='SFBool' accessType='outputOnly' />
+      <field name='toScript3' type='SFBool' accessType='outputOnly' />
+      <field name='string' type='SFString' accessType='outputOnly' />
+      <![CDATA[
+      ecmascript:
+      function touchTime() {
+        toScript2 = true;
+      }
+      function eventsProcessed() {
+        string = 'Script1.eventsProcessed';
+        toScript3 = true;
+      }
+      ]]>
+    </Script>
+    <!-- Draw a blue ball -->
+    <Transform>
+      <NavigationInfo headlight='false' 
+        avatarSize='0.25 1.6 0.75' type='"EXAMINE"' />
+      <DirectionalLight />
+      <Transform translation='2.0 0.0 1.0'>
+        <Shape>
+          <Sphere radius='2.3' />
+          <Appearance>
+            <Material diffuseColor='0.0 0.0 1.0' />
+          </Appearance>
+        </Shape>
+      </Transform>
+    </Transform>
+    <!-- Set the viewpoint -->
+    <Viewpoint position='7 -1 18' />
+    <!-- Set up the scripts -->
+    <ROUTE fromNode='TS' fromField='touchTime'
+           toNode='Script1' toField='touchTime' />
+    <ROUTE fromNode='Script1' fromField='string'
+           toNode='Collector' toField='fromString' />
+    <ROUTE fromNode='Collector' fromField='string'
+           toNode='Result' toField='string' />
+  </Scene>
+</X3D>
