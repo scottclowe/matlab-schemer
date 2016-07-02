@@ -32,8 +32,6 @@ Editorhighlight-caret-row-boolean-color=C-12632257
 EditorRightTextLimitLineColor=C-5723992
 # TLC
 Editor.Language.TLC.Color.Colors_M_Keywords=C-16735351
-# VRML
-Editor.Language.VRML.Color.terminal-symbol=C-16735351
 # C/C++
 Editor.Language.C.Color.preprocessor=C-16735351
 # VHDL
