@@ -51,6 +51,14 @@ Editor.Language.VRML.Color.terminal-symbol=C-2196224
 Editor.Language.VRML.Color.keyword=C-16776961
 Editor.Language.VRML.Color.data-type-keyword=C-6737152
 Editor.Language.VRML.Color.string=C-6283024
+# VRML/X3DV
+Editor.Language.VRMLX3DV.Color.keyword=C-16776961
+Editor.Language.VRMLX3DV.Color.node-keyword=C-16022329
+Editor.Language.VRMLX3DV.Color.field-keyword=C-9145228
+Editor.Language.VRMLX3DV.Color.data-type-keyword=C-6737152
+Editor.Language.VRMLX3DV.Color.terminal-symbol=C-2196224
+Editor.Language.VRMLX3DV.Color.comment=C-14513374
+Editor.Language.VRMLX3DV.Color.string=C-6283024
 # C/C++
 Editor.Language.C.Color.keywords=C-16776961
 Editor.Language.C.Color.line-comment=C-14513374
