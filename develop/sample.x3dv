@@ -1,0 +1,53 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+META "filename" "sample.x3dv"
+
+# Define scripts
+DEF Script1 Script {
+  inputOnly SFTime touchTime
+  outputOnly SFBool toScript2
+  outputOnly SFString string
+  url [ "ecmascript: 
+  function touchTime() {
+    toScript2 = TRUE; 
+  } 
+  function eventsProcessed() {
+    string = 'Script1.eventsProcessed'; 
+    toScript3 = TRUE; 
+  }
+  " ]
+}
+
+# Draw a blue ball
+Transform {
+  children [
+    NavigationInfo {
+      headlight FALSE
+      avatarSize [ 0.25 1.6 0.75 ]
+      type [ "EXAMINE" ]
+    }
+    DirectionalLight {
+    }
+    Transform {
+      translation 2.0 0.0 1.0
+      children [
+	Shape {
+	  geometry Sphere { radius 2.3
+	  }
+	  appearance Appearance {
+	    material Material { diffuseColor 0.0 0.0 1.0
+	    }
+	  }
+	}
+      ]
+  }
+  ]
+}
+
+# Set the viewpoint
+Viewpoint { position 7 -1 18 }
+
+# Set up the scripts
+ROUTE TS.touchTime TO Script1.touchTime
+ROUTE Script1.string TO Collector.fromString
+ROUTE Collector.string TO Result.string
