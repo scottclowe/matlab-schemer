@@ -399,14 +399,14 @@ flestr = fileread(fname);
 txtprf = regexp(flestr, '\sColorsText=(?<pref>[^#\s]+)\s', 'names');
 if isempty(txtprf)
     error('Text colour not present in colorscheme file:\n%s', fname);
-elseif length(txtprf)>1
+elseif length(txtprf) > 1
     error('Text colour defined multiple times in colorscheme file:\n%s', fname);
 end
 % Search for occurances of main background colour
 bkgprf = regexp(flestr, '\sColorsBackground=(?<pref>[^#\s]+)\s', 'names');
 if isempty(bkgprf)
     error('Background colour not present in colorscheme file:\n%s', fname);
-elseif length(bkgprf)>1
+elseif length(bkgprf) > 1
     error('Background colour defined multiple times in colorscheme file:\n%s', fname);
 end
 % Make sure the main text and background colours are not exactly the same
@@ -486,7 +486,7 @@ while ~feof(fid)
         end
         str = n.pref(2:end);
         % Look up which of the preference settings this is
-        [~,idx] = ismember(n.name, names_string(:, 1));
+        [~, idx] = ismember(n.name, names_string(:, 1));
         % Check that the setting allowed by the regex it must satisfy
         if isempty(regexp(str, names_string{idx, 2}, ...
                     'start', 'emptymatch'))
