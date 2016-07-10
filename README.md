@@ -107,10 +107,12 @@ See the help for `schemer_export` for more details.
 
 If you are converting a color scheme designed for another editor into a MATLAB
 stylesheet, you may find it easier to start with a duplicate of the template
-stylesheet `develop/template_scheme.prf` and copy the colours into this.
+stylesheet [develop/template_scheme.prf](develop/template_scheme.prf) and copy
+the colours into this.
 
 To understand which colour settings the parameter names correspond to, you can
-refer to the annotated screenshot, `develop/annotated_default.png`.
+refer to the annotated screenshot,
+[develop/annotated_default.png](develop/annotated_default.png).
 
 ![Annotated screenshot](develop/annotated_default.png)
 
@@ -125,7 +127,8 @@ The text file for your pre-existing theme will typically specify its colous in
 hexadecimal format, or in terms of R, G, B values. You will need
 to convert the colours from this format into the format which MATLAB preference
 files use to specify colours instead.
-The Schemer package comes with a utility function `develop/color2javaRGBint`
+The Schemer package comes with a utility function
+[develop/color2javaRGBint.m](develop/color2javaRGBint.m)
 to help make this easier. See the `color2javaRGBint` documentation for more
 details.
 
