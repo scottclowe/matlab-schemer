@@ -1,0 +1,33 @@
+# SimNORD - MATLAB color scheme
+# Generated with schemer_export v1.4.0, on MATLAB 9.6.0.1135713 (R2019a) Update 3
+# Thu Sep 05 14:56:06 AEST 2019
+# To enable this color scheme in MATLAB use schemer_import, available at:
+#     https://github.com/scottclowe/matlab-schemer
+#     https://www.mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer
+ColorsUseSystem=Bfalse
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Bfalse
+EditorCodeBlockDividers=Btrue
+Editorhighlight-caret-row-boolean=Btrue
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I1
+ColorsText=C-2564375
+ColorsBackground=C-13749184
+Colors_M_Keywords=C-7357253
+Colors_M_Comments=C-1324149
+Colors_M_Strings=C-16728129
+Colors_M_UnterminatedStrings=C-4234902
+Colors_M_SystemCommands=C-3111056
+Colors_M_Errors=C-4234902
+Colors_HTML_HTMLLinks=C-65281
+Colors_M_Warnings=C-3111056
+ColorsMLintAutoFixBackground=C-6946773
+Editor.VariableHighlighting.Color=C-14206369
+Editor.NonlocalVariableHighlighting.TextColor=C-6046068
+Editorhighlight-lines=C-14269870
+Editorhighlight-caret-row-boolean-color=C-11774358
+EditorRightTextLimitLineColor=C-3355444
+Color_CmdWinWarnings=C-1324149
+Color_CmdWinErrors=C-4234902
