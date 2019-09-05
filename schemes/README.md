@@ -68,6 +68,7 @@ Based on the [GTK stylesheet], "Vibrant", by Lateef Alabi-Oki.
 
 ### Sim_nord
 Based on [Nord] colour palette but modified to improve contrast, by Miguel García.
+
 ![sim_nord](screenshots/sim_nord.png)
 
 Default
