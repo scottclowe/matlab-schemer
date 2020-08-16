@@ -226,6 +226,7 @@ names_color_main = {                                ...
     'Colors_M_Strings'                              ; ... % Color:    Syntax:     strings
     'Colors_M_UnterminatedStrings'                  ; ... % Color:    Syntax:     unterminated strings
     'Colors_M_SystemCommands'                       ; ... % Color:    Syntax:     system commands
+    'Colors_M_TypeSection'                          ; ... % Color:    Syntax:     validation sections
     'Colors_M_Errors'                               ; ... % Color:    Syntax:     errors
     'Colors_HTML_HTMLLinks'                         ; ... % Color:    Other:      hyperlinks
   } ...
