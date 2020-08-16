@@ -1,6 +1,4 @@
 [![MATLAB FileExchange](https://img.shields.io/badge/MATLAB-FileExchange-orange.svg)][fex]
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)][flattr]
-[![Bountysource](https://img.shields.io/bountysource/team/matlab-schemer/activity.svg)][bountysource]
 
 
 MATLAB Schemer
@@ -204,5 +202,3 @@ For details on how the method was implemented, see
 
   [matlab-schemes]: https://github.com/scottclowe/matlab-schemes
   [fex]:            http://mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer
-  [flattr]:         https://flattr.com/submit/auto?user_id=scottclowe&url=https://github.com/scottclowe/matlab-schemer&title=MATLAB-schemer&tags=github&category=software
-  [bountysource]:   https://www.bountysource.com/teams/matlab-schemer
