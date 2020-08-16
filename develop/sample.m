@@ -19,3 +19,10 @@ unused_var = printed_var;
         out = passedInput * scaleFactor;
     end
 end
+
+classdef ValidateProps
+   properties
+      Label(1,:) char {mustBeMember(Label,{'Magic','MoreMagic'})} = 'Magic'
+      State(1,1) matlab.lang.OnOffSwitchState
+   end
+end
