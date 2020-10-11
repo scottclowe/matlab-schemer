@@ -40,3 +40,4 @@ hex = sprintf('%02s', ...
     dec2hex(jc.getRed), dec2hex(jc.getGreen), dec2hex(jc.getBlue));
 
 end
+disp('This is rgb to colour converter')
