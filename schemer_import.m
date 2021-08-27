@@ -155,7 +155,7 @@ if ~isempty(fname)
 else
     % Dialog asking for input filename
     % Need to make this dialogue include .txt by default, at least
-    [filename, pathname] = uigetfile(filefilt);
+    [filename, pathname] = uigetfile(filefilt,[],getSchemeDialogPathSafely());
     % End if user cancels
     if isequal(filename, 0);
         if nargout>0; varargout{1} = 0; end;
@@ -709,4 +709,18 @@ if needs_restart
     disp('Some changes require MATLAB to be restarted to be activated.');
 end
 
+end
+
+function defaultSchemePath = getSchemeDialogPathSafely()
+% getSchemeDialogPathSafely() - Get the scheme path for the uigetfile.
+% If the folder doesn't exist in the expected relative path, 
+% this will return the path to the folder containing the current mfile 
+% to prevent a warning.
+expectedRelativePath = '/schemes/';
+[thisFilePath, ~, ~] = fileparts(mfilename('fullpath'));
+defaultSchemePath= fullfile(thisFilePath,expectedRelativePath);
+% Safe fallback if schemes folder isn't in expected relative path.
+if not( exist(defaultSchemePath,'dir') )
+    defaultSchemePath = thisFilePath;
+end
 end
