@@ -1,0 +1,33 @@
+# mint-stary-night - MATLAB color scheme
+# Generated with schemer_export v1.4.0, on MATLAB 23.2.0.2365128 (R2023b)
+# Sat Sep 16 13:40:54 EDT 2023
+# To enable this color scheme in MATLAB use schemer_import, available at:
+#     https://github.com/scottclowe/matlab-schemer
+#     https://www.mathworks.com/matlabcentral/fileexchange/53862-matlab-schemer
+ColorsUseSystem=Bfalse
+ColorsUseMLintAutoFixBackground=Btrue
+Editor.VariableHighlighting.Automatic=Btrue
+Editor.NonlocalVariableHighlighting=Btrue
+EditorCodepadHighVisible=Bfalse
+EditorCodeBlockDividers=Bfalse
+Editorhighlight-caret-row-boolean=Bfalse
+EditorRightTextLineVisible=Btrue
+EditorRightTextLimitLineWidth=I1
+ColorsText=C-136501
+ColorsBackground=C-13417381
+Colors_M_Keywords=C-2211005
+Colors_M_Comments=C-9265201
+Colors_M_Strings=C-7092314
+Colors_M_UnterminatedStrings=C-13343324
+Colors_M_SystemCommands=C-4092091
+Colors_M_Errors=C-65536
+Colors_HTML_HTMLLinks=C-13343324
+Colors_M_Warnings=C-217282
+ColorsMLintAutoFixBackground=C-4538954
+Editor.VariableHighlighting.Color=C-10192478
+Editor.NonlocalVariableHighlighting.TextColor=C-6063975
+Editorhighlight-lines=C-1118484
+Editorhighlight-caret-row-boolean-color=C-2893873
+EditorRightTextLimitLineColor=C-7828859
+Color_CmdWinWarnings=C-217282
+Color_CmdWinErrors=C-1103575
